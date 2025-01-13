@@ -38,6 +38,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('HomeIndex');
+        return redirect()->route('showLoginForm');
     }
 }

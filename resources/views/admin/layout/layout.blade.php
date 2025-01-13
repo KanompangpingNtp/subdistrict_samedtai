@@ -42,7 +42,15 @@
                     <li>
                         <hr class="dropdown-divider" />
                     </li> --}}
-                    <li><a class="dropdown-item" href="#!">ออกจากระบบ<i class="bi bi-door-closed-fill ms-3"></i></a></li>
+                    <li>
+                        <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                            @csrf
+                            <button type="submit" class="dropdown-item">
+                                ออกจากระบบ<i class="bi bi-door-closed-fill ms-3"></i>
+                            </button>
+                        </form>
+                    </li>
+
                 </ul>
             </li>
         </ul>
@@ -129,10 +137,9 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                    Start Bootstrap
-                </div> --}}
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as : {{ Auth::user()->name }}</div>
+                </div>
             </nav>
         </div>
         <div id="layoutSidenav_content">
@@ -145,7 +152,7 @@
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div class="text-muted">Copyright &copy; บริษัท GM SKY สงวนสิทธิ์ 2024</div>
                         {{-- <div>
                             <a href="#">Privacy Policy</a>
                             &middot;
