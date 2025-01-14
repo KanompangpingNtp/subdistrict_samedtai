@@ -39,6 +39,12 @@
         box-shadow: 0px 2px 20px rgba(255, 255, 255, 0.9);
     }
 
+    .bg-details img {
+    width: 100%; /* ให้รูปขยายเต็มความกว้างของ div */
+    height: 100%; /* ให้รูปขยายเต็มความสูงของ div */
+    object-fit: cover; /* ทำให้รูปขยายให้พอดีกับขนาดของ div โดยไม่เสียสัดส่วน */
+}
+
     .button-viewall {
         background: linear-gradient(to right, rgb(138, 241, 255), rgb(255, 157, 211));
         border-radius: 20px;
@@ -109,14 +115,10 @@
                     E-LIBRARY <br>
                     <span style="font-size:40px;">องค์การบริหารส่วนตำบลเสม็ดใต้</span>
                 </div>
-                <div class="bg-details px-3 py-4" style="width: 100%; margin: auto; position: relative;">
-                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/bqN6rK-IurA?start=19"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen style="border-top-right-radius: 20px; border-bottom-left-radius: 20px;">
-                    </iframe>
-                    <a href="#" class="button-viewall py-2 px-4 "
-                        style="position: absolute; bottom: -26px; right: 20px;  background-color: lightgray; border-radius: 10px; text-decoration: none; font-weight: bold;">
+                <div class="bg-details px-3 py-5" style="width: 100%; margin: auto; position: relative;">
+                    <img src="{{asset('images/section-3/ebook.png')}}" alt="ebook" width="100" height="100">
+                    <a href="#" class="button-viewall py-2 px-4" 
+                        style="position: absolute; bottom: -26px; right: 20px; background-color: lightgray; border-radius: 10px; text-decoration: none; font-weight: bold;">
                         ดูทั้งหมด
                     </a>
                 </div>
