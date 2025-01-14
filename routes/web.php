@@ -22,7 +22,7 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home.app');
 });
 
 Route::get('/admin', function () {
