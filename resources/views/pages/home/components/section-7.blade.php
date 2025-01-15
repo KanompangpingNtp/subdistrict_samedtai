@@ -255,7 +255,7 @@ $revenue = [
         /* ทำให้เส้นใต้มีความโค้งมล */
     }
 
-    
+
 
 /* ปุ่มส่ง */
 .submit-btn {
@@ -344,10 +344,10 @@ $revenue = [
             </div>
         </div>
         <div class="col-lg-4 d-flex flex-column justify-content-center align-items-center gap-3">
-            <a href="#" class="btn-link">
+            <a href="{{route('ShowDataButton')}}" class="btn-link">
                 <img src="{{ asset('images/section-7/btn.png') }}" alt="btn-go" class="img-hover-section-7">
             </a>
-            
+
             <div class="d-flex align-content-center justify-content-around gap-2 bg-details-section-7 p-2" style="border-radius: 10px;">
                 <div class="layout-card-view-page7" style="border-radius: 20px;">
                     <div class="bg-white p-3 d-flex flex-column align-content-center justify-content-center" style="border-radius: 20px;">
@@ -374,12 +374,12 @@ $revenue = [
                                 <label class="form-check-label" for="radio4">ตัวเลือก 4</label>
                             </div>
                         </div>
-                        
+
                         <!-- ปุ่มส่ง -->
                         <div class="layout-bottom-page7 mt-2">
                             <button class="submit-btn fs-2 w-100 fw-bold">กดโหวต</button>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>

@@ -62,4 +62,9 @@ class ShowDataController extends Controller
             'revenue',
         ));
     }
+
+    public function ShowDataButton ()
+    {
+        return view('pages.base_data.app');
+    }
 }

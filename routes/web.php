@@ -7,7 +7,7 @@ use App\Http\Controllers\ProcurementController;
 use App\Http\Controllers\ProcurementResultsController;
 use App\Http\Controllers\AveragePriceController;
 use App\Http\Controllers\RevenueController;
-use App\Http\Controllers\DataPostController;
+use App\Http\Controllers\ShowDataController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -23,7 +23,8 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('pages.home.app');
-});
+})->name('home_index');
+
 
 
 
@@ -32,6 +33,7 @@ Route::get('/admin', function () {
     return view('admin.layout.layout');
 });
 
+Route::get('/ShowDataButton/page', [ShowDataController::class, 'ShowDataButton'])->name('ShowDataButton');
 
 Route::middleware(['check.auth'])->group(function () {
     //admin PressRelease
