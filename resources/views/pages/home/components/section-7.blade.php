@@ -283,6 +283,16 @@ $revenue = [
         transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
+.img-hover-section-7 {
+    transition: all 0.3s ease; /* การเปลี่ยนแปลงอย่างราบรื่น */
+}
+
+/* เอฟเฟกต์เมื่อ hover */
+.btn-link:hover .img-hover-section-7 {
+    transform: scale(1.1); /* ขยายขนาดภาพเมื่อ hover */
+    filter: drop-shadow(0px 2px 15px rgba(255, 255, 255, 0.8));
+}
+
 </style>
 
 
@@ -292,7 +302,7 @@ $revenue = [
         <div class="col-lg-8 d-flex flex-column justify-content-center align-items-center">
             <div class="title-section-7 lh-1 text-center mb-3 py-3 px-4 d-flex">
                 <div>
-                    ประกาศความเคลื่อนนไหว <br>
+                    ประกาศความเคลื่อนไหว <br>
                     องค์การบริหารส่วนตำบลเสม็ดใต้
                 </div>
                 <img src="{{ asset('images/section-7/run.png') }}" alt="logo" width="60" height="60"
@@ -333,7 +343,11 @@ $revenue = [
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 d-flex flex-column justify-content-center align-items-center">
+        <div class="col-lg-4 d-flex flex-column justify-content-center align-items-center gap-3">
+            <a href="#" class="btn-link">
+                <img src="{{ asset('images/section-7/btn.png') }}" alt="btn-go" class="img-hover-section-7">
+            </a>
+            
             <div class="d-flex align-content-center justify-content-around gap-2 bg-details-section-7 p-2" style="border-radius: 10px;">
                 <div class="layout-card-view-page7" style="border-radius: 20px;">
                     <div class="bg-white p-3 d-flex flex-column align-content-center justify-content-center" style="border-radius: 20px;">
