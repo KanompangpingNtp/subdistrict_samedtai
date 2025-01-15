@@ -111,7 +111,7 @@
                 <img src="{{ asset('images/navbar/Logo.png') }}" alt="logo" class="logo d-none d-md-block">
                 <div class="text-title-nav lh-1 text-center text-md-start ">
                     <span class="me-1" style="font-size: 36px;">องค์การบริหารส่วนตำบล</span><span
-                        style="font-size: 50px;">เสม็คใต้</span> <br>
+                        style="font-size: 50px;">เสม็ดใต้</span> <br>
                     <span style="font-size: 22px;"> Samedtai Subditrict Administrative Organization</span> <br>
                     <span style="font-size: 30px;">อำเภอบางคล้า จังหวัดฉะเชิงเทรา</span>
                 </div>
