@@ -25,6 +25,9 @@ Route::get('/', function () {
     return view('pages.home.app');
 });
 
+
+
+
 Route::get('/admin', function () {
     return view('admin.layout.layout');
 });
