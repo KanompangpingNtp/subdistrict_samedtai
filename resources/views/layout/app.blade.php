@@ -118,7 +118,7 @@
             </div>
             <div class="d-flex flex-column justify-content-start align-items-center d-none d-lg-block">
                 <div class="d-flex justify-content-start align-items-center gap-2">
-                    <a class="button-pink">เข้าสู่ระบบ</a>
+                    <a class="button-pink" href="{{route('showLoginForm')}}">เข้าสู่ระบบ</a>
                     <a class="button-blue">สมัครสมาชิก</a>
                 </div>
                 <div class="d-flex justify-content-start align-items-end gap-2 button-img mt-2">

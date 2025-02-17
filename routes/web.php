@@ -21,18 +21,15 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home.app');
-})->name('home_index');
-
-
-
-
+// Route::get('/', function () {
+//     return view('pages.home.app');
+// })->name('home_index');
 
 Route::get('/admin', function () {
     return view('admin.layout.layout');
 });
 
+Route::get('/', [ShowDataController::class, 'HomeIndex'])->name('HomeIndex');
 Route::get('/ShowDataButton/page', [ShowDataController::class, 'ShowDataButton'])->name('ShowDataButton');
 
 Route::middleware(['check.auth'])->group(function () {

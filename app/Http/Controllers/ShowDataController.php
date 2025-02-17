@@ -53,7 +53,7 @@ class ShowDataController extends Controller
                 $query->where('type_name', 'งานเก็บรายได้');
             })->get();
 
-        return view('home.index', compact(
+        return view('pages.home.app', compact(
             'pressRelease',
             'activity',
             'procurement',
