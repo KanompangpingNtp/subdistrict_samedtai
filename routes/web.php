@@ -33,6 +33,10 @@ Route::get('/admin', function () {
 Route::get('/', [ShowDataController::class, 'HomeIndex'])->name('HomeIndex');
 Route::get('/ShowDataButton/page', [ShowDataController::class, 'ShowDataButton'])->name('ShowDataButton');
 
+//ประชาสัมพันธ์
+Route::get('/PressRelease/ShowData', [PressReleaseController::class, 'PressReleaseShowData'])->name('PressReleaseShowData');
+Route::get('/PressRelease/ShowDetails/{id}', [PressReleaseController::class, 'PressReleaseShowDetails'])->name('PressReleaseShowDetails');
+
 Route::middleware(['check.auth'])->group(function () {
     //admin PressRelease
     Route::get('/PressRelease/page', [PressReleaseController::class, 'PressReleaseHome'])->name('PressReleaseHome');

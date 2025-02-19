@@ -149,7 +149,7 @@
                     @endforeach
                 </div>
 
-                <a href="#" class="button-viewall-section-6 py-2 px-4"
+                <a href="{{route('PressReleaseShowData')}}" class="button-viewall-section-6 py-2 px-4"
                     style="position: absolute; bottom: -26px; right: 20px; background-color: lightgray; border-radius: 10px; text-decoration: none; font-weight: bold;">
                     ดูทั้งหมด
                 </a>
