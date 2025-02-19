@@ -115,7 +115,7 @@
                     // กำหนดคลาสพื้นหลังสลับสี
                     $cardBackgroundClass = ($index % 2 == 0) ? 'bg-blue-card-section-5' : 'bg-pink-card-section-5';
                     @endphp
-                    <a href="#" class="card {{ $cardBackgroundClass }} p-2 gap-1" style="width: 18rem; border-radius: 10px;">
+                    <a href="{{ route('ActivityShowDetails', $post->id) }}" class="card {{ $cardBackgroundClass }} p-2 gap-1" style="width: 18rem; border-radius: 10px;">
                         <div class="card-img-wrapper rounded" style="height: 200px; overflow: hidden;">
                             <img src="{{ asset('storage/' . ($post->photos->first()->post_photo_file ?? 'images/default.jpg')) }}" class="card-img-top img-fluid" alt="Card Image {{ $index + 1 }}" style="width: 100%; height: 100%; object-fit: cover;">
 
