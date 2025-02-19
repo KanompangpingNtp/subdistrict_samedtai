@@ -236,17 +236,29 @@ class PressReleaseController extends Controller
         return redirect()->back()->with('success', 'แก้ไขข้อมูลเรียบร้อยแล้ว!');
     }
 
+    // public function PressReleaseShowData()
+    // {
+    //     $pressRelease = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
+    //     ->whereHas('postType', function ($query) {
+    //         $query->where('type_name', 'ข่าวประชาสัมพันธ์');
+    //     })
+    //     ->orderBy('created_at', 'desc')
+    //     ->get();
+
+    //     return view('pages.press_release.show_data', compact('pressRelease'));
+    // }
     public function PressReleaseShowData()
     {
         $pressRelease = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
-        ->whereHas('postType', function ($query) {
-            $query->where('type_name', 'ข่าวประชาสัมพันธ์');
-        })
-        ->orderBy('created_at', 'desc')
-        ->get();
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'ข่าวประชาสัมพันธ์');
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(14); // กำหนดจำนวนรายการที่แสดงต่อหน้าเป็น 14
 
         return view('pages.press_release.show_data', compact('pressRelease'));
     }
+
 
     public function PressReleaseShowDetails($id)
     {
@@ -259,5 +271,4 @@ class PressReleaseController extends Controller
 
         return view('pages.press_release.show_detail', compact('pressRelease'));
     }
-
 }
