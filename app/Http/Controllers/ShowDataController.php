@@ -58,6 +58,11 @@ class ShowDataController extends Controller
                 $query->where('type_name', 'จุดเช็คอินกินเที่ยว');
             })->get();
 
+        $noticeBoard = PostDetail::with('postType', 'photos')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'ป้ายประกาศ');
+            })->get();
+
         return view('pages.home.app', compact(
             'pressRelease',
             'activity',
@@ -65,7 +70,8 @@ class ShowDataController extends Controller
             'procurementResults',
             'average',
             'revenue',
-            'checkinspot'
+            'checkinspot',
+            'noticeBoard'
         ));
     }
 

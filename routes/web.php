@@ -10,6 +10,7 @@ use App\Http\Controllers\RevenueController;
 use App\Http\Controllers\ShowDataController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CheckinSpotController;
+use App\Http\Controllers\NoticeBoardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,10 @@ Route::get('/Activity/ShowDetails/{id}', [ActivityController::class, 'ActivitySh
 //จุดเช็คอินกินเที่ยว
 Route::get('/Checkin/ShowData', [CheckinSpotController::class, 'CheckinSpotShowData'])->name('CheckinSpotShowData');
 Route::get('/Checkin/ShowDetails/{id}', [CheckinSpotController::class, 'CheckinSpotShowDetails'])->name('CheckinSpotShowDetails');
+
+//ป้ายประกาศ
+Route::get('/NoticeBoard/ShowData', [NoticeBoardController::class, 'NoticeBoardShowData'])->name('NoticeBoardShowData');
+Route::get('/NoticeBoard/ShowDetails/{id}', [NoticeBoardController::class, 'NoticeBoardShowDetails'])->name('NoticeBoardShowDetails');
 
 Route::middleware(['check.auth'])->group(function () {
     //admin PressRelease
@@ -87,6 +92,11 @@ Route::middleware(['check.auth'])->group(function () {
     Route::get('/CheckinSpot/page', [CheckinSpotController::class, 'CheckinSpotHome'])->name('CheckinSpotHome');
     Route::post('/CheckinSpot/create', [CheckinSpotController::class, 'CheckinSpotCreate'])->name('CheckinSpotCreate');
     Route::delete('/CheckinSpot/delete{id}', [CheckinSpotController::class, 'CheckinSpotDelete'])->name('CheckinSpotDelete');
+
+    //admin NoticeBoard
+    Route::get('/NoticeBoard/page', [NoticeBoardController::class, 'NoticeBoardHome'])->name('NoticeBoardHome');
+    Route::post('/NoticeBoard/create', [NoticeBoardController::class, 'NoticeBoardCreate'])->name('NoticeBoardCreate');
+    Route::delete('/NoticeBoard/delete{id}', [NoticeBoardController::class, 'NoticeBoardDelete'])->name('NoticeBoardDelete');
 });
 
 Route::get('/showLoginForm', [AuthController::class, 'showLoginForm'])->name('showLoginForm');

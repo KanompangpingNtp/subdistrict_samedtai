@@ -139,6 +139,10 @@
                             <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
                             จุดเช็คอินกินเที่ยว
                         </a>
+                        <a class="nav-link" href="{{route('NoticeBoardHome')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            ป้ายประกาศ
+                        </a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">

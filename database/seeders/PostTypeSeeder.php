@@ -24,6 +24,7 @@ class PostTypeSeeder extends Seeder
             ['type_name' => 'งานเก็บรายได้'],
 
             ['type_name' => 'จุดเช็คอินกินเที่ยว'],
+            ['type_name' => 'ป้ายประกาศ'],
         ];
 
         foreach ($data as $item) {
