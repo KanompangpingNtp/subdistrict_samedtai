@@ -118,39 +118,37 @@
             </div>
             <div class="bg-details-section-6 px-3 py-4" style="width: 100%; margin: auto; position: relative;">
                 <div class="row">
-                    <?php
-                        for ($i = 1; $i <= 6; $i++) {
+                 @foreach ($pressRelease->take(6) as $index => $post)
+                        @php
                             // กำหนดคลาสพื้นหลังสลับสี
-                            $cardBackgroundClass = ($i % 2 == 0) ? 'bg-blue-card-section-6' : 'bg-pink-card-section-6';
-                    ?>
-                    <div class="col-lg-6  p-2">
-                        <div class="d-flex align-items-center p-3 <?php echo $cardBackgroundClass; ?>"
-                            style="height: 150px; border-radius: 10px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);">
+                            $cardBackgroundClass = ($index % 2 == 0) ? 'bg-blue-card-section-6' : 'bg-pink-card-section-6';
+                        @endphp
+                        <div class="col-lg-6 p-2">
+                            <div class="d-flex align-items-center p-3 {{ $cardBackgroundClass }}"
+                                style="height: 150px; border-radius: 10px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);">
 
-                            <!-- รูปภาพด้านซ้าย -->
-                            <div style="flex: 0 0 100px; height: 100px; overflow: hidden; border-radius: 10px;">
-                                <img src="path/to/image<?php echo $i; ?>.jpg" alt="Image <?php echo $i; ?>"
-                                    style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-
-                            <!-- ข้อความด้านขวา -->
-                            <div class="ms-3 bg-white h-100 rounded p-1" style="flex: 1; position: relative; height: 100%;" >
-                                <div class="card-text">
-                                    <?php
-                                    $text = "This is card number $i with sample text. This text might be too long for the card.";
-                                    echo mb_strimwidth($text, 0, 60, '...');
-                                    ?>
+                                <!-- รูปภาพด้านซ้าย -->
+                                <div style="flex: 0 0 100px; height: 100px; overflow: hidden; border-radius: 10px;">
+                                    <img src="{{ asset('storage/' . ($post->photos->first()->post_photo_file ?? 'images/default.jpg')) }}"
+                                        alt="Image {{ $index + 1 }}"
+                                        style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
-                                <div class="card-date">
-                                    <img src="{{ asset('images/section-5/hourglass.png') }}" alt="icon" width="15" height="20">
-                                    <div class="card-text">dd-mm-yy</div>
+
+                                <!-- ข้อความด้านขวา -->
+                                <div class="ms-3 bg-white h-100 rounded p-1" style="flex: 1; position: relative; height: 100%;">
+                                    <div class="card-text">
+                                        {{ Str::limit($post->title_name ?? 'No Title', 60, '...') }}
+                                    </div>
+                                    <div class="card-date d-flex align-items-center">
+                                        <img src="{{ asset('images/section-5/hourglass.png') }}" alt="icon" width="15" height="20" class="me-2">
+                                        <div class="card-text">{{ \Carbon\Carbon::parse($post->date)->format('d-m-Y') }}</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <?php } ?>
-
+                    @endforeach
                 </div>
+
                 <a href="#" class="button-viewall-section-6 py-2 px-4"
                     style="position: absolute; bottom: -26px; right: 20px; background-color: lightgray; border-radius: 10px; text-decoration: none; font-weight: bold;">
                     ดูทั้งหมด
@@ -166,39 +164,37 @@
             </div>
             <div class="bg-details-right-section-6 px-3 py-2" style="width: 100%; margin: auto; position: relative;">
                 <div class="row">
-                    <?php
-                        for ($i = 1; $i <= 3; $i++) {
+                    @foreach ($checkinspot->take(3) as $index => $post)
+                        @php
                             // กำหนดคลาสพื้นหลังสลับสี
-                            $cardBackgroundClass = ($i % 2 == 0) ? 'bg-blue-card-section-6' : 'bg-pink-card-section-6';
-                    ?>
-                    <div class="col-lg-12 mb-1 p-2">
-                        <div class="d-flex align-items-center p-3 <?php echo $cardBackgroundClass; ?>"
-                            style="height: 150px; border-radius: 10px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);">
+                            $cardBackgroundClass = ($index % 2 == 0) ? 'bg-blue-card-section-6' : 'bg-pink-card-section-6';
+                        @endphp
+                        <div class="col-lg-12 mb-1 p-2">
+                            <div class="d-flex align-items-center p-3 {{ $cardBackgroundClass }}"
+                                style="height: 150px; border-radius: 10px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);">
 
-                            <!-- รูปภาพด้านซ้าย -->
-                            <div style="flex: 0 0 100px; height: 100px; overflow: hidden; border-radius: 10px;">
-                                <img src="path/to/image<?php echo $i; ?>.jpg" alt="Image <?php echo $i; ?>"
-                                    style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-
-                            <!-- ข้อความด้านขวา -->
-                            <div class="ms-3 bg-white h-100 rounded p-1" style="flex: 1; position: relative; height: 100%;" >
-                                <div class="card-text">
-                                    <?php
-                                    $text = "This is card number $i with sample text. This text might be too long for the card.";
-                                    echo mb_strimwidth($text, 0, 60, '...');
-                                    ?>
+                                <!-- รูปภาพด้านซ้าย -->
+                                <div style="flex: 0 0 100px; height: 100px; overflow: hidden; border-radius: 10px;">
+                                    <img src="{{ asset('storage/' . ($post->photos->first()->post_photo_file ?? 'images/default.jpg')) }}"
+                                        alt="Image {{ $index + 1 }}"
+                                        style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
-                                <div class="card-date">
-                                    <img src="{{ asset('images/section-5/hourglass.png') }}" alt="icon" width="15" height="20">
-                                    <div class="card-text">dd-mm-yy</div>
+
+                                <!-- ข้อความด้านขวา -->
+                                <div class="ms-3 bg-white h-100 rounded p-1" style="flex: 1; position: relative; height: 100%;" >
+                                    <div class="card-text">
+                                        {{ Str::limit($post->topic_name ?? 'No Title', 60, '...') }}
+                                    </div>
+                                    <div class="card-date d-flex align-items-center">
+                                        <img src="{{ asset('images/section-5/hourglass.png') }}" alt="icon" width="15" height="20" class="me-2">
+                                        <div class="card-text">{{ \Carbon\Carbon::parse($post->date)->format('d-m-Y') }}</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <?php } ?>
-
+                    @endforeach
                 </div>
+
             </div>
             <a href="#" class="button-viewall-section-6 py-2 px-4 mt-3">
                 ดูทั้งหมด

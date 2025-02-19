@@ -135,6 +135,10 @@
                                 <a class="nav-link" href="{{route('RevenueHome')}}">งานเก็บรายได้</a>
                             </nav>
                         </div>
+                        <a class="nav-link" href="{{route('CheckinSpotHome')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            จุดเช็คอินกินเที่ยว
+                        </a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">

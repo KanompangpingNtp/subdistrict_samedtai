@@ -9,6 +9,7 @@ use App\Http\Controllers\AveragePriceController;
 use App\Http\Controllers\RevenueController;
 use App\Http\Controllers\ShowDataController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CheckinSpotController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +70,11 @@ Route::middleware(['check.auth'])->group(function () {
     Route::post('/Revenue/create', [RevenueController::class, 'RevenueCreate'])->name('RevenueCreate');
     Route::delete('/Revenue/delete{id}', [RevenueController::class, 'RevenueDelete'])->name('RevenueDelete');
     Route::put('/Revenue/update/{id}', [RevenueController::class, 'RevenueUpdate'])->name('RevenueUpdate');
+
+    //admin CheckinSpot
+    Route::get('/CheckinSpot/page', [CheckinSpotController::class, 'CheckinSpotHome'])->name('CheckinSpotHome');
+    Route::post('/CheckinSpot/create', [CheckinSpotController::class, 'CheckinSpotCreate'])->name('CheckinSpotCreate');
+    Route::delete('/CheckinSpot/delete{id}', [CheckinSpotController::class, 'CheckinSpotDelete'])->name('CheckinSpotDelete');
 });
 
 Route::get('/showLoginForm', [AuthController::class, 'showLoginForm'])->name('showLoginForm');

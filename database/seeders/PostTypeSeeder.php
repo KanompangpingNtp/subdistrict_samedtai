@@ -14,7 +14,6 @@ class PostTypeSeeder extends Seeder
     public function run(): void
     {
         //
-        //
         $data = [
             ['type_name' => 'ข่าวประชาสัมพันธ์'],
             ['type_name' => 'กิจกรรม'],
@@ -23,10 +22,15 @@ class PostTypeSeeder extends Seeder
             ['type_name' => 'ผลจัดซื้อจัดจ้าง'],
             ['type_name' => 'ประกาศราคากลาง'],
             ['type_name' => 'งานเก็บรายได้'],
+
+            ['type_name' => 'จุดเช็คอินกินเที่ยว'],
         ];
 
         foreach ($data as $item) {
-            PostType::create($item);
+            PostType::firstOrCreate(
+                ['type_name' => $item['type_name']],
+                ['type_name' => $item['type_name']]
+            );
         }
     }
 }

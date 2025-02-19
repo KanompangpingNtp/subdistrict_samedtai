@@ -18,7 +18,6 @@ class ShowDataController extends Controller
             ->take(7)
             ->get();
 
-
         //กิจกรรม
         $activity = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
@@ -53,6 +52,12 @@ class ShowDataController extends Controller
                 $query->where('type_name', 'งานเก็บรายได้');
             })->get();
 
+        //จุดเช็คอินกินเที่ยว
+        $checkinspot = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'จุดเช็คอินกินเที่ยว');
+            })->get();
+
         return view('pages.home.app', compact(
             'pressRelease',
             'activity',
@@ -60,10 +65,11 @@ class ShowDataController extends Controller
             'procurementResults',
             'average',
             'revenue',
+            'checkinspot'
         ));
     }
 
-    public function ShowDataButton ()
+    public function ShowDataButton()
     {
         return view('pages.base_data.app');
     }
