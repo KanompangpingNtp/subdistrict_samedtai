@@ -73,13 +73,16 @@
                 <div class="carousel-inner">
                     @foreach ($noticeBoard as $key => $post)
                     @php
+                    // เช็คว่ามีไฟล์ภาพในโพสต์หรือไม่
                     $firstPhoto = $post->photos->first();
                     @endphp
-                    @if ($firstPhoto)
                     <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                        @if ($firstPhoto)
                         <img src="{{ asset('storage/' . $firstPhoto->post_photo_file) }}" class="d-block w-100" alt="Slide {{ $key + 1 }}">
+                        @else
+                        <img src="{{ asset('images/section-3/พี้นหลังของส่วนที่3.png') }}" class="d-block w-100" alt="Slide {{ $key + 1 }}">
+                        @endif
                     </div>
-                    @endif
                     @endforeach
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
