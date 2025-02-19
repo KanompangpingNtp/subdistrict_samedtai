@@ -115,6 +115,7 @@
                 @endforeach
             </div>
 
+            @if($pressRelease && $pressRelease->count() > 0)
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center mt-5">
                     <!-- Previous button -->
@@ -135,6 +136,8 @@
                     </li>
                 </ul>
             </nav>
+            @endif
+
         </div>
 
     </div>

@@ -115,6 +115,7 @@
                 @endforeach
             </div>
 
+            @if($activity && $activity->count() > 0)
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center mt-5">
                     <!-- Previous button -->
@@ -124,9 +125,9 @@
 
                     <!-- Page number buttons -->
                     @foreach ($activity->getUrlRange(1, $activity->lastPage()) as $page => $url)
-                    <li class="page-item {{ $page == $activity->currentPage() ? 'active' : '' }}">
-                        <a class="page-link" href="{{ $url }}">{{ $page }}</a>
-                    </li>
+                        <li class="page-item {{ $page == $activity->currentPage() ? 'active' : '' }}">
+                            <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                        </li>
                     @endforeach
 
                     <!-- Next button -->
@@ -135,6 +136,8 @@
                     </li>
                 </ul>
             </nav>
+        @endif
+
         </div>
 
     </div>

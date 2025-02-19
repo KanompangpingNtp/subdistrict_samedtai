@@ -115,26 +115,27 @@
                 @endforeach
             </div>
 
+            @if($checkinspot && $checkinspot->count() > 0)
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center mt-5">
-                    <!-- Previous button -->
+
                     <li class="page-item {{ $checkinspot->onFirstPage() ? 'disabled' : '' }}">
                         <a class="page-link" href="{{ $checkinspot->previousPageUrl() }}">ก่อนหน้า</a>
                     </li>
 
-                    <!-- Page number buttons -->
                     @foreach ($checkinspot->getUrlRange(1, $checkinspot->lastPage()) as $page => $url)
                     <li class="page-item {{ $page == $checkinspot->currentPage() ? 'active' : '' }}">
                         <a class="page-link" href="{{ $url }}">{{ $page }}</a>
                     </li>
                     @endforeach
 
-                    <!-- Next button -->
                     <li class="page-item {{ !$checkinspot->hasMorePages() ? 'disabled' : '' }}">
                         <a class="page-link" href="{{ $checkinspot->nextPageUrl() }}">ต่อไป</a>
                     </li>
                 </ul>
             </nav>
+            @endif
+
         </div>
 
     </div>
