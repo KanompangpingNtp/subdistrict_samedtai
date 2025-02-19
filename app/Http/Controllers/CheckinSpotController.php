@@ -106,4 +106,25 @@ class CheckinSpotController extends Controller
 
         return redirect()->back()->with('success', 'โพสถูกลบแล้ว');
     }
+
+    public function CheckinSpotShowData()
+    {
+        $checkinspot = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'จุดเช็คอินกินเที่ยว');
+            })->paginate(14);
+
+        return view('pages.checkin_spot.show_data', compact('checkinspot'));
+    }
+
+    public function CheckinSpotShowDetails($id)
+    {
+        $checkinspot = PostDetail::with(['postType', 'videos', 'photos', 'pdfs'])
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'จุดเช็คอินกินเที่ยว');
+            })
+            ->findOrFail($id);
+
+        return view('pages.checkin_spot.show_detail', compact('checkinspot'));
+    }
 }

@@ -171,33 +171,36 @@
                             $cardBackgroundClass = ($index % 2 == 0) ? 'bg-blue-card-section-6' : 'bg-pink-card-section-6';
                         @endphp
                         <div class="col-lg-12 mb-1 p-2">
-                            <div class="d-flex align-items-center p-3 {{ $cardBackgroundClass }}"
-                                style="height: 150px; border-radius: 10px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);">
+                            <!-- แท็ก a ครอบรอบทั้งการ์ดเพื่อให้คลิกได้ -->
+                            <a href="{{ route('CheckinSpotShowDetails', $post->id) }}" class="text-decoration-none" style="color: black;">
+                                <div class="d-flex align-items-center p-3 {{ $cardBackgroundClass }}"
+                                    style="height: 150px; border-radius: 10px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);">
 
-                                <!-- รูปภาพด้านซ้าย -->
-                                <div style="flex: 0 0 100px; height: 100px; overflow: hidden; border-radius: 10px;">
-                                    <img src="{{ asset('storage/' . ($post->photos->first()->post_photo_file ?? 'images/default.jpg')) }}"
-                                        alt="Image {{ $index + 1 }}"
-                                        style="width: 100%; height: 100%; object-fit: cover;">
-                                </div>
+                                    <!-- รูปภาพด้านซ้าย -->
+                                    <div style="flex: 0 0 100px; height: 100px; overflow: hidden; border-radius: 10px;">
+                                        <img src="{{ asset('storage/' . ($post->photos->first()->post_photo_file ?? 'images/default.jpg')) }}"
+                                            alt="Image {{ $index + 1 }}"
+                                            style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
 
-                                <!-- ข้อความด้านขวา -->
-                                <div class="ms-3 bg-white h-100 rounded p-1" style="flex: 1; position: relative; height: 100%;" >
-                                    <div class="card-text">
-                                        {{ Str::limit($post->topic_name ?? 'No Title', 60, '...') }}
-                                    </div>
-                                    <div class="card-date d-flex align-items-center">
-                                        <img src="{{ asset('images/section-5/hourglass.png') }}" alt="icon" width="15" height="20" class="me-2">
-                                        <div class="card-text">{{ \Carbon\Carbon::parse($post->date)->format('d-m-Y') }}</div>
+                                    <!-- ข้อความด้านขวา -->
+                                    <div class="ms-3 bg-white h-100 rounded p-1" style="flex: 1; position: relative; height: 100%;">
+                                        <div class="card-text">
+                                            {{ Str::limit($post->topic_name ?? 'No Title', 60, '...') }}
+                                        </div>
+                                        <div class="card-date d-flex align-items-center">
+                                            <img src="{{ asset('images/section-5/hourglass.png') }}" alt="icon" width="15" height="20" class="me-2">
+                                            <div class="card-text">{{ \Carbon\Carbon::parse($post->date)->format('d-m-Y') }}</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     @endforeach
                 </div>
 
             </div>
-            <a href="#" class="button-viewall-section-6 py-2 px-4 mt-3">
+            <a href="{{route('CheckinSpotShowData')}}" class="button-viewall-section-6 py-2 px-4 mt-3">
                 ดูทั้งหมด
             </a>
         </div>
