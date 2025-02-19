@@ -135,7 +135,7 @@
                 </div>
 
                 <div class="d-flex justify-content-end align-items-center w-100 mt-2 me-5">
-                    <a href="#" class="button-viewall-section-5 py-1 px-3">
+                    <a href="{{route('ActivityShowData')}}" class="button-viewall-section-5 py-1 px-3">
                         ดูทั้งหมด
                     </a>
                 </div>

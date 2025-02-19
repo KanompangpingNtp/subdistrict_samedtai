@@ -11,12 +11,9 @@
 
     .custom-gradient-shadow {
         border-radius: 30px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
-            /* เงาพื้นฐาน */
-            0 0 50px -10px rgba(158, 255, 3, 0.8),
-            /* เงาสีฟ้าเข้ม */
-            0 0 50px -10px rgba(72, 255, 0, 0.8);
-        /* เงาสีฟ้าอ่อน */
+        box-shadow: 0 4px 15px rgba(255, 0, 102, 0.3),
+            0 0 50px -10px rgba(255, 102, 178, 0.8),
+            0 0 50px -10px rgba(255, 153, 204, 0.8);
         background-color: #ffffff;
     }
 
@@ -84,19 +81,19 @@
 <div class="bg py-5">
     <div class="container py-5 custom-gradient-shadow">
         <div class=" d-flex flex-column justify-content-center p-5">
-            <div class="fs-1 fw-bold mb-4 text-center" style="color: #77b329;">ข่าวประชาสัมพันธ์ <br><span class="fs-3">{{$pressRelease->title_name}}</span></div>
+            <div class="fs-1 fw-bold mb-4 text-center" style="color: #FF66B2;">ข่าวประชาสัมพันธ์ <br><span class="fs-3">{{$activity->title_name}}</span></div>
 
-            <p class="text-muted">วันที่เผยแพร่: {{ \Carbon\Carbon::parse($pressRelease->date)->format('d-m-Y') }}</p>
+            <p class="text-muted">วันที่เผยแพร่: {{ \Carbon\Carbon::parse($activity->date)->format('d-m-Y') }}</p>
 
             <div class="mb-4">
                 <h5 class="text-secondary">รายละเอียด</h5>
-                <p>{{ $pressRelease->details ?? 'ไม่มีรายละเอียด' }}</p>
+                <p>{{ $activity->details ?? 'ไม่มีรายละเอียด' }}</p>
             </div>
 
-            @if ($pressRelease->photos->whereIn('post_photo_status', ['1', '2'])->count() > 0)
+            @if ($activity->photos->whereIn('post_photo_status', ['1', '2'])->count() > 0)
             <h5 class="text-secondary">รูปภาพ</h5>
             <div class="row">
-                @foreach ($pressRelease->photos->whereIn('post_photo_status', ['1', '2']) as $index => $photo)
+                @foreach ($activity->photos->whereIn('post_photo_status', ['1', '2']) as $index => $photo)
                 <div class="col-lg-1 col-md-2 col-sm-3 col-4 mb-3 text-center">
                     <img src="{{ asset('storage/' . $photo->post_photo_file) }}" class="img-thumbnail rounded shadow-sm" alt="รูปแนบ" style="max-width: 100px; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#photoModal{{ $index }}">
                 </div>
@@ -116,20 +113,19 @@
             @endif
 
             <!-- ไฟล์แนบ: PDF -->
-            @if ($pressRelease->pdfs->count() > 0)
+            @if ($activity->pdfs->count() > 0)
             <h5 class="text-secondary mt-4">ไฟล์เอกสาร</h5>
-            @foreach ($pressRelease->pdfs as $pdf)
+            @foreach ($activity->pdfs as $pdf)
             <div class="mb-3">
                 <iframe src="{{ asset('storage/' . $pdf->post_pdf_file) }}" width="100%" height="700px"></iframe>
             </div>
             @endforeach
             @endif
 
-
             <!-- วิดีโอแนบ -->
-            @if ($pressRelease->videos->count() > 0)
+            @if ($activity->videos->count() > 0)
             <h5 class="text-secondary mt-4">วิดีโอ</h5>
-            @foreach ($pressRelease->videos as $video)
+            @foreach ($activity->videos as $video)
             <div class="mb-4">
                 <video width="500" height="300" controls>
                     <source src="{{ asset('storage/' . $video->post_video_file) }}" type="video/mp4">

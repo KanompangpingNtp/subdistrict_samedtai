@@ -80,16 +80,16 @@
 <div class="bg py-5">
     <div class="container py-5 custom-gradient-shadow">
         <div class=" d-flex flex-column justify-content-center p-5">
-            <div class="fs-1 fw-bold mb-4 text-center" style="color: #FF66B2;">ข่าวประชาสัมพันธ์</div>
+            <div class="fs-1 fw-bold mb-4 text-center" style="color: #FF66B2;">กิจกรรม</div>
 
             <div class="row">
-                @foreach ($pressRelease as $index => $post)
+                @foreach ($activity as $index => $post)
                 @php
                 // กำหนดคลาสพื้นหลังสลับสี
                 $cardBackgroundClass = ($index % 2 == 0) ? 'bg-blue-card-section-6' : 'bg-pink-card-section-6';
                 @endphp
                 <div class="col-lg-6 p-2">
-                    <a href="{{ route('PressReleaseShowDetails', $post->id) }}" class="text-decoration-none">
+                    <a href="{{ route('ActivityShowDetails', $post->id) }}" class="text-decoration-none">
                         <div class="d-flex align-items-center p-3 {{ $cardBackgroundClass }}" style="height: 150px; border-radius: 10px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); display: block;">
 
                             <!-- รูปภาพด้านซ้าย -->
@@ -118,20 +118,20 @@
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center mt-5">
                     <!-- Previous button -->
-                    <li class="page-item {{ $pressRelease->onFirstPage() ? 'disabled' : '' }}">
-                        <a class="page-link" href="{{ $pressRelease->previousPageUrl() }}">ก่อนหน้า</a>
+                    <li class="page-item {{ $activity->onFirstPage() ? 'disabled' : '' }}">
+                        <a class="page-link" href="{{ $activity->previousPageUrl() }}">ก่อนหน้า</a>
                     </li>
 
                     <!-- Page number buttons -->
-                    @foreach ($pressRelease->getUrlRange(1, $pressRelease->lastPage()) as $page => $url)
-                    <li class="page-item {{ $page == $pressRelease->currentPage() ? 'active' : '' }}">
+                    @foreach ($activity->getUrlRange(1, $activity->lastPage()) as $page => $url)
+                    <li class="page-item {{ $page == $activity->currentPage() ? 'active' : '' }}">
                         <a class="page-link" href="{{ $url }}">{{ $page }}</a>
                     </li>
                     @endforeach
 
                     <!-- Next button -->
-                    <li class="page-item {{ !$pressRelease->hasMorePages() ? 'disabled' : '' }}">
-                        <a class="page-link" href="{{ $pressRelease->nextPageUrl() }}">ต่อไป</a>
+                    <li class="page-item {{ !$activity->hasMorePages() ? 'disabled' : '' }}">
+                        <a class="page-link" href="{{ $activity->nextPageUrl() }}">ต่อไป</a>
                     </li>
                 </ul>
             </nav>

@@ -160,4 +160,27 @@ class ActivityController extends Controller
 
         return redirect()->back()->with('success', 'แก้ไขข้อมูลเรียบร้อยแล้ว!');
     }
+
+    public function ActivityShowData()
+    {
+        $activity = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'กิจกรรม');
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(14); ;
+
+        return view('pages.activity.show_data', compact('activity'));
+    }
+
+    public function ActivityShowDetails($id)
+    {
+        $activity = PostDetail::with(['postType', 'videos', 'photos', 'pdfs'])
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'กิจกรรม');
+            })
+            ->findOrFail($id);
+
+        return view('pages.activity.show_detail', compact('activity'));
+    }
 }
