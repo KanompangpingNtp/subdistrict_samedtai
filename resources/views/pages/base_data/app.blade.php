@@ -69,7 +69,7 @@
                 <div class="bg-title text-dark text-center px-5 py-2 fs-1  mb-4">
                     ฐานข้อมูลตำบลเสม็ดใต้
                 </div>
-                <a href="{{route('home_index')}}"
+                <a href="{{route('HomeIndex')}}"
                     class="button-link d-flex justify-content-start align-items-center px-3 position-relative"
                     style="overflow: visible;">
                     <img src="{{ asset('images/base_data/1-ปุ่มหน้าหลัก.png') }}" alt="icon" width="60" height="60"

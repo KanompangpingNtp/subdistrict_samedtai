@@ -112,11 +112,7 @@
                 </form>
             </td>
         </tr>
-        @empty
-        <tr>
-            <td colspan="7" class="text-center">No posts found.</td>
-        </tr>
-        @endforelse
+        @endforeach
     </tbody>
 </table>
 
