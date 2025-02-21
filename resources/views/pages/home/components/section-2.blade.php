@@ -156,7 +156,7 @@
                     <img src="{{ asset('images/section-2/14.png') }}" alt="personal5" style="width:12rem;">
                     <div class="bg-detail w-100 lh-sm text-center">
                         <span class="fw-bold fs-4">นางศิริลักษณ์ โสธรเทวาพิทักษ์</span> <br>
-                        รองปลัดองค์การบริหารส่วนตำบลเสม็ดใต้
+                        รองปลัดองค์การบริหาร<br> ส่วนตำบลเสม็ดใต้
                     </div>
                     <div class="bg-phone2 w-100 py-2 ps-1 pe-2 fw-bold fs-5">
                         <span class="bg-dark text-white px-2 py-1 me-1"
