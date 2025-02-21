@@ -190,13 +190,13 @@
                         </div>
                     </div>
                     <div class="col-3 d-none d-md-block">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="ค้นหา..."
+                        <form action="https://www.google.com/search" method="GET" class="input-group">
+                            <input type="text" name="q" class="form-control" placeholder="ค้นหา..."
                                 style="border-radius: 10px 0 0 10px;">
-                            <button class="button-pink-search" type="button" style="border-radius: 0 10px 10px 0;">
+                            <button class="button-pink-search" type="submit" style="border-radius: 0 10px 10px 0;">
                                 <i class="fas fa-search mt-2"></i>
                             </button>
-                        </div>
+                        </form>
                     </div>
 
                 </div>

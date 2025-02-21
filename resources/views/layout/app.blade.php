@@ -159,11 +159,56 @@
                     <a class="button-blue">สมัครสมาชิก</a>
                 </div>
                 <div class="d-flex justify-content-start align-items-end gap-2 button-img mt-2">
-                    <img src="{{ asset('images/navbar/text-minus.png') }}" alt="text-minus">
-                    <img src="{{ asset('images/navbar/text-normal.png') }}" alt="text-normal">
-                    <img src="{{ asset('images/navbar/text-plus.png') }}" alt="text-plus">
+                    <img src="{{ asset('images/navbar/text-minus.png') }}" alt="text-minus" data-action="decrease">
+                    <img src="{{ asset('images/navbar/text-normal.png') }}" alt="text-normal" data-action="normal">
+                    <img src="{{ asset('images/navbar/text-plus.png') }}" alt="text-plus" data-action="increase">
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            let defaultFontSize = 20; // ขนาดเริ่มต้น
+                            const minFontSize = 10;
+                            const maxFontSize = 40;
+                            const step = 2;
+
+                            function updateFontSize(size) {
+                                document.querySelectorAll("*").forEach(el => {
+                                    el.style.fontSize = size + "px";
+                                });
+                            }
+
+                            document.querySelectorAll("img[data-action]").forEach(img => {
+                                img.addEventListener("click", function() {
+                                    let action = this.getAttribute("data-action");
+
+                                    if (action === "decrease") {
+                                        defaultFontSize = Math.max(minFontSize, defaultFontSize - step);
+                                    } else if (action === "normal") {
+                                        defaultFontSize = 20;
+                                    } else if (action === "increase") {
+                                        defaultFontSize = Math.min(maxFontSize, defaultFontSize + step);
+                                    }
+
+                                    updateFontSize(defaultFontSize);
+                                });
+                            });
+                        });
+                    </script>
                     <img src="{{ asset('images/navbar/disability.png') }}" alt="btn-disability" width="42"
-                        height="42">
+                        height="42" id="toggleTheme">
+                    <style>
+                        .dark-mode * {
+                            background-color: black !important;
+                            color: white !important;
+                        }
+                    </style>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const toggleButton = document.getElementById("toggleTheme");
+
+                            toggleButton.addEventListener("click", function() {
+                                document.body.classList.toggle("dark-mode");
+                            });
+                        });
+                    </script>
                     <img src="{{ asset('images/navbar/th.png') }}" alt="thailand">
                     <img src="{{ asset('images/navbar/en.png') }}" alt="english">
                 </div>
