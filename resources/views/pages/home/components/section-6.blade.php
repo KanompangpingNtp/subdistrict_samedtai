@@ -5,7 +5,7 @@
         background-position: center;
         background-repeat: no-repeat;
         min-height: 100vh;
-        /* ใช้ min-height เพื่อให้พื้นที่ครอบคลุมหน้าจอ */
+        padding: 3rem 0;
     }
 
     .title-section-6 {
@@ -100,16 +100,19 @@
 
     .card-date {
         position: absolute;
-        bottom: 10px; /* ระยะห่างจากด้านล่าง */
-        right: 10px; /* ระยะห่างจากด้านขวา */
+        bottom: 10px;
+        /* ระยะห่างจากด้านล่าง */
+        right: 10px;
+        /* ระยะห่างจากด้านขวา */
         display: flex;
         align-items: center;
-        gap: 5px; /* ระยะห่างระหว่างไอคอนและข้อความ */
+        gap: 5px;
+        /* ระยะห่างระหว่างไอคอนและข้อความ */
     }
 </style>
 <!-- Content Section -->
 <main class="bg-page6 d-flex">
-    <div class="container d-flex justify-content-center align-items-center gap-3">
+    <div class="container d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
         <div class="col-lg-8 d-flex flex-column justify-content-center align-items-center">
             <div class="title-section-6 lh-1 text-center mb-3 py-1 px-4 position-relative">
                 ข่าวประชาสัมพันธ์
@@ -118,27 +121,33 @@
             </div>
             <div class="bg-details-section-6 px-3 py-4" style="width: 100%; margin: auto; position: relative;">
                 <div class="row">
-                 @foreach ($pressRelease->take(6) as $index => $post)
+                    @foreach ($pressRelease->take(6) as $index => $post)
                         @php
                             // กำหนดคลาสพื้นหลังสลับสี
-                            $cardBackgroundClass = ($index % 2 == 0) ? 'bg-blue-card-section-6' : 'bg-pink-card-section-6';
+                            $cardBackgroundClass =
+                                $index % 2 == 0 ? 'bg-blue-card-section-6' : 'bg-pink-card-section-6';
                         @endphp
                         <div class="col-lg-6 p-2">
                             <a href="{{ route('PressReleaseShowDetails', $post->id) }}" class="text-decoration-none">
-                                <div class="d-flex align-items-center p-3 {{ $cardBackgroundClass }}" style="height: 150px; border-radius: 10px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); display: block;">
+                                <div class="d-flex align-items-center p-3 {{ $cardBackgroundClass }}"
+                                    style="height: 150px; border-radius: 10px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); display: block;">
 
                                     <!-- รูปภาพด้านซ้าย -->
                                     <div style="flex: 0 0 100px; height: 100px; overflow: hidden; border-radius: 10px;">
-                                        <img src="{{ asset('storage/' . ($post->photos->first()->post_photo_file ?? 'images/default.jpg')) }}" alt="Image {{ $index + 1 }}" style="width: 100%; height: 100%; object-fit: cover;">
+                                        <img src="{{ asset('storage/' . ($post->photos->first()->post_photo_file ?? 'images/default.jpg')) }}"
+                                            alt="Image {{ $index + 1 }}"
+                                            style="width: 100%; height: 100%; object-fit: cover;">
                                     </div>
 
                                     <!-- ข้อความด้านขวา -->
-                                    <div class="ms-3 bg-white h-100 rounded p-1" style="flex: 1; position: relative; height: 100%;">
+                                    <div class="ms-3 bg-white h-100 rounded p-1"
+                                        style="flex: 1; position: relative; height: 100%;">
                                         <div class="card-text text-dark">
                                             {{ Str::limit($post->title_name ?? 'No Title', 60, '...') }}
                                         </div>
                                         <div class="card-date d-flex align-items-center">
-                                            <img src="{{ asset('images/section-5/hourglass.png') }}" alt="icon" width="15" height="20" class="me-2">
+                                            <img src="{{ asset('images/section-5/hourglass.png') }}" alt="icon"
+                                                width="15" height="20" class="me-2">
                                             <div class="card-text text-dark">
                                                 {{ \Carbon\Carbon::parse($post->date)->format('d-m-Y') }}
                                             </div>
@@ -150,14 +159,14 @@
                     @endforeach
                 </div>
 
-                <a href="{{route('PressReleaseShowData')}}" class="button-viewall-section-6 py-2 px-4"
+                <a href="{{ route('PressReleaseShowData') }}" class="button-viewall-section-6 py-2 px-4"
                     style="position: absolute; bottom: -26px; right: 20px; background-color: lightgray; border-radius: 10px; text-decoration: none; font-weight: bold;">
                     ดูทั้งหมด
                 </a>
             </div>
 
         </div>
-        <div class="col-lg-4 d-flex flex-column justify-content-center align-items-center px-2">
+        <div class="col-lg-4 d-flex flex-column justify-content-center align-items-center px-2 mt-5 mt-lg-0">
             <div class="title-section-6 lh-1 text-center mb-3 py-2 px-4 position-relative" style="font-size: 40px;">
                 แนะนำจุดเช็คอินกินเที่ยว
                 <img src="{{ asset('images/section-6/point.png') }}" alt="logo" width="40" height="50"
@@ -168,11 +177,13 @@
                     @foreach ($checkinspot->take(3) as $index => $post)
                         @php
                             // กำหนดคลาสพื้นหลังสลับสี
-                            $cardBackgroundClass = ($index % 2 == 0) ? 'bg-blue-card-section-6' : 'bg-pink-card-section-6';
+                            $cardBackgroundClass =
+                                $index % 2 == 0 ? 'bg-blue-card-section-6' : 'bg-pink-card-section-6';
                         @endphp
                         <div class="col-lg-12 mb-1 p-2">
                             <!-- แท็ก a ครอบรอบทั้งการ์ดเพื่อให้คลิกได้ -->
-                            <a href="{{ route('CheckinSpotShowDetails', $post->id) }}" class="text-decoration-none" style="color: black;">
+                            <a href="{{ route('CheckinSpotShowDetails', $post->id) }}" class="text-decoration-none"
+                                style="color: black;">
                                 <div class="d-flex align-items-center p-3 {{ $cardBackgroundClass }}"
                                     style="height: 150px; border-radius: 10px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);">
 
@@ -184,13 +195,16 @@
                                     </div>
 
                                     <!-- ข้อความด้านขวา -->
-                                    <div class="ms-3 bg-white h-100 rounded p-1" style="flex: 1; position: relative; height: 100%;">
+                                    <div class="ms-3 bg-white h-100 rounded p-1"
+                                        style="flex: 1; position: relative; height: 100%;">
                                         <div class="card-text">
                                             {{ Str::limit($post->topic_name ?? 'No Title', 60, '...') }}
                                         </div>
                                         <div class="card-date d-flex align-items-center">
-                                            <img src="{{ asset('images/section-5/hourglass.png') }}" alt="icon" width="15" height="20" class="me-2">
-                                            <div class="card-text">{{ \Carbon\Carbon::parse($post->date)->format('d-m-Y') }}</div>
+                                            <img src="{{ asset('images/section-5/hourglass.png') }}" alt="icon"
+                                                width="15" height="20" class="me-2">
+                                            <div class="card-text">
+                                                {{ \Carbon\Carbon::parse($post->date)->format('d-m-Y') }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -200,7 +214,7 @@
                 </div>
 
             </div>
-            <a href="{{route('CheckinSpotShowData')}}" class="button-viewall-section-6 py-2 px-4 mt-3">
+            <a href="{{ route('CheckinSpotShowData') }}" class="button-viewall-section-6 py-2 px-4 mt-3">
                 ดูทั้งหมด
             </a>
         </div>

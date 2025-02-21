@@ -41,12 +41,12 @@
         /* ลบระยะห่างรอบๆ */
     }
 
-    .no-bullets li a{
+    .no-bullets li a {
         color: #000;
         transition: all 0.3s ease;
     }
 
-    .no-bullets li a:hover{
+    .no-bullets li a:hover {
         color: #ffffff;
     }
 
@@ -59,41 +59,43 @@
     }
 
     .hover-effect {
-    transition: transform 0.3s ease, filter 0.3s ease; /* ทำให้การเปลี่ยนลื่นไหล */
-}
+        transition: transform 0.3s ease, filter 0.3s ease;
+        /* ทำให้การเปลี่ยนลื่นไหล */
+    }
 
-.hover-effect:hover {
-    transform: scale(1.2); /* ขยายขนาดเมื่อ hover */
-    filter: drop-shadow(0 0 10px rgba(0, 123, 255, 0.8)); /* เพิ่มเอฟเฟกต์เรืองแสง */
-}
+    .hover-effect:hover {
+        transform: scale(1.2);
+        /* ขยายขนาดเมื่อ hover */
+        filter: drop-shadow(0 0 10px rgba(0, 123, 255, 0.8));
+        /* เพิ่มเอฟเฟกต์เรืองแสง */
+    }
 
-.text-link-custom a{
-    text-decoration: none;
-    color: #000;
+    .text-link-custom a {
+        text-decoration: none;
+        color: #000;
 
-}
+    }
 
-.text-link-custom a:hover{
-    color: #ffffff;
-    transition: all 0.3s ease;
-}
+    .text-link-custom a:hover {
+        color: #ffffff;
+        transition: all 0.3s ease;
+    }
 
-.bg-coute{
-    background: linear-gradient(to right, rgba(80, 243, 255, 0.9), rgb(255, 157, 211 ,0.9));
-    padding: 10px 20px;
-    width: 100%;
-}
-
+    .bg-coute {
+        background: linear-gradient(to right, rgba(80, 243, 255, 0.9), rgb(255, 157, 211, 0.9));
+        padding: 10px 20px;
+        width: 100%;
+    }
 </style>
 <!-- Content Section -->
 <main class="bg-page10 d-flex">
     <div class="d-flex flex-column justify-content-end align-items-center w-100 gap-2">
-        <div class="d-flex justify-content-between align-items-center w-100 mb-2">
-            <img src="{{asset('images/section-10/line3-left.png')}}" alt="left">
-            <img src="{{asset('images/section-10/line3-right.png')}}" alt="right">
+        <div class="d-none d-md-flex justify-content-between align-items-center w-100 mb-2">
+            <img src="{{ asset('images/section-10/line3-left.png') }}" alt="left">
+            <img src="{{ asset('images/section-10/line3-right.png') }}" alt="right">
         </div>
         <div class="bg-coute mb-2">
-            <div class="container d-flex justify-content-center align-items-center">
+            <div class="container d-flex flex-column flex-lg-row justify-content-center align-items-center">
                 <div class="text-center py-3 px-4 border-3 border-light border-end lh-1">
                     <span class="fw-bold fs-3">จำนวนผู้เข้าชมเว็บไซต์</span> <br>
                     number of website visitors
@@ -184,11 +186,14 @@
                     </a>
                 </div>
                 <div class="d-flex flex-column justify-content-center align-items-start lh-1 gap-2">
-                    <a href="#"><img class="hover-effect" src="{{ asset('images/section-10/arrow.png') }}" alt="upload" width="25" height="25"></a>
-                    <a href="#"><img class="hover-effect" src="{{ asset('images/section-10/share.png') }}" alt="chair" width="25" height="25"></a>
-                    <a href="#"><img class="hover-effect" src="{{ asset('images/section-10/messenger.png') }}" alt="message" width="25" height="25"></a>
+                    <a href="#"><img class="hover-effect" src="{{ asset('images/section-10/arrow.png') }}"
+                            alt="upload" width="25" height="25"></a>
+                    <a href="#"><img class="hover-effect" src="{{ asset('images/section-10/share.png') }}"
+                            alt="chair" width="25" height="25"></a>
+                    <a href="#"><img class="hover-effect" src="{{ asset('images/section-10/messenger.png') }}"
+                            alt="message" width="25" height="25"></a>
                 </div>
-                
+
             </div>
         </div>
     </div>

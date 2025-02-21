@@ -96,8 +96,45 @@
             /* เพิ่มเงาสีขาว */
         }
 
-        .logo{
+        .logo {
             height: 9rem;
+        }
+
+        /* สำหรับ scrollbar ทุกประเภท */
+        ::-webkit-scrollbar {
+            width: 5px;
+            /* กำหนดความกว้างของ scrollbar */
+            height: 12px;
+            /* กำหนดความสูงของ scrollbar สำหรับแนวนอน */
+
+        }
+
+        /* ส่วนที่ใช้ควบคุมสีของ scrollbar */
+        ::-webkit-scrollbar-thumb {
+            background-color: rgb(255, 157, 211);
+            /* สีของ scrollbar */
+            border-radius: 10px;
+            /* ทำให้ขอบ scrollbar เป็นมุมมน */
+            transition: all 0.5s;
+        }
+
+        /* ส่วนที่เป็นพื้นหลังของ scrollbar */
+        ::-webkit-scrollbar-track {
+            background: transparent;
+            /* สีพื้นหลังของ scrollbar */
+            border-radius: 10px;
+            /* ทำให้ขอบของ track เป็นมุมมน */
+        }
+
+        /* ส่วนของ scrollbar แนวนอน */
+        ::-webkit-scrollbar-horizontal {
+            height: 10px;
+        }
+
+        /* สำหรับ scrollbar เมื่อ hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: rgb(138, 241, 255);
+            /* เปลี่ยนสีเมื่อ hover */
         }
     </style>
 </head>
@@ -118,7 +155,7 @@
             </div>
             <div class="d-flex flex-column justify-content-start align-items-center d-none d-lg-block">
                 <div class="d-flex justify-content-start align-items-center gap-2">
-                    <a class="button-pink" href="{{route('showLoginForm')}}">เข้าสู่ระบบ</a>
+                    <a class="button-pink" href="{{ route('showLoginForm') }}">เข้าสู่ระบบ</a>
                     <a class="button-blue">สมัครสมาชิก</a>
                 </div>
                 <div class="d-flex justify-content-start align-items-end gap-2 button-img mt-2">
@@ -136,7 +173,7 @@
 
 
 
-            @yield('content')
+    @yield('content')
 
 
 

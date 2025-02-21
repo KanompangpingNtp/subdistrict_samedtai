@@ -5,25 +5,33 @@
         background-position: center;
         background-repeat: no-repeat;
         min-height: 100vh;
-        /* ใช้ min-height เพื่อให้พื้นที่ครอบคลุมหน้าจอ */
+        padding: 3rem 0;
     }
 
     .bg-banner-section3 {
-        background-image: url('{{ asset('images/section-3/พี้นหลังของปุ่มล่าง.png') }}');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        background: linear-gradient(to right,
+                rgba(255, 157, 211, 0) 0%,
+                /* ซ้ายสุดจาง */
+                rgb(255, 157, 211) 50%,
+                /* ตรงกลางชมพูเข้ม */
+                rgba(255, 157, 211, 0) 100%
+                /* ขวาสุดจาง */
+            );
         min-height: 12vh;
-        margin-top:5rem;
+        margin-top: 5rem;
     }
+
+
     @media (max-width: 992px) {
-    .bg-banner-section3 {
-        background-image: none; /* ลบรูปภาพพื้นหลัง */
-        background-color: rgba(255, 192, 203, 0.2); /* สีชมพูโปร่งแสง */
-        border-radius: 20px;
-        padding-bottom: 2rem;
+        .bg-banner-section3 {
+            background-image: none;
+            /* ลบรูปภาพพื้นหลัง */
+            background-color: rgba(255, 192, 203, 0.2);
+            /* สีชมพูโปร่งแสง */
+            border-radius: 20px;
+            padding-bottom: 2rem;
+        }
     }
-}
 
     .title-section-3 {
         font-size: 60px;
@@ -40,10 +48,13 @@
     }
 
     .bg-details img {
-    width: 100%; /* ให้รูปขยายเต็มความกว้างของ div */
-    height: 100%; /* ให้รูปขยายเต็มความสูงของ div */
-    object-fit: cover; /* ทำให้รูปขยายให้พอดีกับขนาดของ div โดยไม่เสียสัดส่วน */
-}
+        width: 100%;
+        /* ให้รูปขยายเต็มความกว้างของ div */
+        height: 100%;
+        /* ให้รูปขยายเต็มความสูงของ div */
+        object-fit: cover;
+        /* ทำให้รูปขยายให้พอดีกับขนาดของ div โดยไม่เสียสัดส่วน */
+    }
 
     .button-viewall {
         background: linear-gradient(to right, rgb(138, 241, 255), rgb(255, 157, 211));
@@ -70,23 +81,29 @@
     }
 
     .button-banner-section3 {
-    background-color: rgb(191, 248, 255);
-    box-shadow: 0px 2px 15px rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
-    font-weight: bold;
-    color: black; /* สีข้อความเริ่มต้น */
-    padding: 10px 20px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s ease; /* เพิ่มการเปลี่ยนแปลงที่ลื่นไหล */
-}
+        background-color: rgb(191, 248, 255);
+        box-shadow: 0px 2px 15px rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        font-weight: bold;
+        color: black;
+        /* สีข้อความเริ่มต้น */
+        padding: 10px 20px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        /* เพิ่มการเปลี่ยนแปลงที่ลื่นไหล */
+    }
 
-.button-banner-section3:hover {
-    background-color: rgb(255, 157, 211); /* เปลี่ยนสีพื้นหลัง */
-    box-shadow: 0px 4px 20px rgba(255, 157, 211, 0.9); /* เพิ่มความเข้มของเงา */
-    transform: scale(1.05); /* ขยายปุ่มเล็กน้อย */
-    color: white; /* เปลี่ยนสีข้อความ */
-}
+    .button-banner-section3:hover {
+        background-color: rgb(255, 157, 211);
+        /* เปลี่ยนสีพื้นหลัง */
+        box-shadow: 0px 4px 20px rgba(255, 157, 211, 0.9);
+        /* เพิ่มความเข้มของเงา */
+        transform: scale(1.05);
+        /* ขยายปุ่มเล็กน้อย */
+        color: white;
+        /* เปลี่ยนสีข้อความ */
+    }
 </style>
 <!-- Content Section -->
 <main class="bg-page3 d-flex">
@@ -116,38 +133,58 @@
                     <span style="font-size:40px;">องค์การบริหารส่วนตำบลเสม็ดใต้</span>
                 </div>
                 <div class="bg-details px-3 py-5" style="width: 100%; margin: auto; position: relative;">
-                    <img src="{{asset('images/section-3/ebook.png')}}" alt="ebook" width="100" height="100">
-                    <a href="#" class="button-viewall py-2 px-4" 
+                    <img src="{{ asset('images/section-3/ebook.png') }}" alt="ebook" width="100" height="100">
+                    <a href="#" class="button-viewall py-2 px-4"
                         style="position: absolute; bottom: -26px; right: 20px; background-color: lightgray; border-radius: 10px; text-decoration: none; font-weight: bold;">
                         ดูทั้งหมด
                     </a>
                 </div>
             </div>
         </div>
-        <div class="bg-banner-section3 w-100 d-flex flex-column flex-lg-row justify-content-center align-items-center gap-4">
-            <a href="#" class="d-flex justify-content-between align-items-center button-banner-section3 px-3 py-2 lh-1">
-                <img src="{{asset('images/section-3/ปุ่ม1.png')}}" alt="icon" class="me-2" width="60" height="60">
-                สาระดีๆจาก <br>
-                ศาลการปกครอง
-            </a>
-            <a href="#" class="d-flex justify-content-between align-items-center button-banner-section3 px-3 py-2 lh-1">
-                <img src="{{asset('images/section-3/ปุ่ม2.png')}}" alt="icon" class="me-2" width="50" height="60">
-                สำนักงานคณะกรรมการป้งอกัน <br>
-                และปราบปรามการทุจริตแห่งชาติ
-            </a>
-            <a href="#" class="d-flex justify-content-between align-items-center button-banner-section3 px-3 py-2 lh-1">
-                <img src="{{asset('images/section-3/ปุ่ม3.png')}}" alt="icon" class="me-2" width="60" height="60">
-                ระบบการจัดซื้อ <br>
-                จัดจ้างภาครัฐ (EGP)
-            </a>
-            <a href="#" class="d-flex justify-content-between align-items-center button-banner-section3 px-3 py-2 lh-1">
-                <img src="{{asset('images/section-3/ปุ่ม4.png')}}" alt="icon" class="me-2" width="60" height="60">
-                E - Social
-            </a>
-            <a href="#" class="d-flex justify-content-between align-items-center button-banner-section3 px-3 py-2 lh-1">
-                <img src="{{asset('images/section-3/ปุ่ม5.png')}}" alt="icon" class="me-2" width="60" height="60">
-                One Stop Service
-            </a>
+        <div class="container bg-banner-section3 py-3">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 g-3 text-center">
+                <div class="col">
+                    <a href="#"
+                        class="d-flex justify-content-center align-items-center button-banner-section3 px-3 py-2">
+                        <img src="{{ asset('images/section-3/ปุ่ม1.png') }}" alt="icon" width="60"
+                            height="60" class="mb-2">
+                        <span>สาระดีๆจาก <br> ศาลการปกครอง</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#"
+                        class="d-flex justify-content-center align-items-center button-banner-section3 px-3 py-2">
+                        <img src="{{ asset('images/section-3/ปุ่ม2.png') }}" alt="icon" width="50"
+                            height="60" class="mb-2">
+                        <span>สำนักงานคณะกรรมการป้องกัน <br> และปราบปรามการทุจริตแห่งชาติ</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#"
+                        class="d-flex justify-content-center align-items-center button-banner-section3 px-3 py-2">
+                        <img src="{{ asset('images/section-3/ปุ่ม3.png') }}" alt="icon" width="60"
+                            height="60" class="mb-2">
+                        <span>ระบบการจัดซื้อ <br> จัดจ้างภาครัฐ (EGP)</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#"
+                        class="d-flex justify-content-center align-items-center button-banner-section3 px-3 py-2">
+                        <img src="{{ asset('images/section-3/ปุ่ม4.png') }}" alt="icon" width="60"
+                            height="60" class="mb-2">
+                        <span>E - Social</span>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#"
+                        class="d-flex justify-content-center align-items-center button-banner-section3 px-3 py-2">
+                        <img src="{{ asset('images/section-3/ปุ่ม5.png') }}" alt="icon" width="60"
+                            height="60" class="mb-2">
+                        <span>One Stop Service</span>
+                    </a>
+                </div>
+            </div>
         </div>
+
     </div>
 </main>

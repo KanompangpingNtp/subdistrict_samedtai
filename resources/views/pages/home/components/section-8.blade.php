@@ -5,7 +5,7 @@
         background-position: center;
         background-repeat: no-repeat;
         min-height: 100vh;
-        /* ใช้ min-height เพื่อให้พื้นที่ครอบคลุมหน้าจอ */
+        padding: 3rem 0;
     }
 
     .title-section-8 {
@@ -104,8 +104,8 @@
         <div class="title-section-8 lh-1 text-center mb-5 py-3 px-4 d-flex ">
             หนังสือราชการ
         </div>
-        <div class="w-100 d-flex justify-content-center align-items-center gap-3">
-            <div class=" col-6 bg-pink-section-8">
+        <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
+            <div class=" col-lg-6 bg-pink-section-8">
                 <div class="bg-white d-flex flex-column justify-content-center align-items-center gap-3 p-3"
                     style="border-radius: 20px;">
                     <div class=" p-1 w-100 d-flex justify-content-center align-items-center">
@@ -139,7 +139,7 @@
 
             </div>
 
-            <div class=" col-6 bg-blue-section-8">
+            <div class=" col-lg-6 bg-blue-section-8 mt-5 mt-lg-0">
                 <div class="bg-white d-flex flex-column justify-content-center align-items-center gap-3 p-3"
                     style="border-radius: 20px;">
                     <div class=" p-1 w-100 d-flex justify-content-center align-items-center">

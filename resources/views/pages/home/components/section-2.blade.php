@@ -4,8 +4,8 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        min-height: 120vh;
-        /* ใช้ min-height เพื่อให้พื้นที่ครอบคลุมหน้าจอ */
+        min-height: 100vh;
+        padding: 3rem 0;
     }
 
     .title-section-2 {
@@ -60,6 +60,8 @@
         /* ลบเงาเมื่อ hover */
     }
 </style>
+
+
 <!-- Content Section -->
 <main class="bg-page2 d-flex">
     <div class="container d-flex justify-content-center align-items-center">
@@ -67,8 +69,8 @@
             <div class="title-section-2 mb-2">
                 คณะผู้บริหาร
             </div>
-            <div class="d-flex justify-content-center align-items-center gap-5">
-                <div class="d-flex flex-column justify-content-center align-items-center">
+            <div class="d-flex justify-content-start align-items-center gap-3 ">
+                <div class="d-none d-sm-flex flex-column justify-content-center align-items-center">
                     <img src="{{ asset('images/section-2/2.png') }}" alt="personal1" style="width:12rem;">
                     <div class="bg-detail w-100 lh-sm text-center">
                         <span class="fw-bold fs-5">นายชวภณ พ่วงเจริญ</span> <br>
@@ -129,7 +131,7 @@
                     });
                 </script>
 
-                <div class="d-flex flex-column justify-content-center align-items-center">
+                <div class="d-none d-md-flex flex-column justify-content-center align-items-center">
                     <img src="{{ asset('images/section-2/13.png') }}" alt="personal3" style="width:12rem;">
                     <div class="bg-detail w-100 lh-sm text-center">
                         <span class="fw-bold fs-5">นางสาวชฎาพรเปี่ยมเจริญ</span> <br>
@@ -141,7 +143,7 @@
                             style="border-radius: 20px;">สายด่วน</span>086-0329-077
                     </div>
                 </div>
-                <div class="d-flex flex-column justify-content-center align-items-center">
+                <div class="d-none d-lg-flex flex-column justify-content-center align-items-center">
                     <img src="{{ asset('images/section-2/7.png') }}" alt="personal4" style="width:12rem;">
                     <div class="bg-detail w-100 lh-sm text-center">
                         <span class="fw-bold fs-5">นางอำพร แสงสุทธิวาส</span> <br>
@@ -152,7 +154,7 @@
                             style="border-radius: 20px;">สายด่วน</span>092-4166-322
                     </div>
                 </div>
-                <div class="d-flex flex-column justify-content-center align-items-center">
+                <div class="d-none d-xl-flex flex-column justify-content-center align-items-center">
                     <img src="{{ asset('images/section-2/14.png') }}" alt="personal5" style="width:12rem;">
                     <div class="bg-detail w-100 lh-sm text-center">
                         <span class="fw-bold fs-4">นางศิริลักษณ์ โสธรเทวาพิทักษ์</span> <br>
@@ -165,33 +167,43 @@
                 </div>
             </div>
 
-            <div class="d-flex justify-content-center align-items-center gap-4">
-                <div class="d-flex align-items-center lh-1 banner-blue px-3 py-1 fw-bold ">
-                    <img src="{{ asset('images/section-2/1-สารจากนายก.png') }}" alt="icon" class="me-2">
-                    สารจากนายก
-                </div>
-                <div class="d-flex align-items-center lh-1 banner-pink px-3 py-1 fw-bold ">
-                    <img src="{{ asset('images/section-2/2-เจตจำนง.png') }}" alt="icon" class="me-2">
-                    เจตจำนงสุจริต <br>
-                    ของผู้บริหาร
-                </div>
-                <div class="d-flex align-items-center lh-1 banner-blue px-3 py-1 fw-bold ">
-                    <img src="{{ asset('images/section-2/3-รับเเจ้งเรือง.png') }}" alt="icon" class="me-2">
-                    รับแจ้งเรื่องราวร้องทุกข์ <br>
-                    ร้องทุกข์
-                </div>
-                <div class="d-flex align-items-center lh-1 banner-pink px-3 py-1 fw-bold ">
-                    <img src="{{ asset('images/section-2/4-รับเรืองร้องเรียนทุจริต.png') }}" alt="icon"
-                        class="me-2">
-                    รับเรื่องร้องเรียน <br>
-                    ทุจริตประพฤติมิชอบ
-                </div>
-                <div class="d-flex align-items-center lh-1 banner-blue px-3 py-1 fw-bold ">
-                    <img src="{{ asset('images/section-2/5-ITALogo1.png') }}" alt="icon" class="me-2">
-                    การประเมินคุณธรรม <br>
-                    และ ความโปร่งใส
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 g-3 text-center">
+                    <div class="col">
+                        <div class="d-flex justify-content-center align-items-center banner-blue px-3 py-2 fw-bold">
+                            <img src="{{ asset('images/section-2/1-สารจากนายก.png') }}" alt="icon" class="mb-2">
+                            <span>สารจากนายก</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex justify-content-center align-items-center banner-pink px-3 py-2 fw-bold">
+                            <img src="{{ asset('images/section-2/2-เจตจำนง.png') }}" alt="icon" class="mb-2">
+                            <span>เจตจำนงสุจริต <br> ของผู้บริหาร</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex justify-content-center align-items-center banner-blue px-3 py-2 fw-bold">
+                            <img src="{{ asset('images/section-2/3-รับเเจ้งเรือง.png') }}" alt="icon"
+                                class="mb-2">
+                            <span>รับแจ้งเรื่องราวร้องทุกข์ </span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex justify-content-center align-items-center banner-pink px-3 py-2 fw-bold">
+                            <img src="{{ asset('images/section-2/4-รับเรืองร้องเรียนทุจริต.png') }}" alt="icon"
+                                class="mb-2">
+                            <span>รับเรื่องร้องเรียน <br> ทุจริตประพฤติมิชอบ</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex justify-content-center align-items-center banner-blue px-3 py-2 fw-bold">
+                            <img src="{{ asset('images/section-2/5-ITALogo1.png') }}" alt="icon" class="mb-2">
+                            <span>การประเมินคุณธรรม <br> และ ความโปร่งใส</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 </main>

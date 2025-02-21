@@ -5,7 +5,7 @@
         background-position: center;
         background-repeat: no-repeat;
         min-height: 100vh;
-        /* ใช้ min-height เพื่อให้พื้นที่ครอบคลุมหน้าจอ */
+        padding: 3rem 0;
     }
 
     .title-section-5 {
@@ -98,54 +98,137 @@
     .bg-text-card-section-5 {
         background-color: white;
     }
-
 </style>
 <!-- Content Section -->
 <main class="bg-page5 d-flex">
     <div class="container d-flex justify-content-center align-items-center gap-3">
 
-        <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="d-flex flex-column justify-content-center align-items-center w-100">
             <div class="title-section-5 lh-1 text-center mb-3">
                 งานกิจกรรม
             </div>
-            <div class="bg-details-section-5 d-flex flex-column justify-content-center py-3 px-3 ">
+            <div class="bg-details-section-5 d-flex d-sm-none flex-column justify-content-center py-3 px-3 ">
                 <div class="d-flex justify-content-center align-items-center gap-2">
-                    @foreach ($activity->take(4) as $index => $post)
-                    @php
-                    // กำหนดคลาสพื้นหลังสลับสี
-                    $cardBackgroundClass = ($index % 2 == 0) ? 'bg-blue-card-section-5' : 'bg-pink-card-section-5';
-                    @endphp
-                    <a href="{{ route('ActivityShowDetails', $post->id) }}" class="card {{ $cardBackgroundClass }} p-2 gap-1" style="width: 18rem; border-radius: 10px;">
-                        <div class="card-img-wrapper rounded" style="height: 200px; overflow: hidden;">
-                            <img src="{{ asset('storage/' . ($post->photos->first()->post_photo_file ?? 'images/default.jpg')) }}" class="card-img-top img-fluid" alt="Card Image {{ $index + 1 }}" style="width: 100%; height: 100%; object-fit: cover;">
+                    @foreach ($activity->take(1) as $index => $post)
+                        @php
+                            // กำหนดคลาสพื้นหลังสลับสี
+                            $cardBackgroundClass =
+                                $index % 2 == 0 ? 'bg-blue-card-section-5' : 'bg-pink-card-section-5';
+                        @endphp
+                        <a href="{{ route('ActivityShowDetails', $post->id) }}"
+                            class="card {{ $cardBackgroundClass }} p-2 gap-1" style="width: 18rem; border-radius: 10px;">
+                            <div class="card-img-wrapper rounded" style="height: 200px; overflow: hidden;">
+                                <img src="{{ asset('storage/' . ($post->photos->first()->post_photo_file ?? 'images/default.jpg')) }}"
+                                    class="card-img-top img-fluid" alt="Card Image {{ $index + 1 }}"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
 
-                        </div>
-                        <div class="card-body bg-text-card-section-5 rounded lh-1 px-2 py-2">
-                            <div class="card-text">
-                                {{ Str::limit($post->title_name ?? 'No Title', 70, '...') }}
                             </div>
-                            <hr class="m-2">
-                            <div class="d-flex justify-content-end align-items-center lh-1 px-2">
-                                <img src="{{ asset('images/section-5/hourglass.png') }}" alt="icon" width="15" height="20" class="me-2">
-                                <div class="card-text">{{ \Carbon\Carbon::parse($post->date)->format('d-m-Y') }}</div>
+                            <div class="card-body bg-text-card-section-5 rounded lh-1 px-2 py-2">
+                                <div class="card-text">
+                                    {{ Str::limit($post->title_name ?? 'No Title', 70, '...') }}
+                                </div>
+                                <hr class="m-2">
+                                <div class="d-flex justify-content-end align-items-center lh-1 px-2">
+                                    <img src="{{ asset('images/section-5/hourglass.png') }}" alt="icon"
+                                        width="15" height="20" class="me-2">
+                                    <div class="card-text">{{ \Carbon\Carbon::parse($post->date)->format('d-m-Y') }}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
                     @endforeach
                 </div>
 
                 <div class="d-flex justify-content-end align-items-center w-100 mt-2 me-5">
-                    <a href="{{route('ActivityShowData')}}" class="button-viewall-section-5 py-1 px-3">
+                    <a href="{{ route('ActivityShowData') }}" class="button-viewall-section-5 py-1 px-3">
                         ดูทั้งหมด
                     </a>
                 </div>
             </div>
-            <div class="bg-details-section-5 d-flex justify-content-center mt-3 px-3 py-2">
-                <div class="col-6">
-                    <img src="{{asset('images/section-5/weather.png')}}" alt="weather">
+            <div class="bg-details-section-5 d-none d-md-flex d-lg-none flex-column justify-content-center py-3 px-3 ">
+                <div class="d-flex justify-content-center align-items-center gap-2">
+                    @foreach ($activity->take(2) as $index => $post)
+                        @php
+                            // กำหนดคลาสพื้นหลังสลับสี
+                            $cardBackgroundClass =
+                                $index % 2 == 0 ? 'bg-blue-card-section-5' : 'bg-pink-card-section-5';
+                        @endphp
+                        <a href="{{ route('ActivityShowDetails', $post->id) }}"
+                            class="card {{ $cardBackgroundClass }} p-2 gap-1"
+                            style="width: 18rem; border-radius: 10px;">
+                            <div class="card-img-wrapper rounded" style="height: 200px; overflow: hidden;">
+                                <img src="{{ asset('storage/' . ($post->photos->first()->post_photo_file ?? 'images/default.jpg')) }}"
+                                    class="card-img-top img-fluid" alt="Card Image {{ $index + 1 }}"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+
+                            </div>
+                            <div class="card-body bg-text-card-section-5 rounded lh-1 px-2 py-2">
+                                <div class="card-text">
+                                    {{ Str::limit($post->title_name ?? 'No Title', 70, '...') }}
+                                </div>
+                                <hr class="m-2">
+                                <div class="d-flex justify-content-end align-items-center lh-1 px-2">
+                                    <img src="{{ asset('images/section-5/hourglass.png') }}" alt="icon"
+                                        width="15" height="20" class="me-2">
+                                    <div class="card-text">{{ \Carbon\Carbon::parse($post->date)->format('d-m-Y') }}
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    @endforeach
                 </div>
-                <div class="col-6 pt-2">
-                    <img src="{{asset('images/section-5/pm.png')}}" alt="pm">
+
+                <div class="d-flex justify-content-end align-items-center w-100 mt-2 me-5">
+                    <a href="{{ route('ActivityShowData') }}" class="button-viewall-section-5 py-1 px-3">
+                        ดูทั้งหมด
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-details-section-5 d-none d-lg-flex flex-column justify-content-center py-3 px-3 ">
+                <div class="d-flex justify-content-center align-items-center gap-2">
+                    @foreach ($activity->take(4) as $index => $post)
+                        @php
+                            // กำหนดคลาสพื้นหลังสลับสี
+                            $cardBackgroundClass =
+                                $index % 2 == 0 ? 'bg-blue-card-section-5' : 'bg-pink-card-section-5';
+                        @endphp
+                        <a href="{{ route('ActivityShowDetails', $post->id) }}"
+                            class="card {{ $cardBackgroundClass }} p-2 gap-1"
+                            style="width: 18rem; border-radius: 10px;">
+                            <div class="card-img-wrapper rounded" style="height: 200px; overflow: hidden;">
+                                <img src="{{ asset('storage/' . ($post->photos->first()->post_photo_file ?? 'images/default.jpg')) }}"
+                                    class="card-img-top img-fluid" alt="Card Image {{ $index + 1 }}"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+
+                            </div>
+                            <div class="card-body bg-text-card-section-5 rounded lh-1 px-2 py-2">
+                                <div class="card-text">
+                                    {{ Str::limit($post->title_name ?? 'No Title', 70, '...') }}
+                                </div>
+                                <hr class="m-2">
+                                <div class="d-flex justify-content-end align-items-center lh-1 px-2">
+                                    <img src="{{ asset('images/section-5/hourglass.png') }}" alt="icon"
+                                        width="15" height="20" class="me-2">
+                                    <div class="card-text">{{ \Carbon\Carbon::parse($post->date)->format('d-m-Y') }}
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+
+                <div class="d-flex justify-content-end align-items-center w-100 mt-2 me-5">
+                    <a href="{{ route('ActivityShowData') }}" class="button-viewall-section-5 py-1 px-3">
+                        ดูทั้งหมด
+                    </a>
+                </div>
+            </div>
+            <div class="bg-details-section-5 d-flex justify-content-center mt-3 px-3 py-2 w-100">
+                <div class=" mb-3 mb-lg-0 w-100">
+                    <iframe src="https://www.tmd.go.th/weatherForecast7DaysWidget?province=ฉะเชิงเทรา" height="340"
+                        width="100%" scrolling="no" frameborder="0"
+                        style="border-radius: 20px; box-shadow:0 2px 10px rgba(0, 0, 0, 0.7)"></iframe>
                 </div>
             </div>
         </div>

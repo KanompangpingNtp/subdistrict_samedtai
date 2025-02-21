@@ -5,7 +5,7 @@
         background-position: center;
         background-repeat: no-repeat;
         min-height: 100vh;
-        /* ใช้ min-height เพื่อให้พื้นที่ครอบคลุมหน้าจอ */
+        padding: 3rem 0;
     }
 
     .title-section-7 {
@@ -111,7 +111,7 @@
         border: none;
         position: relative;
         color: black;
-        font-size: 3rem;
+        font-size: 1.4rem;
         cursor: pointer;
         border-radius: 35px;
         box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.9);
@@ -201,49 +201,50 @@
 
 
 
-/* ปุ่มส่ง */
-.submit-btn {
-    padding: 1px 10px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+    /* ปุ่มส่ง */
+    .submit-btn {
+        padding: 1px 10px;
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
 
-.layout-bottom-page7:hover {
-    transform: translateY(-1px);
+    .layout-bottom-page7:hover {
+        transform: translateY(-1px);
         /* ยกปุ่มขึ้นเล็กน้อย */
         box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
+    }
 
-.layout-bottom-page7{
-    background: linear-gradient(to top, rgb(138, 241, 255), rgb(255, 157, 211));
+    .layout-bottom-page7 {
+        background: linear-gradient(to top, rgb(138, 241, 255), rgb(255, 157, 211));
         padding: 3px;
         border-radius: 30px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
         width: 100%;
         transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-}
+    }
 
-.img-hover-section-7 {
-    transition: all 0.3s ease; /* การเปลี่ยนแปลงอย่างราบรื่น */
-}
+    .img-hover-section-7 {
+        transition: all 0.3s ease;
+        /* การเปลี่ยนแปลงอย่างราบรื่น */
+    }
 
-/* เอฟเฟกต์เมื่อ hover */
-.btn-link:hover .img-hover-section-7 {
-    transform: scale(1.1); /* ขยายขนาดภาพเมื่อ hover */
-    filter: drop-shadow(0px 2px 15px rgba(255, 255, 255, 0.8));
-}
-
+    /* เอฟเฟกต์เมื่อ hover */
+    .btn-link:hover .img-hover-section-7 {
+        transform: scale(1.1);
+        /* ขยายขนาดภาพเมื่อ hover */
+        filter: drop-shadow(0px 2px 15px rgba(255, 255, 255, 0.8));
+    }
 </style>
 
 
 
 <main class="bg-page7 d-flex">
-    <div class="container d-flex justify-content-center align-items-center gap-3">
-        <div class="col-lg-8 d-flex flex-column justify-content-center align-items-center">
+    <div class="container d-flex flex-column flex-xl-row justify-content-center align-items-center gap-3">
+        <div class="col-12 col-lg-8 d-flex flex-column justify-content-center align-items-center">
             <div class="title-section-7 lh-1 text-center mb-3 py-3 px-4 d-flex">
                 <div>
                     ประกาศความเคลื่อนไหว <br>
@@ -287,14 +288,16 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 d-flex flex-column justify-content-center align-items-center gap-3">
-            <a href="{{route('ShowDataButton')}}" class="btn-link">
+        <div class="col-12 col-lg-4 d-flex flex-column justify-content-center align-items-center gap-3">
+            <a href="{{ route('ShowDataButton') }}" class="btn-link">
                 <img src="{{ asset('images/section-7/btn.png') }}" alt="btn-go" class="img-hover-section-7">
             </a>
 
-            <div class="d-flex align-content-center justify-content-around gap-2 bg-details-section-7 p-2" style="border-radius: 10px;">
+            <div class="d-flex align-content-center justify-content-around gap-2 bg-details-section-7 p-2"
+                style="border-radius: 10px;">
                 <div class="layout-card-view-page7" style="border-radius: 20px;">
-                    <div class="bg-white p-3 d-flex flex-column align-content-center justify-content-center" style="border-radius: 20px;">
+                    <div class="bg-white p-3 d-flex flex-column align-content-center justify-content-center"
+                        style="border-radius: 20px;">
                         <div class="d-flex align-content-center justify-content-center">
                             <img src="{{ asset('images/section-7/survey.png') }}" alt="icon" width="45"
                                 height="45" class="me-2">
@@ -302,19 +305,23 @@
                         </div>
                         <div class="radio-container mt-2 ms-2">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="options" value="1" id="radio1">
+                                <input class="form-check-input" type="radio" name="options" value="1"
+                                    id="radio1">
                                 <label class="form-check-label" for="radio1">ตัวเลือก 1</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="options" value="2" id="radio2">
+                                <input class="form-check-input" type="radio" name="options" value="2"
+                                    id="radio2">
                                 <label class="form-check-label" for="radio2">ตัวเลือก 2</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="options" value="3" id="radio3">
+                                <input class="form-check-input" type="radio" name="options" value="3"
+                                    id="radio3">
                                 <label class="form-check-label" for="radio3">ตัวเลือก 3</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="options" value="4" id="radio4">
+                                <input class="form-check-input" type="radio" name="options" value="4"
+                                    id="radio4">
                                 <label class="form-check-label" for="radio4">ตัวเลือก 4</label>
                             </div>
                         </div>
