@@ -195,7 +195,7 @@
                         <ul class="custom-dropdown-menu text-start">
                             <li>
                                 <a href="" class="dropdown-item">ผลงาน</a>
-                                <a href="" class="dropdown-item">รายงานผลการดำเนินงาน</a>
+                                <a href="{{route('PerformanceReportPage')}}" class="dropdown-item">รายงานผลการดำเนินงาน</a>
                             </li>
                         </ul>
                     </div>

@@ -13,6 +13,8 @@ use App\Http\Controllers\CheckinSpotController;
 use App\Http\Controllers\NoticeBoardController;
 use App\Http\Controllers\performance_results\AdminPerformanceReportController;
 use App\Http\Controllers\performance_results\PerformanceReportController;
+use App\Http\Controllers\performance_results\AdminPerforManceController;
+use App\Http\Controllers\performance_results\PerforManceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +53,11 @@ Route::get('/Checkin/ShowDetails/{id}', [CheckinSpotController::class, 'CheckinS
 //ป้ายประกาศ
 Route::get('/NoticeBoard/ShowData', [NoticeBoardController::class, 'NoticeBoardShowData'])->name('NoticeBoardShowData');
 Route::get('/NoticeBoard/ShowDetails/{id}', [NoticeBoardController::class, 'NoticeBoardShowDetails'])->name('NoticeBoardShowDetails');
+
+//ผลงานดำเนินการ
+Route::get('/PerformanceReport/page', [PerformanceReportController::class, 'PerformanceReportPage'])->name('PerformanceReportPage');
+Route::get('/PerformanceReport/show/details/{id}', [PerformanceReportController::class, 'PerformanceReportShowDertailsPage'])->name('PerformanceReportShowDertailsPage');
+Route::get('/PerformanceReport/show/details/results/{id}', [PerformanceReportController::class, 'PerformanceReportShowDertailResultsPage'])->name('PerformanceReportShowDertailResultsPage');
 
 Route::middleware(['check.auth'])->group(function () {
     //admin PressRelease
@@ -112,6 +119,19 @@ Route::middleware(['check.auth'])->group(function () {
     Route::get('/Admin/PerformanceReport/show/details/results/{id}', [AdminPerformanceReportController::class, 'PerformanceReportShowDertailResults'])->name('PerformanceReportShowDertailResults');
     Route::post('/Admin/PerformanceReport/details/{id}/create/results', [AdminPerformanceReportController::class, 'PerformanceReportDertailsCreateResults'])->name('PerformanceReportDertailsCreateResults');
     Route::delete('/Admin/PerformanceReport/details/{id}/results/delete', [AdminPerformanceReportController::class, 'PerformanceReportDertailsDeleteResults'])->name('PerformanceReportDertailsDeleteResults');
+
+    //PerforMance
+    Route::get('/Admin/PerforMance/page', [AdminPerforManceController::class, 'PerforManceAdmin'])->name('PerforManceAdmin');
+    Route::post('/Admin/PerforMance/create', [AdminPerforManceController::class, 'PerforManceCreate'])->name('PerforManceCreate');
+    Route::put('/Admin/PerforMance/{id}/update', [AdminPerforManceController::class, 'PerforManceUpdate'])->name('PerforManceUpdate');
+    Route::delete('/Admin/PerforMance/{id}/delete', [AdminPerforManceController::class, 'PerforManceDelete'])->name('PerforManceDelete');
+    Route::get('/Admin/PerforMance/show/details/{id}', [AdminPerforManceController::class, 'PerforManceShowDertails'])->name('PerforManceShowDertails');
+    Route::post('/Admin/PerforMance/details/{id}/create', [AdminPerforManceController::class, 'PerforManceDertailsCreate'])->name('PerforManceDertailsCreate');
+    Route::put('/Admin/PerforMance/details/{id}/update', [AdminPerforManceController::class, 'PerforManceDertailsUpdate'])->name('PerforManceDertailsUpdate');
+    Route::delete('/Admin/PerforMance/details/{id}/delete', [AdminPerforManceController::class, 'PerforManceDertailsDelete'])->name('PerforManceDertailsDelete');
+    Route::get('/Admin/PerforMance/show/details/results/{id}', [AdminPerforManceController::class, 'PerforManceShowDertailResults'])->name('PerforManceShowDertailResults');
+    Route::post('/Admin/PerforMance/details/{id}/create/results', [AdminPerforManceController::class, 'PerforManceDertailsCreateResults'])->name('PerforManceDertailsCreateResults');
+    Route::delete('/Admin/PerforMance/details/{id}/results/delete', [AdminPerforManceController::class, 'PerforManceDertailsDeleteResults'])->name('PerforManceDertailsDeleteResults');
 });
 
 Route::get('/showLoginForm', [AuthController::class, 'showLoginForm'])->name('showLoginForm');
