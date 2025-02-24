@@ -187,6 +187,38 @@
 
             <div class="bg-details-section-5 d-none d-lg-flex flex-column justify-content-center py-3 px-3 ">
                 <div class="d-flex justify-content-center align-items-center gap-2">
+                    @foreach ($activity->take(3) as $index => $post)
+                        @php
+                            // กำหนดคลาสพื้นหลังสลับสี
+                            $cardBackgroundClass =
+                                $index % 2 == 0 ? 'bg-blue-card-section-5' : 'bg-pink-card-section-5';
+                        @endphp
+                        <a href="{{ route('ActivityShowDetails', $post->id) }}"
+                            class="card {{ $cardBackgroundClass }} p-2 gap-1"
+                            style="width: 18rem; border-radius: 10px;">
+                            <div class="card-img-wrapper rounded" style="height: 200px; overflow: hidden;">
+                                <img src="{{ asset('storage/' . ($post->photos->first()->post_photo_file ?? 'images/default.jpg')) }}"
+                                    class="card-img-top img-fluid" alt="Card Image {{ $index + 1 }}"
+                                    style="width: 100%; height: 100%; object-fit: cover;">
+
+                            </div>
+                            <div class="card-body bg-text-card-section-5 rounded lh-1 px-2 py-2">
+                                <div class="card-text">
+                                    {{ Str::limit($post->title_name ?? 'No Title', 70, '...') }}
+                                </div>
+                                <hr class="m-2">
+                                <div class="d-flex justify-content-end align-items-center lh-1 px-2">
+                                    <img src="{{ asset('images/section-5/hourglass.png') }}" alt="icon"
+                                        width="15" height="20" class="me-2">
+                                    <div class="card-text">{{ \Carbon\Carbon::parse($post->date)->format('d-m-Y') }}
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+            <div class="bg-details-section-5 d-none d-xl-flex flex-column justify-content-center py-3 px-3 ">
+                <div class="d-flex justify-content-center align-items-center gap-2">
                     @foreach ($activity->take(4) as $index => $post)
                         @php
                             // กำหนดคลาสพื้นหลังสลับสี
