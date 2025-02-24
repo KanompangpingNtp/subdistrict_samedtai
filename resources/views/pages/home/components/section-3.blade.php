@@ -145,7 +145,7 @@
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 g-3 text-center">
                 <div class="col">
                     <a href="#"
-                        class="d-flex justify-content-center align-items-center button-banner-section3 px-3 py-2">
+                        class="d-flex justify-content-center align-items-center button-banner-section3 px-3 py-2 lh-1">
                         <img src="{{ asset('images/section-3/ปุ่ม1.png') }}" alt="icon" width="60"
                             height="60" class="mb-2">
                         <span>สาระดีๆจาก <br> ศาลการปกครอง</span>
@@ -153,7 +153,7 @@
                 </div>
                 <div class="col">
                     <a href="#"
-                        class="d-flex justify-content-center align-items-center button-banner-section3 px-3 py-2">
+                        class="d-flex justify-content-center align-items-center button-banner-section3 px-3 py-2 lh-1 fs-5">
                         <img src="{{ asset('images/section-3/ปุ่ม2.png') }}" alt="icon" width="50"
                             height="60" class="mb-2">
                         <span>สำนักงานคณะกรรมการป้องกัน <br> และปราบปรามการทุจริตแห่งชาติ</span>
@@ -161,7 +161,7 @@
                 </div>
                 <div class="col">
                     <a href="#"
-                        class="d-flex justify-content-center align-items-center button-banner-section3 px-3 py-2">
+                        class="d-flex justify-content-center align-items-center button-banner-section3 px-3 py-2 lh-1 ">
                         <img src="{{ asset('images/section-3/ปุ่ม3.png') }}" alt="icon" width="60"
                             height="60" class="mb-2">
                         <span>ระบบการจัดซื้อ <br> จัดจ้างภาครัฐ (EGP)</span>
@@ -169,7 +169,7 @@
                 </div>
                 <div class="col">
                     <a href="#"
-                        class="d-flex justify-content-center align-items-center button-banner-section3 px-3 py-2">
+                        class="d-flex justify-content-center align-items-center button-banner-section3 px-3 py-2 lh-1">
                         <img src="{{ asset('images/section-3/ปุ่ม4.png') }}" alt="icon" width="60"
                             height="60" class="mb-2">
                         <span>E - Social</span>
@@ -177,7 +177,7 @@
                 </div>
                 <div class="col">
                     <a href="#"
-                        class="d-flex justify-content-center align-items-center button-banner-section3 px-3 py-2">
+                        class="d-flex justify-content-center align-items-center button-banner-section3 px-3 py-2 lh-1">
                         <img src="{{ asset('images/section-3/ปุ่ม5.png') }}" alt="icon" width="60"
                             height="60" class="mb-2">
                         <span>One Stop Service</span>
