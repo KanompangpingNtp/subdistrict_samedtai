@@ -109,7 +109,7 @@
                         <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="">ผลงาน</a>
-                                <a class="nav-link" href="">รายงานผลการดำเนินงาน</a>
+                                <a class="nav-link" href="{{route('PerformanceReportAdmin')}}">รายงานผลการดำเนินงาน</a>
 
                             </nav>
                         </div>
