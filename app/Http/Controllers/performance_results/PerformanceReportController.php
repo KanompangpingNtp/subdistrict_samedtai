@@ -16,7 +16,7 @@ class PerformanceReportController extends Controller
         // $personnelAgencies = PersonnelAgency::with('ranks')->get();
 
         $perfResultsType = PerfResultsType::all();
-        $perfResultsTypeID = $perfResultsType->firstWhere('type_name', 'ผลงาน')->id;
+        $perfResultsTypeID = $perfResultsType->firstWhere('type_name', 'รายงานผลการดำเนินงาน')->id;
         $PerfResultsDetail = PerfResultsDetail::with('type')
             ->where('perf_results_type_id', $perfResultsTypeID)->get();
 
