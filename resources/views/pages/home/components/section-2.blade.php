@@ -124,10 +124,10 @@
                                 setTimeout(() => {
                                     imgElement.style.opacity = 1; // ค่อย ๆ แสดงรูปใหม่ (fade-in)
                                 }, 50); // รอให้รูปใหม่โหลดก่อนแล้วค่อย fade-in
-                            }, 1000); // รอ 1 วินาทีให้ fade-out เสร็จ
+                            }, 30000); // รอ 1 วินาทีให้ fade-out เสร็จ
                         }
 
-                        setInterval(changeImage, 3000); // เปลี่ยนรูปทุก 3 วินาที
+                        setInterval(changeImage, 33000); // เปลี่ยนรูปทุก 3 วินาที
                     });
                 </script>
 
