@@ -10,7 +10,7 @@ use App\Models\PerfResultsMinorDetail;
 
 class PerforManceController extends Controller
 {
-    public function  PerformanceReportPage()
+    public function  PerforMancePage()
     {
         // $personnelAgencies = PersonnelAgency::with('ranks')->get();
 
@@ -19,25 +19,25 @@ class PerforManceController extends Controller
         $PerfResultsDetail = PerfResultsDetail::with('type')
             ->where('perf_results_type_id', $perfResultsTypeID)->get();
 
-        return view('pages.performance_results.performance_report.page',compact('PerfResultsDetail','perfResultsType'));
+        return view('pages.performance_results.performance.page',compact('PerfResultsDetail','perfResultsType'));
     }
 
-    public function PerformanceReportShowDertailsPage($id)
+    public function PerforManceShowDertailsPage($id)
     {
         // $personnelAgencies = PersonnelAgency::with('ranks')->get();
 
         $PerfResultsDetail = PerfResultsDetail::findOrFail($id);
         $PerfResultsMinorDetail = PerfResultsMinorDetail::where('perf_results_detail_id', $id)->get();
 
-        return view('pages.performance_results.performance_report.show_detail', compact( 'PerfResultsMinorDetail','PerfResultsDetail'));
+        return view('pages.performance_results.performance.show_detail', compact( 'PerfResultsMinorDetail','PerfResultsDetail'));
     }
 
-    public function PerformanceReportShowDertailResultsPage($id)
+    public function PerforManceShowDertailResultsPage($id)
     {
         // $personnelAgencies = PersonnelAgency::with('ranks')->get();
 
         $PerfResultsMinorDetail = PerfResultsMinorDetail::with('files')->findOrFail($id);
 
-        return view('pages.performance_results.performance_report.show_detail_results', compact('PerfResultsMinorDetail'));
+        return view('pages.performance_results.performance.show_detail_results', compact('PerfResultsMinorDetail'));
     }
 }

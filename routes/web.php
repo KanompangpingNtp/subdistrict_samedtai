@@ -59,6 +59,11 @@ Route::get('/PerformanceReport/page', [PerformanceReportController::class, 'Perf
 Route::get('/PerformanceReport/show/details/{id}', [PerformanceReportController::class, 'PerformanceReportShowDertailsPage'])->name('PerformanceReportShowDertailsPage');
 Route::get('/PerformanceReport/show/details/results/{id}', [PerformanceReportController::class, 'PerformanceReportShowDertailResultsPage'])->name('PerformanceReportShowDertailResultsPage');
 
+//ผลงานดำเนินการ
+Route::get('/PerforMance/page', [PerforManceController::class, 'PerforMancePage'])->name('PerforMancePage');
+Route::get('/PerforMance/show/details/{id}', [PerforManceController::class, 'PerforManceShowDertailsPage'])->name('PerforManceShowDertailsPage');
+Route::get('/PerforMance/show/details/results/{id}', [PerforManceController::class, 'PerforManceShowDertailResultsPage'])->name('PerforManceShowDertailResultsPage');
+
 Route::middleware(['check.auth'])->group(function () {
     //admin PressRelease
     Route::get('/PressRelease/page', [PressReleaseController::class, 'PressReleaseHome'])->name('PressReleaseHome');

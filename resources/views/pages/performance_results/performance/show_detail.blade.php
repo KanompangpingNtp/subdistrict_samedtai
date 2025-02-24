@@ -76,10 +76,11 @@
         color: #77b329;
     }
 </style>
+
 <div class="bg py-5">
     <div class="container py-5 custom-gradient-shadow">
         <div class=" d-flex flex-column justify-content-center p-5">
-            <div class="fs-1 fw-bold mb-4 text-center" style="color: #ff85bf;">รายงานผลการดำเนินงาน <br><span style="font-size: 30px;">{{$PerfResultsDetail->detail_name}}</span></div>
+            <div class="fs-1 fw-bold mb-4 text-center" style="color: #ff85bf;">ผลงาน <br><span style="font-size: 30px;">{{$PerfResultsDetail->detail_name}}</span></div>
 
             <style>
                 .table td:hover {
@@ -114,7 +115,7 @@
             <table class="table">
                 @foreach($PerfResultsMinorDetail as $detail)
                 <tr>
-                    <td><a href="{{route('PerformanceReportShowDertailResultsPage',$detail->id)}}">{{ $detail->detail_name }}</a></td>
+                    <td><a href="{{route('PerforManceShowDertailResultsPage',$detail->id)}}">{{ $detail->detail_name }}</a></td>
                 </tr>
                 @endforeach
             </table>

@@ -281,7 +281,7 @@
                 <!-- ลิสต์รายการ -->
                 <ul class="custom-dropdown-menu text-start">
                     <li>
-                        <a href="" class="dropdown-item">ผลงาน</a>
+                        <a href="{{route('PerforMancePage')}}" class="dropdown-item">ผลงาน</a>
                         <a href="{{route('PerformanceReportPage')}}" class="dropdown-item">รายงานผลการดำเนินงาน</a>
                     </li>
                 </ul>

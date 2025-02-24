@@ -79,7 +79,7 @@
 <div class="bg py-5">
     <div class="container py-5 custom-gradient-shadow">
         <div class=" d-flex flex-column justify-content-center p-5">
-            <div class="fs-1 fw-bold mb-4 text-center" style="color: #ff85bf;">รายงานผลการดำเนินงาน <br>{{$PerfResultsMinorDetail->detail_name}}</div>
+            <div class="fs-1 fw-bold mb-4 text-center" style="color: #ff85bf;">ผลงาน <br>{{$PerfResultsMinorDetail->detail_name}}</div>
 
             @if($PerfResultsMinorDetail->files->isNotEmpty())
             @foreach($PerfResultsMinorDetail->files as $file)
