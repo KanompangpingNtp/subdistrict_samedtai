@@ -126,20 +126,19 @@
         position: relative;
     }
 
-    .custom-dropdown-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: white;
-        border-radius: 8px;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        list-style: none;
-        padding: 10px;
-        min-width: 200px;
-        z-index: 999;
-    }
+.custom-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 10px;
+    min-width: 200px;
+}
 
     .custom-dropdown-container:hover .custom-dropdown-menu {
         display: block;
@@ -152,9 +151,10 @@
         text-decoration: none;
     }
 
-    .custom-dropdown-menu .dropdown-item:hover {
-        background-color: #f0f0f0;
-    }
+.custom-dropdown-menu .dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
 </style>
 <main class="d-flex flex-column align-items-center justify-content-end bg-page1">
     <div class="video-container">
@@ -184,11 +184,9 @@
                             <div>ผลการดำเนินงาน</div>
                         </a>
                     </div> --}}
-                    <div
-                        class="custom-dropdown-container d-flex flex-column align-items-center justify-content-center position-relative">
+                    <div class="custom-dropdown-container d-flex flex-column align-items-center justify-content-center position-relative">
                         <a class="custom-hover-trigger navbar-item d-flex flex-column align-items-center">
-                            <img src="{{ asset('images/section-1/3-ปุ่มผลการดำเนินงาน.png') }}"
-                                alt="ปุ่มผลการดำเนินงาน">
+                            <img src="{{ asset('images/section-1/3-ปุ่มผลการดำเนินงาน.png') }}" alt="ปุ่มผลการดำเนินงาน">
                             <div>ผลการดำเนินงาน</div>
                         </a>
                         <!-- ลิสต์รายการ -->
@@ -248,10 +246,10 @@
                         </form>
                     </div>
 
-                </div>
             </div>
-
         </div>
+
+    </div>
     </div>
 
 
@@ -265,6 +263,7 @@
                 transform: translateX(-100%);
             }
         }
+
     </style>
 
 
