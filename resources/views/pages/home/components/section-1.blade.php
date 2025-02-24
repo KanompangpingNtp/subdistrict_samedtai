@@ -124,6 +124,7 @@
 
     .custom-dropdown-container {
         position: relative;
+        z-index: 999;
     }
 
 .custom-dropdown-menu {
@@ -138,6 +139,7 @@
     list-style: none;
     padding: 10px;
     min-width: 200px;
+    z-index: 999;
 }
 
     .custom-dropdown-container:hover .custom-dropdown-menu {
