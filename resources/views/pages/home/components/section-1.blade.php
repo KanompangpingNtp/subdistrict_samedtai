@@ -209,7 +209,7 @@
                         <a href="#" class="navbar-item">
                             <img src="{{ asset('images/section-1/5-ปุ่มแผนพัฒนาท้องถิ่น.png') }}"
                                 alt="ปุ่มแผนพัฒนาท้องถิ่น">
-                            <div>แผนพัฒนนาท้องถิ่น</div>
+                            <div>แผนพัฒนาท้องถิ่น</div>
                         </a>
                     </div>
                     <div class="d-flex flex-column align-items-center justify-content-center">
@@ -222,7 +222,7 @@
                         <a href="#" class="navbar-item">
                             <img src="{{ asset('images/section-1/7-ปุ่มเมนูสำหรับประชาชน.png') }}"
                                 alt="ปุ่มเมนูสำหรับประชาชน">
-                            <div>เมนูสำรหับประชาชน</div>
+                            <div>เมนูสำหรับประชาชน</div>
                         </a>
                     </div>
                 </div>
