@@ -31,9 +31,9 @@ use App\Http\Controllers\performance_results\PerforManceController;
 //     return view('pages.home.app');
 // })->name('home_index');
 
-Route::get('/admin', function () {
-    return view('admin.layout.layout');
-});
+// Route::get('/admin', function () {
+//     return view('admin.layout.layout');
+// });
 
 Route::get('/', [ShowDataController::class, 'HomeIndex'])->name('HomeIndex');
 Route::get('/ShowDataButton/page', [ShowDataController::class, 'ShowDataButton'])->name('ShowDataButton');

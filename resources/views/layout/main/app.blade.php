@@ -279,12 +279,12 @@
                     <div>ผลการดำเนินงาน</div>
                 </a>
                 <!-- ลิสต์รายการ -->
-                <ul class="custom-dropdown-menu text-start">
+                {{-- <ul class="custom-dropdown-menu text-start">
                     <li>
                         <a href="{{route('PerforMancePage')}}" class="dropdown-item">ผลงาน</a>
                         <a href="{{route('PerformanceReportPage')}}" class="dropdown-item">รายงานผลการดำเนินงาน</a>
                     </li>
-                </ul>
+                </ul> --}}
             </div>
 
             <div class="d-flex flex-column align-items-center justify-content-center">

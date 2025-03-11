@@ -101,15 +101,15 @@
                             <div class="sb-nav-link-icon">
                                 <i class="bi bi-clipboard"></i>
                             </div>
-                            ผลการดำเนินงาน
+                            จัดการแถบเมนู
                             <div class="sb-sidenav-collapse-arrow">
                                 <i class="fas fa-angle-down"></i>
                             </div>
                         </a>
                         <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="{{route('PerforManceAdmin')}}">ผลงาน</a>
-                                <a class="nav-link" href="{{route('PerformanceReportAdmin')}}">รายงานผลการดำเนินงาน</a>
+                                {{-- <a class="nav-link" href="{{route('PerforManceAdmin')}}">ผลงาน</a>
+                                <a class="nav-link" href="{{route('PerformanceReportAdmin')}}">รายงานผลการดำเนินงาน</a> --}}
                             </nav>
                         </div>
                     </div>
