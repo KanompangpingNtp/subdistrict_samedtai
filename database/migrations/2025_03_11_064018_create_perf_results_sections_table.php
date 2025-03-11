@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('perf_results_details', function (Blueprint $table) {
+        Schema::create('perf_results_sections', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('perf_results_type_id')->constrained('perf_results_types')->onDelete('cascade');
-            $table->string('detail_name');
+            $table->foreignId('type_id')->nullable()->constrained('perf_results_types')->onDelete('set null');
+            $table->text('section_name');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('perf_results_details');
+        Schema::dropIfExists('perf_results_sections');
     }
 };

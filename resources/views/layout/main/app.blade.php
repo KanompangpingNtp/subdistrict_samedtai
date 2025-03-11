@@ -279,12 +279,15 @@
                     <div>ผลการดำเนินงาน</div>
                 </a>
                 <!-- ลิสต์รายการ -->
-                {{-- <ul class="custom-dropdown-menu text-start">
-                    <li>
-                        <a href="{{route('PerforMancePage')}}" class="dropdown-item">ผลงาน</a>
-                        <a href="{{route('PerformanceReportPage')}}" class="dropdown-item">รายงานผลการดำเนินงาน</a>
-                    </li>
-                </ul> --}}
+                <ul class="custom-dropdown-menu text-start">
+                    @foreach ($PerfResultsMenu as $detail)
+                        <li>
+                            <a class="dropdown-item" href="{{ route('PerformanceResultsSectionPages', ['id' => $detail->id]) }}">
+                                {{ $detail->type_name }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
 
             <div class="d-flex flex-column align-items-center justify-content-center">

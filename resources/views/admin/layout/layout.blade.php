@@ -72,6 +72,15 @@
                             กิจกรรม
                         </a>
                         {{-- <div class="sb-sidenav-menu-heading">Interface</div> --}}
+
+                        <a class="nav-link" href="{{route('CheckinSpotHome')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            จุดเช็คอินกินเที่ยว
+                        </a>
+                        <a class="nav-link" href="{{route('NoticeBoardHome')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            ป้ายประกาศ
+                        </a>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon">
                                 <i class="bi bi-clipboard"></i>
@@ -89,27 +98,21 @@
                                 <a class="nav-link" href="{{route('RevenueHome')}}">งานเก็บรายได้</a>
                             </nav>
                         </div>
-                        <a class="nav-link" href="{{route('CheckinSpotHome')}}">
-                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
-                            จุดเช็คอินกินเที่ยว
-                        </a>
-                        <a class="nav-link" href="{{route('NoticeBoardHome')}}">
-                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
-                            ป้ายประกาศ
-                        </a>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts1">
                             <div class="sb-nav-link-icon">
                                 <i class="bi bi-clipboard"></i>
                             </div>
-                            จัดการแถบเมนู
+                            จัดการแถบเมนูหลัก
                             <div class="sb-sidenav-collapse-arrow">
                                 <i class="fas fa-angle-down"></i>
                             </div>
                         </a>
                         <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                {{-- <a class="nav-link" href="{{route('PerforManceAdmin')}}">ผลงาน</a>
-                                <a class="nav-link" href="{{route('PerformanceReportAdmin')}}">รายงานผลการดำเนินงาน</a> --}}
+                                <a class="nav-link" href="{{route('PerformanceResultsType')}}">ผลการดำเนินงาน</a>
+                                <a class="nav-link" href="{{route('AuthorityType')}}">อำนาจหน้าที่</a>
+                                <a class="nav-link" href="{{route('OperationalPlanType')}}">แผนงานพัฒนาท้องถิ่น</a>
+                                <a class="nav-link" href="{{route('LawsAndRegulationsType')}}">กฏหมายและกฏระเบียบ</a>
                             </nav>
                         </div>
                     </div>

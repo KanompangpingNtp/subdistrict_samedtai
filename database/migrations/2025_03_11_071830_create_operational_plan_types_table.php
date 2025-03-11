@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('perf_results_minor_files', function (Blueprint $table) {
+        Schema::create('operational_plan_types', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('perf_results_minor_detail_id')->constrained('perf_results_minor_details')->onDelete('cascade');
-            $table->string('file_path');
-            $table->string('file_type');
+            $table->text('type_name');
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('perf_results_minor_files');
+        Schema::dropIfExists('operational_plan_types');
     }
 };

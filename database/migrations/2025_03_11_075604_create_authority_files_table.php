@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('perf_results_types', function (Blueprint $table) {
+        Schema::create('authority_files', function (Blueprint $table) {
             $table->id();
-            $table->string('type_name');
+            $table->foreignId('detail_id')->nullable()->constrained('authority_details')->onDelete('set null');
+            $table->text('files_path');
+            $table->text('files_type');
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('perf_results_types');
+        Schema::dropIfExists('authority_files');
     }
 };

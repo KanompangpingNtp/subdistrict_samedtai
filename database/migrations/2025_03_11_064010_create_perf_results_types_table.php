@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('perf_single_topics', function (Blueprint $table) {
+        Schema::create('perf_results_types', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('perf_results_type_id')->constrained('perf_results_types')->onDelete('cascade');
-            $table->string('detail_name');
+            $table->text('type_name');
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('perf_single_topics');
+        Schema::dropIfExists('perf_results_types');
     }
 };

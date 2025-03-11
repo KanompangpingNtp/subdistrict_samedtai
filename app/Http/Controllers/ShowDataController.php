@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PostDetail;
+use App\Models\PerfResultsType;
+use App\Models\OperationalPlanType;
+use App\Models\LawsRegsType;
+use App\Models\AuthorityType;
 
 class ShowDataController extends Controller
 {
@@ -63,6 +67,18 @@ class ShowDataController extends Controller
                 $query->where('type_name', 'ป้ายประกาศ');
             })->get();
 
+        //ผลการดำเนินงานเมนู
+        $PerfResultsMenu = PerfResultsType::all();
+
+        //อำนาจหน้าที่
+        $AuthorityMenu = AuthorityType::all();
+
+        //เมนูแผนงานพัฒนาท้องถิ่น
+        $OperationalPlanMenu = OperationalPlanType::all();
+
+        //กฎหมายและกฎระเบียบ
+        $LawsRegsMenu = LawsRegsType::all();
+
         return view('pages.home.app', compact(
             'pressRelease',
             'activity',
@@ -71,7 +87,11 @@ class ShowDataController extends Controller
             'average',
             'revenue',
             'checkinspot',
-            'noticeBoard'
+            'noticeBoard',
+            'PerfResultsMenu',
+            'OperationalPlanMenu',
+            'LawsRegsMenu',
+            'AuthorityMenu'
         ));
     }
 

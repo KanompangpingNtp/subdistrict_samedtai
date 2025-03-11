@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('perf_results_minor_details', function (Blueprint $table) {
+        Schema::create('laws_regs_types', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('perf_results_detail_id')->constrained('perf_results_details')->onDelete('cascade');
-            $table->string('detail_name')->nullable();
+            $table->text('type_name');
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('perf_results_minor_details');
+        Schema::dropIfExists('laws_regs_types');
     }
 };

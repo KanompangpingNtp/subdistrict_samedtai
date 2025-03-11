@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('perf_single_topic_files', function (Blueprint $table) {
+        Schema::create('authority_types', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('perf_single_topic_id')->constrained('perf_single_topics')->onDelete('cascade');
-            $table->string('file_path');
-            $table->string('file_type');
+            $table->text('type_name');
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('perf_single_topic_files');
+        Schema::dropIfExists('authority_types');
     }
 };
