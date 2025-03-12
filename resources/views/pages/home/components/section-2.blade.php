@@ -196,10 +196,12 @@
                         </div>
                     </div>
                     <div class="col">
-                        <div class="d-flex justify-content-center align-items-center banner-blue px-3 py-2 fw-bold">
-                            <img src="{{ asset('images/section-2/5-ITALogo1.png') }}" alt="icon" class="mb-2">
-                            <span>การประเมินคุณธรรม <br> และ ความโปร่งใส</span>
-                        </div>
+                        <a href="{{route('itaPage')}}" class="text-decoration-none">
+                            <div class="d-flex justify-content-center align-items-center banner-blue px-3 py-2 fw-bold">
+                                <img src="{{ asset('images/section-2/5-ITALogo1.png') }}" alt="icon" class="mb-2">
+                                <span class="text-dark">การประเมินคุณธรรม <br> และ ความโปร่งใส</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>

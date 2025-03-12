@@ -25,7 +25,7 @@
     @endif
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.html">Admin Dashbord</a>
+        <a class="navbar-brand ps-3">Admin Dashbord</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!" title="Toggle sidebar">
             <i class="fas fa-bars"></i>
@@ -116,6 +116,10 @@
                                 <a class="nav-link" href="{{route('LawsAndRegulationsType')}}">กฏหมายและกฏระเบียบ</a>
                             </nav>
                         </div>
+                        <a class="nav-link" href="{{route('AdminITAType')}}">
+                            <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
+                            จัดการการประเมินคุณธรรม(ITA)
+                        </a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">

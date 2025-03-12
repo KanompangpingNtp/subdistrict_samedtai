@@ -21,6 +21,8 @@ use App\Http\Controllers\authority\AdminAuthorityController;
 use App\Http\Controllers\authority\AuthorityController;
 use App\Http\Controllers\agency\ManagePersonnelController;
 use App\Http\Controllers\agency\PersonnelAgencyController;
+use App\Http\Controllers\ITA\AdminITAController;
+use App\Http\Controllers\ITA\ITAController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +46,9 @@ Route::get('/', [ShowDataController::class, 'HomeIndex'])->name('HomeIndex');
 Route::get('/PerformanceResults/show/section/{id}', [PerformanceResultsController::class, 'PerformanceResultsSectionPages'])->name('PerformanceResultsSectionPages');
 Route::get('/PerformanceResults/show/section/topic/{id}', [PerformanceResultsController::class, 'PerfResultsSubTopicPages'])->name('PerfResultsSubTopicPages');
 Route::get('/PerformanceResults/show/section/topic/details/{id}', [PerformanceResultsController::class, 'PerfResultsShowDetailsPages'])->name('PerfResultsShowDetailsPages');
+
+//ita
+Route::get('/ita/page', [ITAController::class, 'itaPage'])->name('itaPage');
 
 //เมนูบุคลากร
 Route::get('/personnel_chart', [PersonnelAgencyController::class, 'PersonnelChart'])->name('PersonnelChart');
@@ -204,6 +209,18 @@ Route::middleware(['check.auth'])->group(function () {
     Route::get('/PersonnelGroupPhotoPage/page/{id}', [ManagePersonnelController::class, 'PersonnelGroupPhotoPage'])->name('PersonnelGroupPhotoPage');
     Route::post('/PersonnelGroupPhotoPage/create/{id}', [ManagePersonnelController::class, 'PersonnelGroupPhotoCreate'])->name('PersonnelGroupPhotoCreate');
     Route::delete('/PersonnelGroupPhotoPage/delete{id}', [ManagePersonnelController::class, 'PersonnelGroupPhotoDelete'])->name('PersonnelGroupPhotoDelete');
+
+    //ITA
+    Route::get('/Admin/ITA/type/page', [AdminITAController::class, 'AdminITAType'])->name('AdminITAType');
+    Route::post('/Admin/ITA/type/create', [AdminITAController::class, 'ITATypeCreate'])->name('ITATypeCreate');
+    Route::put('/Admin/ITA/type/update/{id}', [AdminITAController::class, 'ITATypeUpdate'])->name('ITATypeUpdate');
+    Route::delete('/Admin/ITA/type/delete/{id}', [AdminITAController::class, 'ITATypeDelete'])->name('ITATypeDelete');
+
+    Route::get('/Admin/ITA/type/detail/page/{id}', [AdminITAController::class, 'AdminITA'])->name('AdminITA');
+    Route::post('/Admin/ITA/create/{id}', [AdminITAController::class, 'ITACreate'])->name('ITACreate');
+    Route::put('/Admin/ITA/update/{id}', [AdminITAController::class, 'ITAUpdate'])->name('ITAUpdate');
+    Route::delete('/Admin/ITA/delete/{id}', [AdminITAController::class, 'ITADelete'])->name('ITADelete');
+    Route::delete('iTALink/{id}', [AdminITAController::class, 'destroy'])->name('ITAlink.destroy');
 });
 
 Route::get('/showLoginForm', [AuthController::class, 'showLoginForm'])->name('showLoginForm');
