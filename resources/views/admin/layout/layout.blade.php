@@ -109,6 +109,7 @@
                         </a>
                         <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{route('ManagePersonnel')}}">บุคลากร</a>
                                 <a class="nav-link" href="{{route('PerformanceResultsType')}}">ผลการดำเนินงาน</a>
                                 <a class="nav-link" href="{{route('AuthorityType')}}">อำนาจหน้าที่</a>
                                 <a class="nav-link" href="{{route('OperationalPlanType')}}">แผนงานพัฒนาท้องถิ่น</a>

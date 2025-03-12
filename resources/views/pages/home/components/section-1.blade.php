@@ -173,19 +173,24 @@
                             <div>หน้าหลัก</div>
                         </a>
                     </div>
-                    <div class="d-flex flex-column align-items-center justify-content-center">
-                        <a href="#" class="navbar-item">
+
+                    <div class="custom-dropdown-container d-flex flex-column align-items-center justify-content-center position-relative">
+                        <a class="custom-hover-trigger navbar-item d-flex flex-column align-items-center">
                             <img src="{{ asset('images/section-1/2-ปุ่มบุคลากร.png') }}" alt="ปุ่มบุคลากร">
                             <div>บุคลากร</div>
                         </a>
+                        <!-- ลิสต์รายการ -->
+                        <ul class="custom-dropdown-menu text-start">
+                            @foreach ($personnelAgencies as $agency)
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('AgencyShow', ['id' => $agency->id]) }}">
+                                        {{ $agency->personnel_agency_name }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
-                    {{-- <div class="d-flex flex-column align-items-center justify-content-center">
-                        <a href="#" class="navbar-item">
-                            <img src="{{ asset('images/section-1/3-ปุ่มผลการดำเนินงาน.png') }}"
-                                alt="ปุ่มผลการดำเนินงาน">
-                            <div>ผลการดำเนินงาน</div>
-                        </a>
-                    </div> --}}
+
                     <div class="custom-dropdown-container d-flex flex-column align-items-center justify-content-center position-relative">
                         <a class="custom-hover-trigger navbar-item d-flex flex-column align-items-center">
                             <img src="{{ asset('images/section-1/3-ปุ่มผลการดำเนินงาน.png') }}" alt="ปุ่มผลการดำเนินงาน">
@@ -203,12 +208,6 @@
                         </ul>
                     </div>
 
-                    {{-- <div class="d-flex flex-column align-items-center justify-content-center">
-                        <a href="#" class="navbar-item">
-                            <img src="{{ asset('images/section-1/4-ปุ่มอำนาจหน้าที่.png') }}" alt="ปุ่มอำนาจหน้าที่">
-                            <div>อำนาจหน้าที่</div>
-                        </a>
-                    </div> --}}
                     <div class="custom-dropdown-container d-flex flex-column align-items-center justify-content-center position-relative">
                         <a class="custom-hover-trigger navbar-item d-flex flex-column align-items-center">
                             <img src="{{ asset('images/section-1/4-ปุ่มอำนาจหน้าที่.png') }}" alt="ปุ่มอำนาจหน้าที่">

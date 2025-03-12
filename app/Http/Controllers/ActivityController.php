@@ -8,6 +8,11 @@ use App\Models\PostDetail;
 use App\Models\PostPdf;
 use App\Models\PostPhoto;
 use App\Models\PostVideo;
+use App\Models\PersonnelAgency;
+use App\Models\AuthorityType;
+use App\Models\PerfResultsType;
+use App\Models\OperationalPlanType;
+use App\Models\LawsRegsType;
 use Illuminate\Support\Facades\Storage;
 
 class ActivityController extends Controller
@@ -18,7 +23,7 @@ class ActivityController extends Controller
         $postTypes = PostType::all();
 
         $postTypeId = $postTypes->firstWhere('type_name', 'กิจกรรม')->id;
-        $postDetails = PostDetail::with('postType','photos','pdfs','videos')
+        $postDetails = PostDetail::with('postType', 'photos', 'pdfs', 'videos')
             ->where('post_type_id', $postTypeId)
             ->get();
 
@@ -163,24 +168,36 @@ class ActivityController extends Controller
 
     public function ActivityShowData()
     {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $PerfResultsMenu = PerfResultsType::all();
+        $AuthorityMenu = AuthorityType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
+
         $activity = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'กิจกรรม');
             })
             ->orderBy('created_at', 'desc')
-            ->paginate(14); ;
+            ->paginate(14);;
 
-        return view('pages.activity.show_data', compact('activity'));
+        return view('pages.activity.show_data', compact('activity', 'personnelAgencies', 'PerfResultsMenu', 'AuthorityMenu', 'OperationalPlanMenu', 'LawsRegsMenu'));
     }
 
     public function ActivityShowDetails($id)
     {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $PerfResultsMenu = PerfResultsType::all();
+        $AuthorityMenu = AuthorityType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
+
         $activity = PostDetail::with(['postType', 'videos', 'photos', 'pdfs'])
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'กิจกรรม');
             })
             ->findOrFail($id);
 
-        return view('pages.activity.show_detail', compact('activity'));
+        return view('pages.activity.show_detail', compact('activity', 'personnelAgencies', 'PerfResultsMenu', 'AuthorityMenu', 'OperationalPlanMenu', 'LawsRegsMenu'));
     }
 }

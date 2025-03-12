@@ -8,6 +8,7 @@ use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
 use App\Models\LawsRegsType;
 use App\Models\AuthorityType;
+use App\Models\PersonnelAgency;
 
 class ShowDataController extends Controller
 {
@@ -79,6 +80,9 @@ class ShowDataController extends Controller
         //กฎหมายและกฎระเบียบ
         $LawsRegsMenu = LawsRegsType::all();
 
+        //บุคลากร
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+
         return view('pages.home.app', compact(
             'pressRelease',
             'activity',
@@ -91,7 +95,8 @@ class ShowDataController extends Controller
             'PerfResultsMenu',
             'OperationalPlanMenu',
             'LawsRegsMenu',
-            'AuthorityMenu'
+            'AuthorityMenu',
+            'personnelAgencies'
         ));
     }
 

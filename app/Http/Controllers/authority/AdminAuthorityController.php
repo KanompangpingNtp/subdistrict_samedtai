@@ -58,8 +58,8 @@ class AdminAuthorityController extends Controller
     {
         $AuthorityType = AuthorityType::findOrFail($id);
         $AuthorityDetails = AuthorityDetails::with('files')
-        ->where('type_id', $id)
-        ->get();
+            ->where('type_id', $id)
+            ->get();
 
         return view('admin.authority.page_details', compact('AuthorityType', 'AuthorityDetails'));
     }
@@ -95,5 +95,23 @@ class AdminAuthorityController extends Controller
         }
 
         return redirect()->back()->with('success', 'เพิ่มข้อมูลสำเร็จ');
+    }
+
+    public function AuthorityDetailDelete($id)
+    {
+        $AuthorityDetails = AuthorityDetails::findOrFail($id);
+
+        // ลบไฟล์ที่เกี่ยวข้อง
+        $AuthorityFiles = AuthorityFiles::where('detail_id', $id)->get();
+        foreach ($AuthorityFiles as $file) {
+            // ลบไฟล์จาก storage
+            Storage::disk('public')->delete($file->files_path);
+            $file->delete();
+        }
+
+        // ลบข้อมูลหลัก
+        $AuthorityDetails->delete();
+
+        return redirect()->back()->with('success', 'ลบข้อมูลสำเร็จ');
     }
 }

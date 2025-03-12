@@ -261,18 +261,23 @@
                     <div>หน้าหลัก</div>
                 </a>
             </div>
-            <div class="d-flex flex-column align-items-center justify-content-center">
-                <a href="#" class="navbar-item">
+            <div class="custom-dropdown-container d-flex flex-column align-items-center justify-content-center position-relative">
+                <a class="custom-hover-trigger navbar-item d-flex flex-column align-items-center">
                     <img src="{{ asset('images/section-1/2-ปุ่มบุคลากร.png') }}" alt="ปุ่มบุคลากร">
                     <div>บุคลากร</div>
                 </a>
+                <!-- ลิสต์รายการ -->
+                <ul class="custom-dropdown-menu text-start">
+                    @foreach ($personnelAgencies as $agency)
+                        <li>
+                            <a class="dropdown-item" href="{{ route('AgencyShow', ['id' => $agency->id]) }}">
+                                {{ $agency->personnel_agency_name }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
-            {{-- <div class="d-flex flex-column align-items-center justify-content-center">
-                <a href="#" class="navbar-item">
-                    <img src="{{ asset('images/section-1/3-ปุ่มผลการดำเนินงาน.png') }}" alt="ปุ่มผลการดำเนินงาน">
-                    <div>ผลการดำเนินงาน</div>
-                </a>
-            </div> --}}
+
             <div class="custom-dropdown-container d-flex flex-column align-items-center justify-content-center position-relative">
                 <a class="custom-hover-trigger navbar-item d-flex flex-column align-items-center">
                     <img src="{{ asset('images/section-1/3-ปุ่มผลการดำเนินงาน.png') }}" alt="ปุ่มผลการดำเนินงาน">
@@ -290,24 +295,74 @@
                 </ul>
             </div>
 
-            <div class="d-flex flex-column align-items-center justify-content-center">
-                <a href="#" class="navbar-item">
+            <div class="custom-dropdown-container d-flex flex-column align-items-center justify-content-center position-relative">
+                <a class="custom-hover-trigger navbar-item d-flex flex-column align-items-center">
+                    <img src="{{ asset('images/section-1/3-ปุ่มผลการดำเนินงาน.png') }}" alt="ปุ่มผลการดำเนินงาน">
+                    <div>ผลการดำเนินงาน</div>
+                </a>
+                <!-- ลิสต์รายการ -->
+                <ul class="custom-dropdown-menu text-start">
+                    @foreach ($PerfResultsMenu as $detail)
+                        <li>
+                            <a class="dropdown-item" href="{{ route('PerformanceResultsSectionPages', ['id' => $detail->id]) }}">
+                                {{ $detail->type_name }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+
+            <div class="custom-dropdown-container d-flex flex-column align-items-center justify-content-center position-relative">
+                <a class="custom-hover-trigger navbar-item d-flex flex-column align-items-center">
                     <img src="{{ asset('images/section-1/4-ปุ่มอำนาจหน้าที่.png') }}" alt="ปุ่มอำนาจหน้าที่">
                     <div>อำนาจหน้าที่</div>
                 </a>
+                <!-- ลิสต์รายการ -->
+                <ul class="custom-dropdown-menu text-start">
+                    @foreach ($AuthorityMenu as $detail)
+                        <li>
+                            <a class="dropdown-item" href="{{ route('AuthorityShowDetailsPages', ['id' => $detail->id]) }}">
+                                {{ $detail->type_name }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
-            <div class="d-flex flex-column align-items-center justify-content-center">
-                <a href="#" class="navbar-item">
+
+            <div class="custom-dropdown-container d-flex flex-column align-items-center justify-content-center position-relative">
+                <a class="custom-hover-trigger navbar-item d-flex flex-column align-items-center">
                     <img src="{{ asset('images/section-1/5-ปุ่มแผนพัฒนาท้องถิ่น.png') }}" alt="ปุ่มแผนพัฒนาท้องถิ่น">
                     <div>แผนพัฒนาท้องถิ่น</div>
                 </a>
+                <!-- ลิสต์รายการ -->
+                <ul class="custom-dropdown-menu text-start">
+                    @foreach ($OperationalPlanMenu as $detail)
+                        <li>
+                            <a class="dropdown-item" href="{{ route('OperationalPlanSectionPages', ['id' => $detail->id]) }}">
+                                {{ $detail->type_name }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
-            <div class="d-flex flex-column align-items-center justify-content-center">
-                <a href="#" class="navbar-item">
-                    <img src="{{ asset('images/section-1/6-กฏหมาย.png') }}" alt="กฏหมาย">
-                    <div>กฏหมายและกฏระเบียบ</div>
+
+            <div class="custom-dropdown-container d-flex flex-column align-items-center justify-content-center position-relative">
+                <a class="custom-hover-trigger navbar-item d-flex flex-column align-items-center">
+                    <img src="{{ asset('images/section-1/6-กฏหมาย.png') }}" alt="กฎหมาย">
+                    <div>กฎหมายและกฎระเบียบ</div>
                 </a>
+                <!-- ลิสต์รายการ -->
+                <ul class="custom-dropdown-menu text-start">
+                    @foreach ($LawsRegsMenu as $detail)
+                        <li>
+                            <a class="dropdown-item" href="{{ route('LawsAndRegulationsSectionPages', ['id' => $detail->id]) }}">
+                                {{ $detail->type_name }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
+
             <div class="d-flex flex-column align-items-center justify-content-center">
                 <a href="#" class="navbar-item">
                     <img src="{{ asset('images/section-1/7-ปุ่มเมนูสำหรับประชาชน.png') }}" alt="ปุ่มเมนูสำหรับประชาชน">

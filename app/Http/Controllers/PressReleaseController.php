@@ -8,6 +8,11 @@ use App\Models\PostDetail;
 use App\Models\PostPdf;
 use App\Models\PostPhoto;
 use App\Models\PostVideo;
+use App\Models\PersonnelAgency;
+use App\Models\AuthorityType;
+use App\Models\PerfResultsType;
+use App\Models\OperationalPlanType;
+use App\Models\LawsRegsType;
 use Illuminate\Support\Facades\Storage;
 
 class PressReleaseController extends Controller
@@ -236,19 +241,14 @@ class PressReleaseController extends Controller
         return redirect()->back()->with('success', 'แก้ไขข้อมูลเรียบร้อยแล้ว!');
     }
 
-    // public function PressReleaseShowData()
-    // {
-    //     $pressRelease = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
-    //     ->whereHas('postType', function ($query) {
-    //         $query->where('type_name', 'ข่าวประชาสัมพันธ์');
-    //     })
-    //     ->orderBy('created_at', 'desc')
-    //     ->get();
-
-    //     return view('pages.press_release.show_data', compact('pressRelease'));
-    // }
     public function PressReleaseShowData()
     {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $PerfResultsMenu = PerfResultsType::all();
+        $AuthorityMenu = AuthorityType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
+
         $pressRelease = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ข่าวประชาสัมพันธ์');
@@ -256,19 +256,24 @@ class PressReleaseController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(14); // กำหนดจำนวนรายการที่แสดงต่อหน้าเป็น 14
 
-        return view('pages.press_release.show_data', compact('pressRelease'));
+        return view('pages.press_release.show_data', compact('pressRelease', 'personnelAgencies', 'PerfResultsMenu', 'AuthorityMenu', 'OperationalPlanMenu', 'LawsRegsMenu'));
     }
 
 
     public function PressReleaseShowDetails($id)
     {
-        //ข่าวประชาสัมพันธ์
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $PerfResultsMenu = PerfResultsType::all();
+        $AuthorityMenu = AuthorityType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
+
         $pressRelease = PostDetail::with(['postType', 'videos', 'photos', 'pdfs'])
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ข่าวประชาสัมพันธ์');
             })
             ->findOrFail($id);
 
-        return view('pages.press_release.show_detail', compact('pressRelease'));
+        return view('pages.press_release.show_detail', compact('pressRelease', 'personnelAgencies', 'PerfResultsMenu', 'AuthorityMenu', 'OperationalPlanMenu', 'LawsRegsMenu'));
     }
 }
