@@ -11,6 +11,7 @@ use App\Models\PersonnelAgency;
 use App\Models\AuthorityType;
 use App\Models\PerfResultsType;
 use App\Models\LawsRegsType;
+use App\Models\PublicMenusType;
 
 class OperationalPlanController extends Controller
 {
@@ -21,11 +22,12 @@ class OperationalPlanController extends Controller
         $AuthorityMenu = AuthorityType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $OperationalPlanType = OperationalPlanType::findOrFail($id);
         $OperationalPlanSection = OperationalPlanSection::where('type_id', $id)->get();
 
-        return view('pages.operational_plan.page_section', compact('OperationalPlanType', 'OperationalPlanSection', 'personnelAgencies', 'PerfResultsMenu', 'AuthorityMenu', 'OperationalPlanMenu', 'LawsRegsMenu'));
+        return view('pages.operational_plan.page_section', compact('PublicMenus','OperationalPlanType', 'OperationalPlanSection', 'personnelAgencies', 'PerfResultsMenu', 'AuthorityMenu', 'OperationalPlanMenu', 'LawsRegsMenu'));
     }
 
     public function OperationalPlanShowDetailsPages($id)
@@ -35,10 +37,11 @@ class OperationalPlanController extends Controller
         $AuthorityMenu = AuthorityType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $OperationalPlanSection = OperationalPlanSection::with('type')->findOrFail($id);
         $OperationalPlanFile = OperationalPlanFile::where('section_id', $id)->get();
 
-        return view('pages.operational_plan.page_detail', compact('OperationalPlanSection', 'OperationalPlanFile', 'personnelAgencies', 'PerfResultsMenu', 'AuthorityMenu', 'OperationalPlanMenu', 'LawsRegsMenu'));
+        return view('pages.operational_plan.page_detail', compact('PublicMenus','OperationalPlanSection', 'OperationalPlanFile', 'personnelAgencies', 'PerfResultsMenu', 'AuthorityMenu', 'OperationalPlanMenu', 'LawsRegsMenu'));
     }
 }

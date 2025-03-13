@@ -11,6 +11,7 @@ use App\Models\AuthorityType;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
 use App\Models\LawsRegsType;
+use App\Models\PublicMenusType;
 use Illuminate\Support\Facades\Storage;
 
 class NoticeBoardController extends Controller
@@ -98,33 +99,35 @@ class NoticeBoardController extends Controller
     public function NoticeBoardShowData()
     {
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
-$PerfResultsMenu = PerfResultsType::all();
-$AuthorityMenu = AuthorityType::all();
-$OperationalPlanMenu = OperationalPlanType::all();
-$LawsRegsMenu = LawsRegsType::all();
+        $PerfResultsMenu = PerfResultsType::all();
+        $AuthorityMenu = AuthorityType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
-        $noticeBoard = PostDetail::with('postType','photos')
+        $noticeBoard = PostDetail::with('postType', 'photos')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ป้ายประกาศ');
             })->paginate(14);
 
-        return view('pages.notice_board.show_data', compact('noticeBoard','personnelAgencies','PerfResultsMenu','AuthorityMenu','OperationalPlanMenu','LawsRegsMenu'));
+        return view('pages.notice_board.show_data', compact('PublicMenus','noticeBoard', 'personnelAgencies', 'PerfResultsMenu', 'AuthorityMenu', 'OperationalPlanMenu', 'LawsRegsMenu'));
     }
 
     public function NoticeBoardShowDetails($id)
     {
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
-$PerfResultsMenu = PerfResultsType::all();
-$AuthorityMenu = AuthorityType::all();
-$OperationalPlanMenu = OperationalPlanType::all();
-$LawsRegsMenu = LawsRegsType::all();
+        $PerfResultsMenu = PerfResultsType::all();
+        $AuthorityMenu = AuthorityType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
-        $noticeBoard = PostDetail::with(['postType','photos'])
+        $noticeBoard = PostDetail::with(['postType', 'photos'])
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ป้ายประกาศ');
             })
             ->findOrFail($id);
 
-        return view('pages.notice_board.show_detail', compact('noticeBoard','personnelAgencies','PerfResultsMenu','AuthorityMenu','OperationalPlanMenu','LawsRegsMenu'));
+        return view('pages.notice_board.show_detail', compact('PublicMenus','noticeBoard', 'personnelAgencies', 'PerfResultsMenu', 'AuthorityMenu', 'OperationalPlanMenu', 'LawsRegsMenu'));
     }
 }

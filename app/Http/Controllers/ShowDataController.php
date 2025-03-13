@@ -9,6 +9,7 @@ use App\Models\OperationalPlanType;
 use App\Models\LawsRegsType;
 use App\Models\AuthorityType;
 use App\Models\PersonnelAgency;
+use App\Models\PublicMenusType;
 
 class ShowDataController extends Controller
 {
@@ -80,6 +81,9 @@ class ShowDataController extends Controller
         //กฎหมายและกฎระเบียบ
         $LawsRegsMenu = LawsRegsType::all();
 
+        //เมนูสำหรับประชาชน
+        $PublicMenus = PublicMenusType::all();
+
         //บุคลากร
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
 
@@ -96,7 +100,8 @@ class ShowDataController extends Controller
             'OperationalPlanMenu',
             'LawsRegsMenu',
             'AuthorityMenu',
-            'personnelAgencies'
+            'personnelAgencies',
+            'PublicMenus'
         ));
     }
 

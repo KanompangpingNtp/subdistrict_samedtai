@@ -10,6 +10,7 @@ use App\Models\AuthorityType;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
 use App\Models\LawsRegsType;
+use App\Models\PublicMenusType;
 
 class ITAController extends Controller
 {
@@ -20,6 +21,7 @@ class ITAController extends Controller
         $AuthorityMenu = AuthorityType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $showITA = ITAType::with('itADetails.iTALinks')->get();
 
@@ -29,7 +31,8 @@ class ITAController extends Controller
             'personnelAgencies',
             'PerfResultsMenu',
             'OperationalPlanMenu',
-            'AuthorityMenu'
+            'AuthorityMenu',
+            'PublicMenus',
         ));
     }
 }

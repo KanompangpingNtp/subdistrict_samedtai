@@ -363,11 +363,21 @@
                 </ul>
             </div>
 
-            <div class="d-flex flex-column align-items-center justify-content-center">
-                <a href="#" class="navbar-item">
+            <div class="custom-dropdown-container d-flex flex-column align-items-center justify-content-center position-relative">
+                <a class="custom-hover-trigger navbar-item d-flex flex-column align-items-center">
                     <img src="{{ asset('images/section-1/7-ปุ่มเมนูสำหรับประชาชน.png') }}" alt="ปุ่มเมนูสำหรับประชาชน">
                     <div>เมนูสำหรับประชาชน</div>
                 </a>
+                <!-- ลิสต์รายการ -->
+                <ul class="custom-dropdown-menu text-start">
+                    @foreach ($PublicMenus as $detail)
+                        <li>
+                            <a class="dropdown-item" href="{{ route('MenuForPublicSectionPages', ['id' => $detail->id]) }}">
+                                {{ $detail->type_name }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
         </div>
     </div>
