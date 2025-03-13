@@ -371,6 +371,7 @@
             </div>
         </div>
     </div>
+
     {{-- <div class="bg-runtext w-100 d-flex align-items-center">
         <div class="container d-flex align-items-center gap-3">
             <div class="col-12 col-md-9 bg-text">
