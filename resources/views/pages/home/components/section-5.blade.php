@@ -169,7 +169,7 @@
                                     <img src="{{ asset('storage/' . ($post->photos->first()->post_photo_file ?? 'images/default.jpg')) }}"
                                         class="card-img-top img-fluid" alt="Card Image {{ $index + 1 }}"
                                         style="width: 100%; height: 100%; object-fit: cover;">
-    
+
                                 </div>
                                 <div class="card-body bg-text-card-section-5 rounded lh-1 px-2 py-2">
                                     <div class="card-text">
@@ -186,7 +186,7 @@
                             </a>
                         @endforeach
                     </div>
-    
+
                     <div class="d-flex justify-content-end align-items-center w-100 mt-2 me-5">
                         <a href="{{ route('ActivityShowData') }}" class="button-viewall-section-5 py-1 px-3">
                             ดูทั้งหมด
@@ -208,7 +208,7 @@
                                     <img src="{{ asset('storage/' . ($post->photos->first()->post_photo_file ?? 'images/default.jpg')) }}"
                                         class="card-img-top img-fluid" alt="Card Image {{ $index + 1 }}"
                                         style="width: 100%; height: 100%; object-fit: cover;">
-    
+
                                 </div>
                                 <div class="card-body bg-text-card-section-5 rounded lh-1 px-2 py-2">
                                     <div class="card-text">
@@ -225,14 +225,14 @@
                             </a>
                         @endforeach
                     </div>
-    
+
                     <div class="d-flex justify-content-end align-items-center w-100 mt-2 me-5">
                         <a href="{{ route('ActivityShowData') }}" class="button-viewall-section-5 py-1 px-3">
                             ดูทั้งหมด
                         </a>
                     </div>
                 </div>
-    
+
                 <div class="bg-details-section-5 d-none d-lg-flex d-xl-none flex-column justify-content-center py-3 px-3 ">
                     <div class="d-flex justify-content-center align-items-center gap-2">
                         @foreach ($activity->take(3) as $index => $post)
@@ -248,7 +248,7 @@
                                     <img src="{{ asset('storage/' . ($post->photos->first()->post_photo_file ?? 'images/default.jpg')) }}"
                                         class="card-img-top img-fluid" alt="Card Image {{ $index + 1 }}"
                                         style="width: 100%; height: 100%; object-fit: cover;">
-    
+
                                 </div>
                                 <div class="card-body bg-text-card-section-5 rounded lh-1 px-2 py-2">
                                     <div class="card-text">
@@ -273,7 +273,7 @@
                 </div>
                 <div class="bg-details-section-5 d-none d-xl-flex flex-column justify-content-center py-3 px-3 ">
                     <div class="d-flex justify-content-center align-items-center gap-2">
-                        @foreach ($activity->take(4) as $index => $post)
+                        @foreach ($activity->take(3) as $index => $post)
                             @php
                                 // กำหนดคลาสพื้นหลังสลับสี
                                 $cardBackgroundClass =
@@ -286,7 +286,7 @@
                                     <img src="{{ asset('storage/' . ($post->photos->first()->post_photo_file ?? 'images/default.jpg')) }}"
                                         class="card-img-top img-fluid" alt="Card Image {{ $index + 1 }}"
                                         style="width: 100%; height: 100%; object-fit: cover;">
-    
+
                                 </div>
                                 <div class="card-body bg-text-card-section-5 rounded lh-1 px-2 py-2">
                                     <div class="card-text">
@@ -303,14 +303,14 @@
                             </a>
                         @endforeach
                     </div>
-    
+
                     <div class="d-flex justify-content-end align-items-center w-100 mt-2 me-5">
                         <a href="{{ route('ActivityShowData') }}" class="button-viewall-section-5 py-1 px-3">
                             ดูทั้งหมด
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="bg-details-section-5 d-flex justify-content-center mt-3 px-3 py-2 w-100">
                     <div class=" mb-3 mb-lg-0 w-100">
                         <iframe src="https://www.tmd.go.th/weatherForecast7DaysWidget?province=ฉะเชิงเทรา" height="340"
@@ -324,27 +324,27 @@
                     <img src="{{ asset('images/section-5/1.png') }}" alt="banner-1">
                     <div class="section5-overlay-text">กระดานกระทู้</div>
                 </a>
-            
+
                 <a href="#" class="col-xl-12 col-md-6 section5-image-wrapper">
                     <img src="{{ asset('images/section-5/2.png') }}" alt="banner-2">
                     <div class="section5-overlay-text">คู่มือการปฎิบัติงาน</div>
                 </a>
-            
+
                 <a href="#" class="col-xl-12 col-md-6 section5-image-wrapper">
                     <img src="{{ asset('images/section-5/3.png') }}" alt="banner-3">
                     <div class="section5-overlay-text">การให้บริการ</div>
                 </a>
-            
+
                 <a href="#" class="col-xl-12 col-md-6 section5-image-wrapper">
                     <img src="{{ asset('images/section-5/4.png') }}" alt="banner-4">
                     <div class="section5-overlay-text">สงเสริมความโปร่งใส<br>และแผนป้องกันการทุจริต</div>
                 </a>
-            
+
                 <a href="#" class="col-xl-12 col-md-6 section5-image-wrapper">
                     <img src="{{ asset('images/section-5/5.png') }}" alt="banner-5">
                     <div class="section5-overlay-text">การเสริมสร้าง<br>วัฒนธรรมองค์กร</div>
                 </a>
-            
+
                 <a href="#" class="col-xl-12 col-md-6 section5-image-wrapper">
                     <img src="{{ asset('images/section-5/6.png') }}" alt="banner-6">
                     <div class="section5-overlay-text">ดาวน์โหลดแบบฟอร์ม</div>
@@ -352,5 +352,5 @@
             </div>
         </div>
     </div>
-    
+
 </main>
