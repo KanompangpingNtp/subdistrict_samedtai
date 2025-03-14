@@ -97,83 +97,111 @@
         transform: scale(1.05);
         /* ขยายขนาดเล็กน้อย */
     }
+
+    .title-book {
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow:
+            1px 1px 0 #fff,
+            /* ขอบด้านขวา */
+            -1px -1px 0 #fff,
+            /* ขอบด้านซ้าย */
+            1px -1px 0 #fff,
+            /* ขอบด้านล่าง */
+            -1px 1px 0 #fff;
+        /* ขอบด้านบน */
+    }
+
+    .link-book {
+        background: linear-gradient(to bottom, #8dd5fe, #f4b0d4);
+        color: rgb(0, 0, 0);
+        padding: 8px 5px;
+        border-radius: 15px;
+        font-size: 20px;
+        text-decoration: none;
+        transition: background 0.3s, transform 0.3s;
+    }
+
+    .link-book div {
+        border-radius: 10px;
+    }
+
+    .link-book:hover {
+        background: linear-gradient(to bottom, #f4b0d4, #8dd5fe);
+        color: #f4b0d4;
+        transform: scale(1.05);
+    }
+
+    .book-pink,
+    .book-blue {
+        background: linear-gradient(to bottom, #e8b6da, #9bd1f8);
+        border-radius: 50px;
+        padding: 1rem;
+    }
 </style>
 <!-- Content Section -->
 <main class="bg-page8 d-flex">
-    <div class="container d-flex flex-column justify-content-center align-items-center gap-3 px-5">
-        <div class="title-section-8 lh-1 text-center mb-5 py-3 px-4 d-flex ">
-            หนังสือราชการ
-        </div>
-        <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
-            <div class=" col-lg-6 bg-pink-section-8">
-                <div class="bg-white d-flex flex-column justify-content-center align-items-center gap-3 p-3"
-                    style="border-radius: 20px;">
-                    <div class=" p-1 w-100 d-flex justify-content-center align-items-center">
-                        <div class="d-flex justify-content-center align-items-center lh-1 gap-3 fw-bold bg-left-pink-title-section-8 w-50"
-                            style="margin-top: -3.5rem;"> <!-- ใช้ margin-top เป็นค่าลบ -->
-                            <img src="{{ asset('images/section-8/open-book-1.png') }}" alt="logo" width="45"
-                                height="45">
-                            <span class="text-center fs-4">จากกรมส่งเสริม <br>การปกครองท้องถิ่น</span>
-                        </div>
-
-                    </div>
-                    <?php
-                    for ($i = 1; $i <= 6; $i++) {
-                        ?>
-                    <div class="card-view-page8 d-flex">
-                        <img src="{{ asset('images/section-8/bookmark.png') }}" alt="icon" width="20"
-                            height="25">
-                        <div class="m-2 p-0">
-                            <?php
-                            $text = 'This is card number with sample text. This text might be too long for the card.';
-                            echo mb_strimwidth($text, 0, 60, '...');
-                            ?>
-                        </div>
-                    </div>
-                    <?php } ?>
-                    <div class="d-flex justify-content-center align-items-center lh-1 gap-3 fw-bold bg-left-pink-view-all-section-8 w-25"
-                        style="margin-bottom: -2.5rem;"> <!-- ใช้ margin-top เป็นค่าลบ -->
-                        <span class="text-center ">ดูทั้งหมด</span>
-                    </div>
-                </div>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-4 d-none d-lg-flex justify-content-center align-items-center">
+                <img src="{{ asset('images/section-8/Book.png') }}" alt="book-title" class="img-">
             </div>
+            <div class="col-1 d-none d-lg-flex flex-column justify-content-evenly align-items-center ">
+                <img src="{{ asset('images/section-8/double-chevron.png') }}" alt="img-arrow" style="width: 100px;"
+                    class="mb-5">
+                <img src="{{ asset('images/section-8/double-chevron.png') }}" alt="img-arrow" style="width: 100px;"
+                    class="mt-5">
+            </div>
+            <div class="col-lg-7 d-flex flex-column align-items-between">
+                <div class="book-blue my-2 d-flex flex-column justify-content-center align-items-start gap-1">
+                    <div class="title-book mb-3 text-center w-100">
+                        จากกรมส่งเสริมการปกครองท้องถิ่น
+                    </div>
+                    <div class="bg-white p-3 d-flex flex-column justify-content-center align-items-start w-100 gap-1"
+                        style="border-radius: 30px;">
+                        <a href="#" class="link-book">
+                            <div class="py-2 ps-2 pe-5 bg-white">หน้าแรก</div>
+                        </a>
+                        <a href="#" class="link-book">
+                            <div class="py-2 ps-2 pe-5 bg-white">หนังสือราชการของ สถ.</div>
+                        </a>
+                        <a href="#" class="link-book">
+                            <div class="py-2 ps-2 pe-5 bg-white">กฏหมาย ระเบียบ และมติ ก.กลาง</div>
+                        </a>
+                        <a href="#" class="link-book">
+                            <div class="py-2 ps-2 pe-5 bg-white">บทความน่าสนใจ</div>
+                        </a>
+                        <a href="#" class="link-book">
+                            <div class="py-2 ps-2 pe-5 lh-1 bg-white" >พรบ. และประกาศเกี่ยวกับเทคโนโลยีสารสนเทศ</div>
+                        </a>
+                    </div>
 
-            <div class=" col-lg-6 bg-blue-section-8 mt-5 mt-lg-0">
-                <div class="bg-white d-flex flex-column justify-content-center align-items-center gap-3 p-3"
-                    style="border-radius: 20px;">
-                    <div class=" p-1 w-100 d-flex justify-content-center align-items-center">
-                        <div class="d-flex justify-content-center align-items-center lh-1 gap-3 fw-bold bg-right-blue-title-section-8 w-50"
-                            style="margin-top: -3.5rem;"> <!-- ใช้ margin-top เป็นค่าลบ -->
-                            <img src="{{ asset('images/section-8/open-book-1.png') }}" alt="logo" width="45"
-                                height="45">
-                            <span class="text-center fs-3">จากท้องถิ่นจังหวัด</span>
-                        </div>
-
-                    </div>
-                    <?php
-                    for ($i = 1; $i <= 6; $i++) {
-                        ?>
-                    <div class="card-view-page8 d-flex">
-                        <img src="{{ asset('images/section-8/bookmarkblue.png') }}" alt="icon" width="20"
-                            height="25">
-                        <div class="m-2 p-0">
-                            <?php
-                            $text = 'This is card number with sample text. This text might be too long for the card.';
-                            echo mb_strimwidth($text, 0, 60, '...');
-                            ?>
-                        </div>
-                    </div>
-                    <?php } ?>
-                    <div class="d-flex justify-content-center align-items-center lh-1 gap-3 fw-bold bg-right-blue-view-all-section-8 w-25"
-                        style="margin-bottom: -2.5rem;"> <!-- ใช้ margin-top เป็นค่าลบ -->
-                        <span class="text-center">ดูทั้งหมด</span>
-                    </div>
                 </div>
+                <div class="book-pink my-2 d-flex flex-column justify-content-center align-items-start gap-1">
+                    <div class="title-book mb-2 text-center w-100">
+                        จากท้องถิ่นจังหวัด
+                    </div>
+                    <div class="bg-white p-3 d-flex flex-column justify-content-center align-items-start w-100 gap-1"
+                        style="border-radius: 30px;">
+                        <a href="#" class="link-book">
+                            <div class="bg-white py-2 ps-2 pe-5">หน้าแรก</div>
+                        </a>
+                        <a href="#" class="link-book">
+                            <div class="bg-white py-2 ps-2 pe-5">ข่าวประชาสัมพันธ์</div>
+                        </a>
+                        <a href="#" class="link-book">
+                            <div class="bg-white py-2 ps-2 pe-5">หนังสือสั่งการ</div>
+                        </a>
+                        <a href="#" class="link-book">
+                            <div class="bg-white py-2 ps-2 pe-5">กระดานข่าว</div>
+                        </a>
+                        <a href="#" class="link-book">
+                            <div class="bg-white py-2 ps-2 pe-5">ติดต่อหน่วยงาน</div>
+                        </a>
+                    </div>
 
+                </div>
             </div>
         </div>
-
-
     </div>
 </main>

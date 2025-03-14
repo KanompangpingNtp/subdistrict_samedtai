@@ -84,6 +84,15 @@
             /* เรืองแสงสีขาว */
         }
 
+        @media (max-width: 430px) {
+    .button-pink,
+    .button-blue {
+        font-size: 18px; /* ปรับขนาดฟอนต์ให้เล็กลง */
+        padding: 2px 15px; /* ปรับขนาด padding เล็กน้อยเพื่อความสมดุล */
+    }
+}
+
+
         .button-img img {
             cursor: pointer;
             transition: transform 0.3s ease, filter 0.3s ease;
@@ -136,6 +145,28 @@
             background-color: rgb(138, 241, 255);
             /* เปลี่ยนสีเมื่อ hover */
         }
+
+        .bg-black-opacity {
+            background: linear-gradient(to bottom, rgba(29, 29, 29, 0.6), rgba(29, 29, 29, 0.6));
+            padding: 10px 5px;
+            border-radius: 12px;
+        }
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+
+        .goog-te-gadget {
+            font-size: 0;
+        }
+
+        .goog-te-gadget span {
+            display: none;
+        }
+
+        .goog-te-gadget-simple {
+            background: none;
+            border: none;
+        }
     </style>
 </head>
 
@@ -143,7 +174,7 @@
 
     <!-- Content Section -->
     <header class="bg-nav d-flex">
-        <div class="container d-flex justify-content-center justify-content-md-between align-items-center">
+        <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-md-between align-items-center">
             <div class="d-flex  justify-content-start align-items-center gap-3">
                 <img src="{{ asset('images/navbar/Logo.png') }}" alt="logo" class="logo d-none d-md-block">
                 <div class="text-title-nav lh-1 text-center text-md-start ">
@@ -153,64 +184,113 @@
                     <span style="font-size: 30px;">อำเภอบางคล้า จังหวัดฉะเชิงเทรา</span>
                 </div>
             </div>
-            <div class="d-flex flex-column justify-content-start align-items-center d-none d-lg-block">
-                <div class="d-flex justify-content-start align-items-center gap-2">
+            <div class="d-flex flex-column justify-content-start align-items-center">
+                <div class="d-flex justify-content-end align-items-center gap-2">
                     <a class="button-pink" href="{{ route('showLoginForm') }}">เข้าสู่ระบบ</a>
                     <a class="button-blue">สมัครสมาชิก</a>
+                    <a class="button-pink" href="#">ติดต่อเรา</a>
                 </div>
-                <div class="d-flex justify-content-start align-items-end gap-2 button-img mt-2">
-                    <img src="{{ asset('images/navbar/text-minus.png') }}" alt="text-minus" data-action="decrease">
-                    <img src="{{ asset('images/navbar/text-normal.png') }}" alt="text-normal" data-action="normal">
-                    <img src="{{ asset('images/navbar/text-plus.png') }}" alt="text-plus" data-action="increase">
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                            let defaultFontSize = 20; // ขนาดเริ่มต้น
-                            const minFontSize = 10;
-                            const maxFontSize = 40;
-                            const step = 2;
+                <div class="d-flex flex-column justify-content-start align-items-center gap-2 button-img mt-2">
+                    <div class="d-flex justify-content-center align-items-end button-img gap-2">
+                        <img src="{{ asset('images/navbar/text-minus.png') }}" alt="text-minus" data-action="decrease">
+                        <img src="{{ asset('images/navbar/text-normal.png') }}" alt="text-normal" data-action="normal">
+                        <img src="{{ asset('images/navbar/text-plus.png') }}" alt="text-plus" data-action="increase">
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                                let defaultFontSize = 20; // ขนาดเริ่มต้น
+                                const minFontSize = 10;
+                                const maxFontSize = 40;
+                                const step = 2;
 
-                            function updateFontSize(size) {
-                                document.querySelectorAll("*").forEach(el => {
-                                    el.style.fontSize = size + "px";
+                                function updateFontSize(size) {
+                                    document.querySelectorAll("*").forEach(el => {
+                                        el.style.fontSize = size + "px";
+                                    });
+                                }
+
+                                document.querySelectorAll("img[data-action]").forEach(img => {
+                                    img.addEventListener("click", function() {
+                                        let action = this.getAttribute("data-action");
+
+                                        if (action === "decrease") {
+                                            defaultFontSize = Math.max(minFontSize, defaultFontSize - step);
+                                        } else if (action === "normal") {
+                                            defaultFontSize = 20;
+                                        } else if (action === "increase") {
+                                            defaultFontSize = Math.min(maxFontSize, defaultFontSize + step);
+                                        }
+
+                                        updateFontSize(defaultFontSize);
+                                    });
                                 });
+                            });
+                        </script>
+                        <img src="{{ asset('images/navbar/disability.png') }}" alt="btn-disability" width="42"
+                            height="42" id="toggleTheme" class="ms-3">
+                        <style>
+                            .dark-mode * {
+                                background-color: black !important;
+                                color: white !important;
                             }
+                        </style>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                                const toggleButton = document.getElementById("toggleTheme");
 
-                            document.querySelectorAll("img[data-action]").forEach(img => {
-                                img.addEventListener("click", function() {
-                                    let action = this.getAttribute("data-action");
-
-                                    if (action === "decrease") {
-                                        defaultFontSize = Math.max(minFontSize, defaultFontSize - step);
-                                    } else if (action === "normal") {
-                                        defaultFontSize = 20;
-                                    } else if (action === "increase") {
-                                        defaultFontSize = Math.min(maxFontSize, defaultFontSize + step);
-                                    }
-
-                                    updateFontSize(defaultFontSize);
+                                toggleButton.addEventListener("click", function() {
+                                    document.body.classList.toggle("dark-mode");
                                 });
                             });
-                        });
-                    </script>
-                    <img src="{{ asset('images/navbar/disability.png') }}" alt="btn-disability" width="42"
-                        height="42" id="toggleTheme">
-                    <style>
-                        .dark-mode * {
-                            background-color: black !important;
-                            color: white !important;
-                        }
-                    </style>
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                            const toggleButton = document.getElementById("toggleTheme");
+                        </script>
+                    </div>
 
-                            toggleButton.addEventListener("click", function() {
-                                document.body.classList.toggle("dark-mode");
-                            });
-                        });
-                    </script>
-                    <img src="{{ asset('images/navbar/th.png') }}" alt="thailand">
-                    <img src="{{ asset('images/navbar/en.png') }}" alt="english">
+
+                    <div class="bg-black-opacity d-flex justify-content-center align-items-center gap-1">
+                        <div class="text-white d-none d-sm-block">
+                            เปลี่ยนภาษา
+                        </div>
+                        <div id="google_translate_element"></div>
+
+                        <script type="text/javascript">
+                            function googleTranslateElementInit() {
+                                new google.translate.TranslateElement({
+                                    pageLanguage: 'en', // ภาษาเริ่มต้นของเว็บไซต์
+                                    includedLanguages: 'en,th,id,ms,vi,lo,my,kh,ph,sg', // ภาษาในอาเซียน
+                                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                                    autoDisplay: false // ปิดการแสดงผลอัตโนมัติ
+                                }, 'google_translate_element');
+                            }
+                        </script>
+                        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+                        </script>
+
+
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/thailand.png') }}"
+                                alt="Thailand" width="23"></a>
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Brunei.png') }}"
+                                alt="Brunei" width="23"></a>
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Myanmar.png') }}"
+                                alt="Myanmar" width="23"></a>
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Laos.png') }}"
+                                alt="Laos" width="23"></a>
+                        <a href="#" class="flag-link"><img
+                                src="{{ asset('images/navbar/country/Indonesia.png') }}" alt="Indonesia"
+                                width="23"></a>
+                        <a href="#" class="flag-link"><img
+                                src="{{ asset('images/navbar/country/Malaysia.png') }}" alt="Malaysia"
+                                width="23"></a>
+                        <a href="#" class="flag-link"><img
+                                src="{{ asset('images/navbar/country/Philippines.png') }}" alt="Philippines"
+                                width="23"></a>
+                        <a href="#" class="flag-link"><img
+                                src="{{ asset('images/navbar/country/Cambodia.png') }}" alt="Cambodia"
+                                width="23"></a>
+                        <a href="#" class="flag-link"><img
+                                src="{{ asset('images/navbar/country/Singapore.png') }}" alt="Singapore"
+                                width="23"></a>
+                        <a href="#" class="flag-link"><img src="{{ asset('images/navbar/country/Vietnam.png') }}"
+                                alt="Vietnam" width="23"></a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -59,9 +59,49 @@
         border-bottom-left-radius: 20px;
         box-shadow: 0px 2px 20px rgba(255, 255, 255, 0.9);
     }
+
+    .card-container-4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.card-container-4 img {
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-container-4:hover img {
+    transform: scale(1.05);
+}
+
+.card-text-4 {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    width: 100%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0);
+    font-size: 22px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+    opacity: 0.9;
+    line-height: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.card-container-4:hover .card-text-4 {
+    opacity: 1;
+}
+
 </style>
 <!-- Content Section -->
-<main class="bg-page4 d-flex">
+<main class="bg-page4 d-flex flex-column justify-content-between">
     <div class="container d-flex flex-column flex-xl-row justify-content-center align-items-center gap-3">
 
         <div class="col-xl-7 d-flex flex-column justify-content-center align-items-center">
@@ -149,4 +189,42 @@
     </div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v16.0"
         nonce="YOUR_NONCE"></script>
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <a href="#" class="col-sm-6 col-xl-3 position-relative card-container-4">
+                    <img src="{{ asset('images/section-4/1.png') }}" alt="card-link">
+                    <div class="card-text-4">คู่มือประชาชน</div>
+                </a>
+                <a href="#" class="col-sm-6 col-xl-3 position-relative card-container-4">
+                    <img src="{{ asset('images/section-4/2.png') }}" alt="card-link">
+                    <div class="card-text-4">แผนการใช้จ่ายงบ<br>ประมาณประจำปี</div>
+                </a>
+                <a href="#" class="col-sm-6 col-xl-3 position-relative card-container-4">
+                    <img src="{{ asset('images/section-4/3.png') }}" alt="card-link">
+                    <div class="card-text-4">รับเรื่องร้องเรียนการ<br>ทุจริตประพฤติมิชอบ</div>
+                </a>
+                <a href="#" class="col-sm-6 col-xl-3 position-relative card-container-4">
+                    <img src="{{ asset('images/section-4/4.png') }}" alt="card-link">
+                    <div class="card-text-4">การจัดการเรื่อง<br>ร้องเรียนทุจริต</div>
+                </a>
+                <a href="#" class="col-sm-6 col-xl-3 position-relative card-container-4">
+                    <img src="{{ asset('images/section-4/5.png') }}" alt="card-link">
+                    <div class="card-text-4">เบี้ยยังชีพผู้สูงอายุ</div>
+                </a>
+                <a href="#" class="col-sm-6 col-xl-3 position-relative card-container-4">
+                    <img src="{{ asset('images/section-4/6.png') }}" alt="card-link">
+                    <div class="card-text-4">การจัดซื้อจัดจ้าง<br>หรือจัดหาพัสดุ</div>
+                </a>
+                <a href="#" class="col-sm-6 col-xl-3 position-relative card-container-4">
+                    <img src="{{ asset('images/section-4/7.png') }}" alt="card-link">
+                    <div class="card-text-4">เบี้ยยังชีพคนพิการ</div>
+                </a>
+                <a href="#" class="col-sm-6 col-xl-3 position-relative card-container-4">
+                    <img src="{{ asset('images/section-4/8.png') }}" alt="card-link">
+                    <div class="card-text-4">การบริหารและพัฒนา<br>ทรัพยากรบุคคล</div>
+                </a>
+            </div>
+        </div>
+        
+    
 </main>

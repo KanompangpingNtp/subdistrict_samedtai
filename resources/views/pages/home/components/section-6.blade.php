@@ -109,9 +109,91 @@
         gap: 5px;
         /* ระยะห่างระหว่างไอคอนและข้อความ */
     }
+
+    /* ปรับขนาดปุ่มให้ใหญ่ขึ้น */
+.swiper-button-next,
+.swiper-button-prev {
+    width: 30px;  /* กำหนดขนาดปุ่ม */
+    height: 30px;
+    background-color: rgb(255, 157, 211);  /* สีพื้นหลัง */
+    color: white; /* สีของลูกศร */
+    border-radius: 50%; /* ทำให้เป็นวงกลม */
+    padding: 30px;
+   
+    transition: all 0.3s ease-in-out; /* ทำให้มีเอฟเฟกต์เวลา hover */
+}
+
+/* ทำให้ไอคอนข้างในใหญ่ขึ้น */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 20px; /* ขยายขนาดไอคอนลูกศร */
+    font-weight: bold;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* เพิ่มเงา */
+    color: white; /* สีของลูกศร */
+}
+
+/* ทำให้ปุ่มดูเด่นขึ้นเมื่อ hover */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: rgb(191, 248, 255);  /* เปลี่ยนสีพื้นหลัง */
+    transform: scale(1.2); /* ขยายปุ่ม */
+}
+
+/* จัดตำแหน่งให้ปุ่มไม่ชิดเกินไป */
+.swiper-button-next {
+    right: -20px; /* ขยับให้ปุ่มถัดไปออกไปข้างขวา */
+}
+
+.swiper-button-prev {
+    left: -20px; /* ขยับให้ปุ่มย้อนกลับออกไปข้างซ้าย */
+}
+
+.slide-container {
+    position: relative;
+    display: inline-block;
+}
+
+.slide-image-6 {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: all 0.3s ease;
+}
+
+.slide-text {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    line-height: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+/* 🔥 เอฟเฟกต์ Hover */
+.slide-container:hover .slide-image-6 {
+    transform: scale(1.05); /* ขยายรูปเล็กน้อย */
+    filter: drop-shadow(0 4px 10px rgba(255, 255, 255, 0.8));
+}
+
+.slide-container:hover .slide-text {
+    opacity: 1; /* ทำให้ข้อความชัดขึ้น */
+    transform: translate(-50%, -50%) scale(1.1); /* ขยายข้อความ */
+
+}
 </style>
 <!-- Content Section -->
-<main class="bg-page6 d-flex">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<main class="bg-page6 d-flex flex-column justify-content-between gap-5">
     <div class="container d-flex flex-column flex-lg-row justify-content-center align-items-center gap-3">
         <div class="col-lg-8 d-flex flex-column justify-content-center align-items-center">
             <div class="title-section-6 lh-1 text-center mb-3 py-1 px-4 position-relative">
@@ -219,4 +301,144 @@
             </a>
         </div>
     </div>
+    <div class="container">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper py-3">
+                <div class="swiper-slide">
+                    <a href="#" class="slide-container">
+                        <img src="{{ asset('images/section-6/ปุ่ม1.png') }}" alt="banner" class="slide-image-6">
+                        <div class="slide-text">ปฎิทิน<br>กิจกรรม</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="slide-container">
+                        <img src="{{ asset('images/section-6/ปุ่ม2.png') }}" alt="banner" class="slide-image-6">
+                        <div class="slide-text">อาสาามัคร<br>ป้องกันภัย<br>ฝ่ายพลเรือน<br>อปพร.</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="slide-container">
+                        <img src="{{ asset('images/section-6/ปุ่ม3.png') }}" alt="banner" class="slide-image-6">
+                        <div class="slide-text">KM องค์กร<br>แห่งการเรียนรู้</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="slide-container">
+                        <img src="{{ asset('images/section-6/ปุ่ม4.png') }}" alt="banner" class="slide-image-6">
+                        <div class="slide-text">กิจการสภา</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="slide-container">
+                        <img src="{{ asset('images/section-6/ปุ่ม5.png') }}" alt="banner" class="slide-image-6">
+                        <div class="slide-text">รางวัลแห่ง<br>ความภูมิใจ</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="slide-container">
+                        <img src="{{ asset('images/section-6/ปุ่ม6.png') }}" alt="banner" class="slide-image-6">
+                        <div class="slide-text">ข้อมูลวารสาร</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="slide-container">
+                        <img src="{{ asset('images/section-6/ปุ่ม7.png') }}" alt="banner" class="slide-image-6">
+                        <div class="slide-text">วารสารออนไลน์</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="slide-container">
+                        <img src="{{ asset('images/section-6/ปุ่ม8.png') }}" alt="banner" class="slide-image-6">
+                        <div class="slide-text">ประมวล<br>จริยธรรม</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="slide-container">
+                        <img src="{{ asset('images/section-6/ปุ่ม9.png') }}" alt="banner" class="slide-image-6">
+                        <div class="slide-text">พรบ. อำนวย<br>ความสะดวก<br>2558</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="slide-container">
+                        <img src="{{ asset('images/section-6/ปุ่ม10.png') }}" alt="banner" class="slide-image-6">
+                        <div class="slide-text">ศูนย์ข้อมูล<br>ข่าวสาร</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="slide-container">
+                        <img src="{{ asset('images/section-6/ปุ่ม11.png') }}" alt="banner" class="slide-image-6">
+                        <div class="slide-text">ศูนย์พัฒนา<br>ผู้สูงอายุ</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="slide-container">
+                        <img src="{{ asset('images/section-6/ปุ่ม12.png') }}" alt="banner" class="slide-image-6">
+                        <div class="slide-text">เงินอุดหนุนดู<br>แลเด็กแรกเกิด</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="slide-container">
+                        <img src="{{ asset('images/section-6/ปุ่ม13.png') }}" alt="banner" class="slide-image-6">
+                        <div class="slide-text">กองทุนหลัก<br>ประกันสุขภาพ<br>สปสช.</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="slide-container">
+                        <img src="{{ asset('images/section-6/ปุ่ม14.png') }}" alt="banner" class="slide-image-6">
+                        <div class="slide-text">กลุ่มสตรี</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="slide-container">
+                        <img src="{{ asset('images/section-6/ปุ่ม15.png') }}" alt="banner" class="slide-image-6">
+                        <div class="slide-text">แนะนำ<br>ร้านอาหาร</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="slide-container">
+                        <img src="{{ asset('images/section-6/ปุ่ม16.png') }}" alt="banner" class="slide-image-6">
+                        <div class="slide-text">แนะนำสถาน<br>ที่ท่องเที่ยว</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="slide-container">
+                        <img src="{{ asset('images/section-6/ปุ่ม16.png') }}" alt="banner" class="slide-image-6">
+                        <div class="slide-text">โรงพยาบาล<br>สงเสริมสุขภาพ<br>ตำบล(รพ.สต.)</div>
+                    </a>
+                </div>
+                
+            </div>
+            <!-- ปุ่มเลื่อน -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
+        </div>
+    </div>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+          slidesPerView: 8,  // แสดงทีละ 4 อัน
+          spaceBetween: 10,  // ระยะห่างระหว่างภาพ
+          loop: true,        // ให้วนลูป
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          autoplay: {
+            delay: 3000,   // สไลด์อัตโนมัติทุก 3 วินาที
+            disableOnInteraction: false
+          },
+          breakpoints: {
+            320: { slidesPerView: 3 },  // หน้าจอเล็ก แสดง 1 อัน
+            676: { slidesPerView: 4 },  // หน้าจอกลาง แสดง 2 อัน
+            868: { slidesPerView: 5 },  // หน้าจอใหญ่ขึ้น แสดง 3 อัน
+            1024: { slidesPerView: 7 },  
+            1200: { slidesPerView: 8 }  
+          }
+        });
+      </script>
+          
 </main>

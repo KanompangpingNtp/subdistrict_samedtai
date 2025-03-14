@@ -170,26 +170,26 @@
             <div class="container">
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 g-3 text-center">
                     <div class="col">
-                        <div class="d-flex justify-content-center align-items-center banner-blue px-3 py-2 fw-bold">
+                        <div class="d-flex justify-content-center align-items-center banner-blue px-3 py-2 fw-bold lh-1">
                             <img src="{{ asset('images/section-2/1-สารจากนายก.png') }}" alt="icon" class="mb-2">
                             <span>สารจากนายก</span>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="d-flex justify-content-center align-items-center banner-pink px-3 py-2 fw-bold">
+                        <div class="d-flex justify-content-center align-items-center banner-pink px-3 py-2 fw-bold lh-1">
                             <img src="{{ asset('images/section-2/2-เจตจำนง.png') }}" alt="icon" class="mb-2">
                             <span>เจตจำนงสุจริต <br> ของผู้บริหาร</span>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="d-flex justify-content-center align-items-center banner-blue px-3 py-2 fw-bold">
+                        <div class="d-flex justify-content-center align-items-center banner-blue px-3 py-2 fw-bold lh-1">
                             <img src="{{ asset('images/section-2/3-รับเเจ้งเรือง.png') }}" alt="icon"
                                 class="mb-2">
                             <span>รับแจ้งเรื่องราวร้องทุกข์ </span>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="d-flex justify-content-center align-items-center banner-pink px-3 py-2 fw-bold">
+                        <div class="d-flex justify-content-center align-items-center banner-pink px-3 py-2 fw-bold lh-1">
                             <img src="{{ asset('images/section-2/4-รับเรืองร้องเรียนทุจริต.png') }}" alt="icon"
                                 class="mb-2">
                             <span>รับเรื่องร้องเรียน <br> ทุจริตประพฤติมิชอบ</span>
@@ -197,7 +197,7 @@
                     </div>
                     <div class="col">
                         <a href="{{route('itaPage')}}" class="text-decoration-none">
-                            <div class="d-flex justify-content-center align-items-center banner-blue px-3 py-2 fw-bold">
+                            <div class="d-flex justify-content-center align-items-center banner-blue px-3 py-2 fw-bold lh-1">
                                 <img src="{{ asset('images/section-2/5-ITALogo1.png') }}" alt="icon" class="mb-2">
                                 <span class="text-dark">การประเมินคุณธรรม <br> และ ความโปร่งใส</span>
                             </div>

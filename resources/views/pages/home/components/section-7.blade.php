@@ -281,16 +281,24 @@
                         <button id="prevBtn" class="btn btn-outline-dark me-2" style="display:none;">
                             <i class="fa-solid fa-chevron-left"></i> ก่อนหน้า
                         </button>
+                        <a href="#" class="button-viewall-section-6 py-2 px-4 mx-2">
+                            ดูทั้งหมด
+                        </a>
                         <button id="nextBtn" class="btn btn-outline-dark" style="display:none;">
                             ถัดไป <i class="fa-solid fa-chevron-right"></i>
                         </button>
+                        
                     </div>
+                    
                 </div>
             </div>
         </div>
         <div class="col-12 col-lg-4 d-flex flex-column justify-content-center align-items-center gap-3">
             <a href="{{ route('ShowDataButton') }}" class="btn-link">
                 <img src="{{ asset('images/section-7/btn.png') }}" alt="btn-go" class="img-hover-section-7">
+            </a>
+            <a href="{{ route('ShowDataButton') }}" class="btn-link">
+                <img src="{{ asset('images/section-7/bannerภายนอก.png') }}" alt="btn-go" class="img-hover-section-7">
             </a>
 
             <div class="d-flex align-content-center justify-content-around gap-2 bg-details-section-7 p-2"

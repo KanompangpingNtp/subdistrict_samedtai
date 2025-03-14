@@ -81,7 +81,7 @@
     }
 
     .button-banner-section3 {
-        background-color: rgb(191, 248, 255);
+        background-color: #86d5fc;
         box-shadow: 0px 2px 15px rgba(255, 255, 255, 0.9);
         border-radius: 20px;
         font-weight: bold;
@@ -132,13 +132,21 @@
                     E-LIBRARY <br>
                     <span style="font-size:40px;">องค์การบริหารส่วนตำบลเสม็ดใต้</span>
                 </div>
-                <div class="bg-details px-3 py-5" style="width: 100%; margin: auto; position: relative;">
-                    <img src="{{ asset('images/section-3/ebook.png') }}" alt="ebook" width="100" height="100">
-                    <a href="#" class="button-viewall py-2 px-4"
-                        style="position: absolute; bottom: -26px; right: 20px; background-color: lightgray; border-radius: 10px; text-decoration: none; font-weight: bold;">
-                        ดูทั้งหมด
-                    </a>
+                <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-2">
+                    <div class=" flex-grow-1">
+                        <img src="{{ asset('images/section-3/อบต.เสม็ดใต้.png') }}" alt="post" class="img-fluid">
+                    </div>
+                    <div class="bg-details px-3 pt-4 pb-5 flex-grow-1" style="margin: auto; position: relative;">
+                        <img src="{{ asset('images/section-3/องค์การบริหาร ส่วนตำบลเสม็ดใต้่.png') }}" alt="ebook" class="img-fluid">
+                        <a href="#" class="button-viewall py-2 px-4"
+                            style="position: absolute; bottom: -26px; right: 20px; background-color: lightgray; border-radius: 10px; text-decoration: none; font-weight: bold;">
+                            ดูทั้งหมด
+                        </a>
+                    </div>
                 </div>
+                
+                
+                
             </div>
         </div>
         <div class="container bg-banner-section3 py-3">
@@ -153,10 +161,10 @@
                 </div>
                 <div class="col">
                     <a href="#"
-                        class="d-flex justify-content-center align-items-center button-banner-section3 px-3 py-2 lh-1 fs-5">
+                        class="d-flex justify-content-center align-items-center button-banner-section3 px-2 py-2 lh-1 fs-5">
                         <img src="{{ asset('images/section-3/ปุ่ม2.png') }}" alt="icon" width="50"
                             height="60" class="mb-2">
-                        <span>สำนักงานคณะกรรมการป้องกัน <br> และปราบปรามการทุจริตแห่งชาติ</span>
+                        <span style="font-size: 16px;">สำนักงานคณะกรรมการป้องกัน <br> และปราบปรามการทุจริตแห่งชาติ</span>
                     </a>
                 </div>
                 <div class="col">
@@ -172,7 +180,7 @@
                         class="d-flex justify-content-center align-items-center button-banner-section3 px-3 py-2 lh-1">
                         <img src="{{ asset('images/section-3/ปุ่ม4.png') }}" alt="icon" width="60"
                             height="60" class="mb-2">
-                        <span>E - Social</span>
+                        <span>ศูนย์ข้อมูลข่าวสาร <br>อิเล็กทรอนิกส์ <br>ของราชการ (OIC)</span>
                     </a>
                 </div>
                 <div class="col">
