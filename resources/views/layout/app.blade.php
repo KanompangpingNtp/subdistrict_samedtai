@@ -85,12 +85,15 @@
         }
 
         @media (max-width: 430px) {
-    .button-pink,
-    .button-blue {
-        font-size: 18px; /* ปรับขนาดฟอนต์ให้เล็กลง */
-        padding: 2px 15px; /* ปรับขนาด padding เล็กน้อยเพื่อความสมดุล */
-    }
-}
+
+            .button-pink,
+            .button-blue {
+                font-size: 18px;
+                /* ปรับขนาดฟอนต์ให้เล็กลง */
+                padding: 2px 15px;
+                /* ปรับขนาด padding เล็กน้อยเพื่อความสมดุล */
+            }
+        }
 
 
         .button-img img {
@@ -151,6 +154,7 @@
             padding: 10px 5px;
             border-radius: 12px;
         }
+
         .goog-te-banner-frame {
             display: none !important;
         }
@@ -174,7 +178,8 @@
 
     <!-- Content Section -->
     <header class="bg-nav d-flex">
-        <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-md-between align-items-center">
+        <div
+            class="container d-flex flex-column flex-lg-row justify-content-center justify-content-md-between align-items-center">
             <div class="d-flex  justify-content-start align-items-center gap-3">
                 <img src="{{ asset('images/navbar/Logo.png') }}" alt="logo" class="logo d-none d-md-block">
                 <div class="text-title-nav lh-1 text-center text-md-start ">
@@ -297,11 +302,26 @@
     </header>
 
 
+    <div class="d-flex flex-column justify-content-center align-items-center gap-2 position-fixed top-50 end-0 translate-middle-y me-3 p-3 shadow rounded"
+        id="floatingButtons" style="z-index: 1000; background-color: rgba(255, 157, 211, 0.7);">
+        <a href="#"><img class="hover-effect" src="{{ asset('images/section-10/arrow.png') }}" alt="upload"
+                width="25" height="25"></a>
+        <a href="#"><img class="hover-effect" src="{{ asset('images/section-10/share.png') }}" alt="chair"
+                width="25" height="25"></a>
+        <a href="#"><img class="hover-effect" src="{{ asset('images/section-10/messenger.png') }}"
+                alt="message" width="25" height="25"></a>
+    </div>
+
 
     @yield('content')
 
 
-
+    <script>
+        document.getElementById("scrollToTop").addEventListener("click", function (event) {
+            event.preventDefault(); // ป้องกันการโหลดหน้าใหม่
+            window.scrollTo({ top: 0, behavior: "smooth" }); // เลื่อนขึ้นแบบนุ่มนวล
+        });
+    </script>
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
