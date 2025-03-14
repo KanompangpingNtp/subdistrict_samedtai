@@ -7,6 +7,12 @@ use App\Models\PostType;
 use App\Models\PostDetail;
 use App\Models\PostPdf;
 use Illuminate\Support\Facades\Storage;
+use App\Models\PersonnelAgency;
+use App\Models\AuthorityType;
+use App\Models\PerfResultsType;
+use App\Models\OperationalPlanType;
+use App\Models\LawsRegsType;
+use App\Models\PublicMenusType;
 
 class RevenueController extends Controller
 {
@@ -122,5 +128,55 @@ class RevenueController extends Controller
         $postDetail->delete();
 
         return redirect()->back()->with('success', 'โพสถูกลบแล้ว');
+    }
+
+    public function RevenueDetail($id)
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $PerfResultsMenu = PerfResultsType::all();
+        $AuthorityMenu = AuthorityType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
+
+        $Revenue = PostDetail::with(['pdfs'])
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'งานเก็บรายได้');
+            })->findOrFail($id);
+
+        return view('pages.revenue.show_detail', compact(
+            'Revenue',
+            'personnelAgencies',
+            'PerfResultsMenu',
+            'AuthorityMenu',
+            'OperationalPlanMenu',
+            'LawsRegsMenu',
+            'PublicMenus'
+        ));
+    }
+
+    public function RevenueShowData()
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $PerfResultsMenu = PerfResultsType::all();
+        $AuthorityMenu = AuthorityType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
+
+        $Revenue = PostDetail::with('postType','photos')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'งานเก็บรายได้');
+            })->paginate(14);
+
+        return view('pages.revenue.show_data', compact(
+            'Revenue',
+            'personnelAgencies',
+            'PerfResultsMenu',
+            'AuthorityMenu',
+            'OperationalPlanMenu',
+            'LawsRegsMenu',
+            'PublicMenus'
+        ));
     }
 }

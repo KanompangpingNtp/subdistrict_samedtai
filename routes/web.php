@@ -25,6 +25,7 @@ use App\Http\Controllers\ITA\AdminITAController;
 use App\Http\Controllers\ITA\ITAController;
 use App\Http\Controllers\menu_for_public\AdminMenuForPublicController;
 use App\Http\Controllers\menu_for_public\MenuForPublicController;
+use App\Http\Controllers\TreasuryAnnouncementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,6 +89,25 @@ Route::get('/Checkin/ShowDetails/{id}', [CheckinSpotController::class, 'CheckinS
 //ป้ายประกาศ
 Route::get('/NoticeBoard/ShowData', [NoticeBoardController::class, 'NoticeBoardShowData'])->name('NoticeBoardShowData');
 Route::get('/NoticeBoard/ShowDetails/{id}', [NoticeBoardController::class, 'NoticeBoardShowDetails'])->name('NoticeBoardShowDetails');
+
+//ประกาศของคลัง
+Route::get('/TreasuryAnnouncement/ShowData', [TreasuryAnnouncementController::class, 'TreasuryAnnouncementData'])->name('TreasuryAnnouncementData');
+
+//ประกาศจัดซื้อจัดจ้าง
+Route::get('/procurement/detail/{id}', [ProcurementController::class, 'ProcurementDetail'])->name('ProcurementDetail');
+Route::get('/procurement/ShowData', [ProcurementController::class, 'ProcurementShowData'])->name('ProcurementShowData');
+
+//ผลจัดซื้อจัดจ้าง
+Route::get('/procurement-results/detail/{id}', [ProcurementResultsController::class, 'ProcurementResultsDetail'])->name('ProcurementResultsDetail');
+Route::get('/procurement-results/ShowData', [ProcurementResultsController::class, 'ProcurementResultsShowData'])->name('ProcurementResultsShowData');
+
+//งานเก็บรายได้
+Route::get('/revenue/detail/{id}', [RevenueController::class, 'RevenueDetail'])->name('RevenueDetail');
+Route::get('/revenue/ShowData', [RevenueController::class, 'RevenueShowData'])->name('RevenueShowData');
+
+//ประกาศราคากลาง
+Route::get('/AveragePrice/detail/{id}', [AveragePriceController::class, 'AveragePriceDetail'])->name('AveragePriceDetail');
+Route::get('/AveragePrice/ShowData', [AveragePriceController::class, 'AveragePriceShowData'])->name('AveragePriceShowData');
 
 Route::middleware(['check.auth'])->group(function () {
     //admin PressRelease
