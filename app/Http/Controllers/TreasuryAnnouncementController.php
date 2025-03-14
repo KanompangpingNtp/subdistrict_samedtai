@@ -1,20 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\ITA;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PersonnelAgency;
-use App\Models\ITAType;
 use App\Models\AuthorityType;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
 use App\Models\LawsRegsType;
 use App\Models\PublicMenusType;
 
-class ITAController extends Controller
+class TreasuryAnnouncementController extends Controller
 {
-    public function itaPage()
+    public function TreasuryAnnouncementData()
     {
         $personnelAgencies = PersonnelAgency::with('ranks')->get();
         $PerfResultsMenu = PerfResultsType::all();
@@ -23,16 +21,13 @@ class ITAController extends Controller
         $LawsRegsMenu = LawsRegsType::all();
         $PublicMenus = PublicMenusType::all();
 
-        $showITA = ITAType::with('itADetails.iTALinks')->get();
-
-        return view('pages.ita.page', compact(
-            'LawsRegsMenu',
-            'showITA',
+        return view('pages.treasury_announcement.show_data', compact(
+            'PublicMenus',
             'personnelAgencies',
             'PerfResultsMenu',
-            'OperationalPlanMenu',
             'AuthorityMenu',
-            'PublicMenus',
+            'OperationalPlanMenu',
+            'LawsRegsMenu'
         ));
     }
 }

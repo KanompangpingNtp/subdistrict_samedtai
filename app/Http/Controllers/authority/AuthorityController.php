@@ -10,6 +10,7 @@ use App\Models\PersonnelAgency;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
 use App\Models\LawsRegsType;
+use App\Models\PublicMenusType;
 
 class AuthorityController extends Controller
 {
@@ -20,12 +21,13 @@ class AuthorityController extends Controller
         $AuthorityMenu = AuthorityType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $AuthorityType = AuthorityType::findOrFail($id);
         $AuthorityDetails = AuthorityDetails::with('files')
             ->where('type_id', $id)
             ->first();
 
-        return view('pages.authority.show_details', compact('AuthorityType', 'AuthorityDetails', 'personnelAgencies', 'PerfResultsMenu', 'AuthorityMenu', 'OperationalPlanMenu', 'LawsRegsMenu'));
+        return view('pages.authority.show_details', compact('PublicMenus','AuthorityType', 'AuthorityDetails', 'personnelAgencies', 'PerfResultsMenu', 'AuthorityMenu', 'OperationalPlanMenu', 'LawsRegsMenu'));
     }
 }

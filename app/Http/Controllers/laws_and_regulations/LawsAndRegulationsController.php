@@ -11,6 +11,7 @@ use App\Models\PersonnelAgency;
 use App\Models\AuthorityType;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
+use App\Models\PublicMenusType;
 
 class LawsAndRegulationsController extends Controller
 {
@@ -21,12 +22,12 @@ class LawsAndRegulationsController extends Controller
         $AuthorityMenu = AuthorityType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
-
+        $PublicMenus = PublicMenusType::all();
 
         $LawsRegsType = LawsRegsType::findOrFail($id);
         $LawsRegsSection = LawsRegsSection::where('type_id', $id)->get();
 
-        return view('pages.laws_and_regulations.page_section', compact('LawsRegsMenu', 'LawsRegsType', 'LawsRegsSection', 'personnelAgencies', 'AuthorityDetails', 'OperationalPlanMenu', 'PerfResultsMenu'));
+        return view('pages.laws_and_regulations.page_section', compact('PublicMenus','LawsRegsMenu', 'LawsRegsType', 'LawsRegsSection', 'personnelAgencies', 'AuthorityDetails', 'OperationalPlanMenu', 'PerfResultsMenu'));
     }
 
     public function LawsAndRegulationsShowDetailsPages($id)
@@ -36,10 +37,11 @@ class LawsAndRegulationsController extends Controller
         $AuthorityMenu = AuthorityType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $LawsRegsSection = LawsRegsSection::with('type')->findOrFail($id);
         $LawsRegsFiles = LawsRegsFiles::where('section_id', $id)->get();
 
-        return view('pages.laws_and_regulations.page_detail', compact('LawsRegsMenu', 'LawsRegsSection', 'LawsRegsFiles', 'personnelAgencies', 'AuthorityDetails', 'OperationalPlanMenu', 'PerfResultsMenu'));
+        return view('pages.laws_and_regulations.page_detail', compact('PublicMenus','LawsRegsMenu', 'LawsRegsSection', 'LawsRegsFiles', 'personnelAgencies', 'AuthorityDetails', 'OperationalPlanMenu', 'PerfResultsMenu'));
     }
 }

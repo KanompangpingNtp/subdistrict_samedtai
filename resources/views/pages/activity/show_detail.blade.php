@@ -80,7 +80,7 @@
     <div class="bg py-5">
         <div class="container py-5 custom-gradient-shadow">
             <div class=" d-flex flex-column justify-content-center p-5">
-                <div class="fs-1 fw-bold mb-4 text-center" style="color: #FF66B2;">ข่าวประชาสัมพันธ์ <br><span
+                <div class="fs-1 fw-bold mb-4 text-center" style="color: #FF66B2;">กิจกรรม <br><span
                         class="fs-3">{{ $activity->title_name }}</span></div>
 
                 <p class="text-muted">วันที่เผยแพร่: {{ \Carbon\Carbon::parse($activity->date)->format('d-m-Y') }}</p>

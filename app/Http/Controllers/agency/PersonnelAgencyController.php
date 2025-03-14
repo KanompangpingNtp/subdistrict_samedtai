@@ -10,6 +10,7 @@ use App\Models\AuthorityType;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
 use App\Models\LawsRegsType;
+use App\Models\PublicMenusType;
 
 class PersonnelAgencyController extends Controller
 {
@@ -20,6 +21,7 @@ class PersonnelAgencyController extends Controller
         $AuthorityMenu = AuthorityType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $agency = PersonnelAgency::with('ranks.details.images')->findOrFail($id);
         $photos = PersonnelGroupPhoto::whereIn('personnel_rank_id', $agency->ranks->pluck('id'))->get();
@@ -28,7 +30,7 @@ class PersonnelAgencyController extends Controller
         $text = trim($matches[1] ?? '');
         $phone = trim($matches[2] ?? '');
 
-        return view('pages.agency.show', compact('agency', 'photos', 'text', 'phone' ,'personnelAgencies','PerfResultsMenu','AuthorityMenu','OperationalPlanMenu','LawsRegsMenu'));
+        return view('pages.agency.show', compact('PublicMenus','agency', 'photos', 'text', 'phone' ,'personnelAgencies','PerfResultsMenu','AuthorityMenu','OperationalPlanMenu','LawsRegsMenu'));
     }
 
     // public function PersonnelChart()

@@ -7,6 +7,12 @@ use App\Models\PostType;
 use App\Models\PostDetail;
 use App\Models\PostPdf;
 use Illuminate\Support\Facades\Storage;
+use App\Models\PersonnelAgency;
+use App\Models\AuthorityType;
+use App\Models\PerfResultsType;
+use App\Models\OperationalPlanType;
+use App\Models\LawsRegsType;
+use App\Models\PublicMenusType;
 
 class ProcurementResultsController extends Controller
 {
@@ -124,5 +130,56 @@ class ProcurementResultsController extends Controller
 
         // ส่งกลับไปยังหน้าก่อนหน้าและแสดงข้อความสำเร็จ
         return redirect()->back()->with('success', 'โพสถูกลบแล้ว');
+    }
+
+    public function ProcurementResultsDetail($id)
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $PerfResultsMenu = PerfResultsType::all();
+        $AuthorityMenu = AuthorityType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
+
+        $ProcurementResults = PostDetail::with(['pdfs'])
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'ผลจัดซื้อจัดจ้าง');
+            })->findOrFail($id);
+
+        return view('pages.procurementResults.show_detail', compact(
+            'ProcurementResults',  // แก้เป็น $procurementResults
+            'personnelAgencies',
+            'PerfResultsMenu',
+            'AuthorityMenu',
+            'OperationalPlanMenu',
+            'LawsRegsMenu',
+            'PublicMenus'
+        ));
+    }
+
+
+    public function ProcurementResultsShowData()
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $PerfResultsMenu = PerfResultsType::all();
+        $AuthorityMenu = AuthorityType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
+
+        $ProcurementResults = PostDetail::with('postType','photos')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'ผลจัดซื้อจัดจ้าง');
+            })->paginate(14);
+
+        return view('pages.procurementResults.show_data', compact(
+            'ProcurementResults',
+            'PublicMenus',
+            'personnelAgencies',
+            'PerfResultsMenu',
+            'AuthorityMenu',
+            'OperationalPlanMenu',
+            'LawsRegsMenu'
+        ));
     }
 }

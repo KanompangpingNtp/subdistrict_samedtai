@@ -11,6 +11,7 @@ use App\Models\AuthorityType;
 use App\Models\PerfResultsType;
 use App\Models\OperationalPlanType;
 use App\Models\LawsRegsType;
+use App\Models\PublicMenusType;
 use Illuminate\Support\Facades\Storage;
 
 class CheckinSpotController extends Controller
@@ -119,13 +120,14 @@ class CheckinSpotController extends Controller
         $AuthorityMenu = AuthorityType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $checkinspot = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'จุดเช็คอินกินเที่ยว');
             })->paginate(14);
 
-        return view('pages.checkin_spot.show_data', compact('checkinspot', 'personnelAgencies', 'PerfResultsMenu', 'AuthorityMenu', 'OperationalPlanMenu', 'LawsRegsMenu'));
+        return view('pages.checkin_spot.show_data', compact('PublicMenus','checkinspot', 'personnelAgencies', 'PerfResultsMenu', 'AuthorityMenu', 'OperationalPlanMenu', 'LawsRegsMenu'));
     }
 
     public function CheckinSpotShowDetails($id)
@@ -135,6 +137,7 @@ class CheckinSpotController extends Controller
         $AuthorityMenu = AuthorityType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
         $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
         $checkinspot = PostDetail::with(['postType', 'videos', 'photos', 'pdfs'])
             ->whereHas('postType', function ($query) {
@@ -142,6 +145,6 @@ class CheckinSpotController extends Controller
             })
             ->findOrFail($id);
 
-        return view('pages.checkin_spot.show_detail', compact('checkinspot', 'personnelAgencies', 'PerfResultsMenu', 'AuthorityMenu', 'OperationalPlanMenu', 'LawsRegsMenu'));
+        return view('pages.checkin_spot.show_detail', compact('PublicMenus','checkinspot', 'personnelAgencies', 'PerfResultsMenu', 'AuthorityMenu', 'OperationalPlanMenu', 'LawsRegsMenu'));
     }
 }

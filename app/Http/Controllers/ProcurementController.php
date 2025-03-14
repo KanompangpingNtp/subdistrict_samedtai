@@ -7,6 +7,12 @@ use App\Models\PostType;
 use App\Models\PostDetail;
 use App\Models\PostPdf;
 use Illuminate\Support\Facades\Storage;
+use App\Models\PersonnelAgency;
+use App\Models\AuthorityType;
+use App\Models\PerfResultsType;
+use App\Models\OperationalPlanType;
+use App\Models\LawsRegsType;
+use App\Models\PublicMenusType;
 
 class ProcurementController extends Controller
 {
@@ -125,4 +131,55 @@ class ProcurementController extends Controller
         // ส่งกลับไปยังหน้าก่อนหน้าและแสดงข้อความสำเร็จ
         return redirect()->back()->with('success', 'โพสถูกลบแล้ว');
     }
+
+    public function ProcurementShowData()
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $PerfResultsMenu = PerfResultsType::all();
+        $AuthorityMenu = AuthorityType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
+
+        $Procurement = PostDetail::with('postType','photos')
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'ประกาศจัดซื้อจัดจ้าง');
+            })->paginate(14);
+
+        return view('pages.procurement.show_data', compact(
+            'Procurement',
+            'PublicMenus',
+            'personnelAgencies',
+            'PerfResultsMenu',
+            'AuthorityMenu',
+            'OperationalPlanMenu',
+            'LawsRegsMenu'
+        ));
+    }
+
+    public function ProcurementDetail($id)
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $PerfResultsMenu = PerfResultsType::all();
+        $AuthorityMenu = AuthorityType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
+
+        $Procurement = PostDetail::with(['pdfs'])
+            ->whereHas('postType', function ($query) {
+                $query->where('type_name', 'ประกาศจัดซื้อจัดจ้าง');
+            })->findOrFail($id);
+
+        return view('pages.procurement.show_detail', compact(
+            'Procurement',
+            'PublicMenus',
+            'personnelAgencies',
+            'PerfResultsMenu',
+            'AuthorityMenu',
+            'OperationalPlanMenu',
+            'LawsRegsMenu'
+        ));
+    }
+
 }

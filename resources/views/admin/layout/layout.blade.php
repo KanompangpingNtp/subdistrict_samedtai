@@ -61,6 +61,25 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">MENU</div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts1">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-clipboard"></i>
+                            </div>
+                            จัดการแถบเมนูหลัก
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{route('ManagePersonnel')}}">บุคลากร</a>
+                                <a class="nav-link" href="{{route('PerformanceResultsType')}}">ผลการดำเนินงาน</a>
+                                <a class="nav-link" href="{{route('AuthorityType')}}">อำนาจหน้าที่</a>
+                                <a class="nav-link" href="{{route('OperationalPlanType')}}">แผนงานพัฒนาท้องถิ่น</a>
+                                <a class="nav-link" href="{{route('LawsAndRegulationsType')}}">กฏหมายและกฏระเบียบ</a>
+                                <a class="nav-link" href="{{route('MenuForPublicType')}}">จัดการเมนูสำหรับประชาชน</a>
+                            </nav>
+                        </div>
                         <a class="nav-link" href="{{route('PressReleaseHome')}}">
                             <div class="sb-nav-link-icon">
                                 <i class="bi bi-clipboard"></i>
@@ -96,24 +115,6 @@
                                 <a class="nav-link" href="{{route('ProcurementResultsHome')}}">ผลจัดซื้อจัดจ้าง</a>
                                 <a class="nav-link" href="{{route('AveragePriceHome')}}">ประกาศราคากลาง</a>
                                 <a class="nav-link" href="{{route('RevenueHome')}}">งานเก็บรายได้</a>
-                            </nav>
-                        </div>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts1">
-                            <div class="sb-nav-link-icon">
-                                <i class="bi bi-clipboard"></i>
-                            </div>
-                            จัดการแถบเมนูหลัก
-                            <div class="sb-sidenav-collapse-arrow">
-                                <i class="fas fa-angle-down"></i>
-                            </div>
-                        </a>
-                        <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="{{route('ManagePersonnel')}}">บุคลากร</a>
-                                <a class="nav-link" href="{{route('PerformanceResultsType')}}">ผลการดำเนินงาน</a>
-                                <a class="nav-link" href="{{route('AuthorityType')}}">อำนาจหน้าที่</a>
-                                <a class="nav-link" href="{{route('OperationalPlanType')}}">แผนงานพัฒนาท้องถิ่น</a>
-                                <a class="nav-link" href="{{route('LawsAndRegulationsType')}}">กฏหมายและกฏระเบียบ</a>
                             </nav>
                         </div>
                         <a class="nav-link" href="{{route('AdminITAType')}}">
