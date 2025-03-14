@@ -135,7 +135,10 @@
     .book-pink,
     .book-blue {
         background: linear-gradient(to bottom, #e8b6da, #9bd1f8);
-        border-radius: 50px;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
         padding: 1rem;
     }
 </style>
@@ -158,7 +161,10 @@
                         จากกรมส่งเสริมการปกครองท้องถิ่น
                     </div>
                     <div class="bg-white p-3 d-flex flex-column justify-content-center align-items-start w-100 gap-1"
-                        style="border-radius: 30px;">
+                        style="border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 250px;">
                         <a href="#" class="link-book">
                             <div class="py-2 ps-2 pe-5 bg-white">หน้าแรก</div>
                         </a>
@@ -182,7 +188,10 @@
                         จากท้องถิ่นจังหวัด
                     </div>
                     <div class="bg-white p-3 d-flex flex-column justify-content-center align-items-start w-100 gap-1"
-                        style="border-radius: 30px;">
+                        style="border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 250px;">
                         <a href="#" class="link-book">
                             <div class="bg-white py-2 ps-2 pe-5">หน้าแรก</div>
                         </a>

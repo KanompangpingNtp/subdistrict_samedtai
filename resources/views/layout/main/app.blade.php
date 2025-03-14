@@ -219,7 +219,48 @@
     background-color: #f0f0f0;
 }
 
+.navbar-nav .nav-item .nav-link {
+        transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover {
+        transform: scale(1.1);
+        /* ขยายขึ้น 10% */
+        filter: drop-shadow(0 0 8px rgb(255, 123, 196));
+        /* เรืองแสงสีฟ้า */
+    }
+
+    .navbar-text {
+        font-size: 20px;
+    }
+
+    .navbar .dropdown-toggle::after {
+        display: none !important;
+    }
+
+    .dropdown-menu {
+        background-color: rgb(255, 123, 196, 0.6);
+        border: 1px solid rgb(255, 123, 196);
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        margin: 0;
+        font-size: 23px;
+        transition: all 0.3s ease;
+    }
+
+
+    .dropdown-menu a {
+        color: #ffffff;
+        transition: all 0.3s ease;
+    }
+
+    .dropdown-menu a:hover {
+        color: rgb(0, 0, 0);
+        background-color: rgb(255, 123, 196);
+    }
     </style>
+
 </head>
 
 <body>
