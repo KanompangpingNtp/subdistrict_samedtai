@@ -33,11 +33,11 @@
             </div> --}}
 
             <!-- ผลลัพธ์การค้นห -->
-            @if (request()->query('query'))
+            {{-- @if (request()->query('query'))
             <p>ผลการค้นหาสำหรับ: <strong>{{ request()->query('query') }}</strong></p>
             @else
             <p>แสดงข้อมูลทั้งหมด</p>
-            @endif
+            @endif --}}
 
             <style>
                 .table td:hover {
