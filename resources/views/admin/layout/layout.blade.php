@@ -61,6 +61,12 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">MENU</div>
+                        <a class="nav-link" href="{{route('AdminWebIntro')}}">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-database-add"></i>
+                            </div>
+                            จัดการอินโทรเว็บไซต์
+                        </a>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts1">
                             <div class="sb-nav-link-icon">
                                 <i class="bi bi-clipboard"></i>
