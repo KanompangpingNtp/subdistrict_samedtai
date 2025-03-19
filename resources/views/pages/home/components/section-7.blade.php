@@ -281,15 +281,15 @@
                         <button id="prevBtn" class="btn btn-outline-dark me-2" style="display:none;">
                             <i class="fa-solid fa-chevron-left"></i> ก่อนหน้า
                         </button>
-                        <a href="#" class="button-viewall-section-6 py-2 px-4 mx-2">
+                        <a href="{{route('TreasuryAnnouncementData')}}" class="button-viewall-section-6 py-2 px-4 mx-2">
                             ดูทั้งหมด
                         </a>
                         <button id="nextBtn" class="btn btn-outline-dark" style="display:none;">
                             ถัดไป <i class="fa-solid fa-chevron-right"></i>
                         </button>
-                        
+
                     </div>
-                    
+
                 </div>
             </div>
         </div>

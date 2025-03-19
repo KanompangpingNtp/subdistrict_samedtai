@@ -186,38 +186,38 @@
         }
 
         .custom-dropdown-container {
-    position: relative;
-}
+            position: relative;
+        }
 
-.custom-dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    list-style: none;
-    padding: 10px;
-    min-width: 200px;
-    z-index: 999;
-}
+        .custom-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            list-style: none;
+            padding: 10px;
+            min-width: 200px;
+            z-index: 999;
+        }
 
-.custom-dropdown-container:hover .custom-dropdown-menu {
-    display: block;
-}
+        .custom-dropdown-container:hover .custom-dropdown-menu {
+            display: block;
+        }
 
-.custom-dropdown-menu .dropdown-item {
-    display: block;
-    padding: 8px 15px;
-    color: #333;
-    text-decoration: none;
-}
+        .custom-dropdown-menu .dropdown-item {
+            display: block;
+            padding: 8px 15px;
+            color: #333;
+            text-decoration: none;
+        }
 
-.custom-dropdown-menu .dropdown-item:hover {
-    background-color: #f0f0f0;
-}
+        .custom-dropdown-menu .dropdown-item:hover {
+            background-color: #f0f0f0;
+        }
 
 .navbar-nav .nav-item .nav-link {
         transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
@@ -271,8 +271,7 @@
             <div class="d-flex  justify-content-start align-items-center gap-3">
                 <img src="{{ asset('images/navbar/Logo.png') }}" alt="logo" class="logo d-none d-md-block">
                 <div class="text-title-nav lh-1 text-center text-md-start ">
-                    <span class="me-1" style="font-size: 36px;">องค์การบริหารส่วนตำบล</span><span
-                        style="font-size: 50px;">เสม็ดใต้</span> <br>
+                    <span class="me-1" style="font-size: 36px;">องค์การบริหารส่วนตำบล</span><span style="font-size: 50px;">เสม็ดใต้</span> <br>
                     <span style="font-size: 22px;"> Samedtai Subditrict Administrative Organization</span> <br>
                     <span style="font-size: 30px;">อำเภอบางคล้า จังหวัดฉะเชิงเทรา</span>
                 </div>
@@ -286,8 +285,7 @@
                     <img src="{{ asset('images/navbar/text-minus.png') }}" alt="text-minus">
                     <img src="{{ asset('images/navbar/text-normal.png') }}" alt="text-normal">
                     <img src="{{ asset('images/navbar/text-plus.png') }}" alt="text-plus">
-                    <img src="{{ asset('images/navbar/disability.png') }}" alt="btn-disability" width="42"
-                        height="42">
+                    <img src="{{ asset('images/navbar/disability.png') }}" alt="btn-disability" width="42" height="42">
                     <img src="{{ asset('images/navbar/th.png') }}" alt="thailand">
                     <img src="{{ asset('images/navbar/en.png') }}" alt="english">
                 </div>

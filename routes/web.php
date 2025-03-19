@@ -26,6 +26,8 @@ use App\Http\Controllers\ITA\ITAController;
 use App\Http\Controllers\menu_for_public\AdminMenuForPublicController;
 use App\Http\Controllers\menu_for_public\MenuForPublicController;
 use App\Http\Controllers\TreasuryAnnouncementController;
+use App\Http\Controllers\web_intro\AdminWebIntroController;
+use App\Http\Controllers\web_intro\WebIntroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +45,8 @@ use App\Http\Controllers\TreasuryAnnouncementController;
 //     return view('pages.home.app');
 // })->name('home_index');
 
-Route::get('/', [ShowDataController::class, 'HomeIndex'])->name('HomeIndex');
+Route::get('/', [WebIntroController::class, 'WebIntroPage'])->name('WebIntroPage');
+Route::get('/home', [ShowDataController::class, 'HomeIndex'])->name('HomeIndex');
 
 //ผลการดำเนินงาน
 Route::get('/PerformanceResults/show/section/{id}', [PerformanceResultsController::class, 'PerformanceResultsSectionPages'])->name('PerformanceResultsSectionPages');
@@ -262,6 +265,11 @@ Route::middleware(['check.auth'])->group(function () {
     Route::get('/Admin/MenuForPublic/show/section/detail/{id}', [AdminMenuForPublicController::class, 'MenuForPublicShowDetails'])->name('MenuForPublicShowDetails');
     Route::post('/Admin/MenuForPublic/show/section/detail/create/{id}', [AdminMenuForPublicController::class, 'MenuForPublicDetailCreate'])->name('MenuForPublicDetailCreate');
     Route::delete('/Admin/MenuForPublic/show/section/detail/delete/{id}', [AdminMenuForPublicController::class, 'MenuForPublicDetailDelete'])->name('MenuForPublicDetailDelete');
+
+    //MenuForPublic
+    Route::get('/Admin/WebIntro/page', [AdminWebIntroController::class, 'AdminWebIntro'])->name('AdminWebIntro');
+    Route::post('/Admin/WebIntro/create', [AdminWebIntroController::class, 'WebIntroCreate'])->name('WebIntroCreate');
+    Route::delete('/Admin/WebIntro/delete/{id}', [AdminWebIntroController::class, 'WebIntroDelete'])->name('WebIntroDelete');
 });
 
 Route::get('/showLoginForm', [AuthController::class, 'showLoginForm'])->name('showLoginForm');
