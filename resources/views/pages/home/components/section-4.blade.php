@@ -146,7 +146,7 @@
         </div>
         <div
             class="col-xl-2 d-flex flex-column flex-md-row flex-xl-column justify-content-center align-items-center gap-3">
-            <div class="bg-details-section-4-1 p-3 fw-bold" style="width: 100%; margin: auto;">
+            {{-- <div class="bg-details-section-4-1 p-3 fw-bold" style="width: 100%; margin: auto;">
                 <div class="d-flex flex-column justify-content-center align-items-center p-2 rounded text-white"
                     style="background-color: rgb(0, 219, 0);">
                     <div class="d-flex justify-content-start align-items-end fs-3 mb-2 ">
@@ -160,7 +160,8 @@
                         องค์การบบริการส่วนตำบลเสม็ดใต้
                     </div>
                 </div>
-            </div>
+            </div> --}}
+            <img src="{{asset('images/section-4/samedtaisao-line.png')}}" alt="line">
             <div class=" bg-details-section-4-2 p-3 fw-bold" style="width: 100%; margin: auto;">
                 <div class="d-flex flex-column justify-content-center align-items-center p-2 rounded "
                     style="background-color: rgb(250, 250, 250);">
