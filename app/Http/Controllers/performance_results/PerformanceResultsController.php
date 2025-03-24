@@ -18,7 +18,11 @@ class PerformanceResultsController extends Controller
 {
     public function PerformanceResultsSectionPages($id)
     {
-        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $personnelAgencies = PersonnelAgency::with('ranks')
+        ->whereIn('status', [1, 2, 3, 4, 5])
+        ->orderByRaw("FIELD(status, 1, 2, 3, 4, 5)")
+        ->get();
+
         $PerfResultsMenu = PerfResultsType::all();
         $AuthorityMenu = AuthorityType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
@@ -33,7 +37,11 @@ class PerformanceResultsController extends Controller
 
     public function PerfResultsSubTopicPages($id)
     {
-        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $personnelAgencies = PersonnelAgency::with('ranks')
+        ->whereIn('status', [1, 2, 3, 4, 5])
+        ->orderByRaw("FIELD(status, 1, 2, 3, 4, 5)")
+        ->get();
+
         $PerfResultsMenu = PerfResultsType::all();
         $AuthorityMenu = AuthorityType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
@@ -48,7 +56,11 @@ class PerformanceResultsController extends Controller
 
     public function PerfResultsShowDetailsPages($id)
     {
-        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $personnelAgencies = PersonnelAgency::with('ranks')
+        ->whereIn('status', [1, 2, 3, 4, 5])
+        ->orderByRaw("FIELD(status, 1, 2, 3, 4, 5)")
+        ->get();
+
         $PerfResultsMenu = PerfResultsType::all();
         $AuthorityMenu = AuthorityType::all();
         $OperationalPlanMenu = OperationalPlanType::all();

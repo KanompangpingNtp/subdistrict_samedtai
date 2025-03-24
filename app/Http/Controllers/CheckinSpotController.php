@@ -115,7 +115,11 @@ class CheckinSpotController extends Controller
 
     public function CheckinSpotShowData()
     {
-        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $personnelAgencies = PersonnelAgency::with('ranks')
+        ->whereIn('status', [1, 2, 3, 4, 5])
+        ->orderByRaw("FIELD(status, 1, 2, 3, 4, 5)")
+        ->get();
+
         $PerfResultsMenu = PerfResultsType::all();
         $AuthorityMenu = AuthorityType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
@@ -132,7 +136,11 @@ class CheckinSpotController extends Controller
 
     public function CheckinSpotShowDetails($id)
     {
-        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $personnelAgencies = PersonnelAgency::with('ranks')
+        ->whereIn('status', [1, 2, 3, 4, 5])
+        ->orderByRaw("FIELD(status, 1, 2, 3, 4, 5)")
+        ->get();
+
         $PerfResultsMenu = PerfResultsType::all();
         $AuthorityMenu = AuthorityType::all();
         $OperationalPlanMenu = OperationalPlanType::all();

@@ -17,7 +17,11 @@ class OperationalPlanController extends Controller
 {
     public function OperationalPlanSectionPages($id)
     {
-        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $personnelAgencies = PersonnelAgency::with('ranks')
+        ->whereIn('status', [1, 2, 3, 4, 5])
+        ->orderByRaw("FIELD(status, 1, 2, 3, 4, 5)")
+        ->get();
+
         $PerfResultsMenu = PerfResultsType::all();
         $AuthorityMenu = AuthorityType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
@@ -32,7 +36,11 @@ class OperationalPlanController extends Controller
 
     public function OperationalPlanShowDetailsPages($id)
     {
-        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $personnelAgencies = PersonnelAgency::with('ranks')
+        ->whereIn('status', [1, 2, 3, 4, 5])
+        ->orderByRaw("FIELD(status, 1, 2, 3, 4, 5)")
+        ->get();
+
         $PerfResultsMenu = PerfResultsType::all();
         $AuthorityMenu = AuthorityType::all();
         $OperationalPlanMenu = OperationalPlanType::all();

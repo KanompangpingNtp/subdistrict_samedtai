@@ -1,8 +1,8 @@
-@extends('layouts.sub-layout')
+@extends('layout.app')
 @section('content')
 <style>
     .bg {
-        background-image: url('{{ asset('images/section-3/bg-4.png') }}');
+        background-image: url('{{ asset('images/base_data/bg-base-data.png') }}');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -12,11 +12,9 @@
 
     .custom-gradient-shadow {
         border-radius: 30px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2),
-            0 0 40px -10px rgba(0, 100, 0, 0.6),
-            /* เงาสีเขียวเข้ม */
-            0 0 40px -10px rgba(50, 205, 50, 0.6);
-        /* เงาสีเขียวอ่อน */
+        box-shadow: 0 4px 15px rgba(255, 0, 102, 0.3),
+            0 0 50px -10px rgba(255, 102, 178, 0.8),
+            0 0 50px -10px rgba(255, 153, 204, 0.8);
         background-color: #ffffff;
     }
 
@@ -42,7 +40,7 @@
 <div class="bg">
     <div class="container custom-gradient-shadow">
         <div class="d-flex flex-column justify-content-center align-items-center">
-            <div class="fs-1 fw-bold mb-4 mt-5">โครงสร้างองค์กร</div>
+            <div class="fs-1 fw-bold mt-5">โครงสร้างองค์กร</div>
 
             <style>
                 .a4-size {
@@ -54,7 +52,7 @@
 
             </style>
 
-            <div class="mt-5">
+            <div>
                 <img src="{{ asset('images/personnel_chart/st01-3.png') }}" class="a4-size" alt="">
             </div>
 

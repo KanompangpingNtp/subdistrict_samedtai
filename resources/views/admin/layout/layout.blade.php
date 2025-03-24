@@ -12,8 +12,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+     {{-- google font --}}
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <style>
+        body {
+            font-size: 13px;
+            font-family: 'Bai Jamjuree', sans-serif;
+        }
+
+    </style>
+
     @if ($message = Session::get('success'))
     <script>
         Swal.fire({
@@ -67,6 +80,27 @@
                             </div>
                             จัดการอินโทรเว็บไซต์
                         </a>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-clipboard"></i>
+                            </div>
+                            จัดการเมนูพื้นฐาน
+                            <div class="sb-sidenav-collapse-arrow">
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{route('HistoryAdmin')}}">ประวัติความเป็นมา</a>
+                                <a class="nav-link" href="{{route('GeneralInformationAdmin')}}">ข้อมูลสภาพทั่วไป</a>
+                                <a class="nav-link" href="#">ข้อมูลชุมชน</a>
+                                <a class="nav-link" href="{{route('CommunityProductsAdmin')}}">ผลิตภัณฑ์ชุมชน</a>
+                                <a class="nav-link" href="{{route('ImportantPlacesAdmin')}}">สถานที่สำคัญ</a>
+                                <a class="nav-link" href="{{route('LandscapeGalleryAdmin')}}">แกลอรี่ภาพถ่ายภูมิทัศน์</a>
+                                {{-- <a class="nav-link" href="#">บริการขั้นพื้นฐาน</a> --}}
+                                {{-- <a class="nav-link" href="#">ยุทธศาสตร์การพัฒนา</a> --}}
+                            </nav>
+                        </div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts1">
                             <div class="sb-nav-link-icon">
                                 <i class="bi bi-clipboard"></i>
@@ -129,16 +163,15 @@
                         </a>
                     </div>
                 </div>
-                <div class="sb-sidenav-footer">
+                {{-- <div class="sb-sidenav-footer">
                     <div class="small">Logged in as : {{ Auth::user()->name }}</div>
-                </div>
+                </div> --}}
             </nav>
         </div>
         <div id="layoutSidenav_content">
             <main>
-                <div class="container-fluid px-4">
-                    <div class="mt-4 text-center"></div>
-                    @yield('pages_content')
+                <div class="container-fluid px-4 mt-4">
+                    @yield('pages_content')<br>
                 </div>
             </main>
             <footer class="py-4 bg-light mt-auto">

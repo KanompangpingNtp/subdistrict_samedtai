@@ -16,7 +16,11 @@ class PersonnelAgencyController extends Controller
 {
     public function AgencyShow($id)
     {
-        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $personnelAgencies = PersonnelAgency::with('ranks')
+        ->whereIn('status', [1, 2, 3, 4, 5])
+        ->orderByRaw("FIELD(status, 1, 2, 3, 4, 5)")
+        ->get();
+
         $PerfResultsMenu = PerfResultsType::all();
         $AuthorityMenu = AuthorityType::all();
         $OperationalPlanMenu = OperationalPlanType::all();
@@ -33,17 +37,19 @@ class PersonnelAgencyController extends Controller
         return view('pages.agency.show', compact('PublicMenus','agency', 'photos', 'text', 'phone' ,'personnelAgencies','PerfResultsMenu','AuthorityMenu','OperationalPlanMenu','LawsRegsMenu'));
     }
 
-    // public function PersonnelChart()
-    // {
-    //     $personnelAgencies = PersonnelAgency::with('ranks')->get();
+    public function PersonnelChart()
+    {
+        $personnelAgencies = PersonnelAgency::with('ranks')
+        ->whereIn('status', [1, 2, 3, 4, 5])
+        ->orderByRaw("FIELD(status, 1, 2, 3, 4, 5)")
+        ->get();
 
-    //     $AuthorityInfoType = BasicInfoType::where('type_name', 'อำนาจหน้าที่')->first();
-    //     $AuthorityDetails = ListDetail::where('basic_info_type_id', $AuthorityInfoType->id)->get();
+        $PerfResultsMenu = PerfResultsType::all();
+        $AuthorityMenu = AuthorityType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
 
-    //     $PerfResultsMenu = PerfResultsType::all();
-    //     $OperationalPlanMenu = OperationalPlanType::all();
-    //     $LawsRegsMenu = LawsRegsType::all();
-
-    //     return view('pages.agency.personnel_chart', compact('LawsRegsMenu','personnelAgencies', 'AuthorityDetails', 'OperationalPlanMenu', 'PerfResultsMenu'));
-    // }
+        return view('pages.agency.personnel_chart', compact('LawsRegsMenu','personnelAgencies', 'PerfResultsMenu', 'AuthorityMenu', 'OperationalPlanMenu','LawsRegsMenu','PublicMenus'));
+    }
 }

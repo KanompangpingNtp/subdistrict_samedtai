@@ -85,7 +85,11 @@ class ShowDataController extends Controller
         $PublicMenus = PublicMenusType::all();
 
         //บุคลากร
-        $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        // $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $personnelAgencies = PersonnelAgency::with('ranks')
+            ->whereIn('status', [1, 2, 3, 4, 5])
+            ->orderByRaw("FIELD(status, 1, 2, 3, 4, 5)")
+            ->get();
 
         return view('pages.home.app', compact(
             'pressRelease',

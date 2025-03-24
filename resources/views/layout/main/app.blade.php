@@ -219,46 +219,47 @@
             background-color: #f0f0f0;
         }
 
-.navbar-nav .nav-item .nav-link {
-        transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-    }
+        .navbar-nav .nav-item .nav-link {
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+        }
 
-    .navbar-nav .nav-item .nav-link:hover {
-        transform: scale(1.1);
-        /* ขยายขึ้น 10% */
-        filter: drop-shadow(0 0 8px rgb(255, 123, 196));
-        /* เรืองแสงสีฟ้า */
-    }
+        .navbar-nav .nav-item .nav-link:hover {
+            transform: scale(1.1);
+            /* ขยายขึ้น 10% */
+            filter: drop-shadow(0 0 8px rgb(255, 123, 196));
+            /* เรืองแสงสีฟ้า */
+        }
 
-    .navbar-text {
-        font-size: 20px;
-    }
+        .navbar-text {
+            font-size: 20px;
+        }
 
-    .navbar .dropdown-toggle::after {
-        display: none !important;
-    }
+        .navbar .dropdown-toggle::after {
+            display: none !important;
+        }
 
-    .dropdown-menu {
-        background-color: rgb(255, 123, 196, 0.6);
-        border: 1px solid rgb(255, 123, 196);
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 10px 0;
-        margin: 0;
-        font-size: 23px;
-        transition: all 0.3s ease;
-    }
+        .dropdown-menu {
+            background-color: rgb(255, 123, 196, 0.6);
+            border: 1px solid rgb(255, 123, 196);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            margin: 0;
+            font-size: 23px;
+            transition: all 0.3s ease;
+        }
 
 
-    .dropdown-menu a {
-        color: #ffffff;
-        transition: all 0.3s ease;
-    }
+        .dropdown-menu a {
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
 
-    .dropdown-menu a:hover {
-        color: rgb(0, 0, 0);
-        background-color: rgb(255, 123, 196);
-    }
+        .dropdown-menu a:hover {
+            color: rgb(0, 0, 0);
+            background-color: rgb(255, 123, 196);
+        }
+
     </style>
 
 </head>
@@ -304,11 +305,20 @@
                     <ul class="navbar-nav w-100 d-flex flex-wrap justify-content-evenly fw-bold">
                         <!-- 1. หน้าหลัก -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle d-flex flex-column align-items-center " href="#" id="basicInfoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle d-flex flex-column align-items-center" href="#" id="basicInfoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="{{ asset('images/section-1/1-ปุ่มหน้าหลัก.png') }}" alt="house" class="navbar-icon">
-                                <div class="navbar-text ">หน้าหลัก</div>
+                                <div class="navbar-text">หน้าหลัก</div>
                             </a>
+                            <ul class="dropdown-menu" aria-labelledby="basicInfoDropdown">
+                                <li><a class="dropdown-item" href="{{route('HistoryPage')}}">ประวัติความเป็นมา</a></li>
+                                <li><a class="dropdown-item" href="{{route('GeneralInformationPage')}}">ข้อมูลสภาพทั่วไป</a></li>
+                                <li><a class="dropdown-item" href="#">ข้อมูลชุมชน</a></li>
+                                <li><a class="dropdown-item" href="{{route('CommunityProductsPage')}}">ผลิตภัณฑ์ชุมชน</a></li>
+                                <li><a class="dropdown-item" href="{{route('ImportantPlacesPage')}}">สถานที่สำคัญ</a></li>
+                                <li><a class="dropdown-item" href="{{route('LandscapeGalleryPage')}}">แกลอรี่ภาพถ่ายภูมิทัศน์</a></li>
+                            </ul>
                         </li>
+
 
                         <!-- 2. บุคลากร -->
                         <li class="nav-item dropdown">
@@ -371,10 +381,10 @@
                                         {{ $detail->type_name }}
                                     </a>
                                 </li>
-                            @endforeach
+                                @endforeach
                             </ul>
                         </li>
-                        
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle d-flex flex-column align-items-center" href="#" id="lawDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="{{ asset('images/section-1/6-กฏหมาย.png') }}" alt="กฏหมายและกฏระเบียบ" class="navbar-icon">
@@ -382,11 +392,11 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="lawDropdown">
                                 @foreach ($LawsRegsMenu as $detail)
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('LawsAndRegulationsSectionPages', ['id' => $detail->id]) }}">
-                                            {{ $detail->type_name }}
-                                        </a>
-                                    </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('LawsAndRegulationsSectionPages', ['id' => $detail->id]) }}">
+                                        {{ $detail->type_name }}
+                                    </a>
+                                </li>
                                 @endforeach
                             </ul>
                         </li>
@@ -397,15 +407,15 @@
                                 <div class="navbar-text">เมนูสำหรับประชาชน</div>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="citizenMenuDropdown">
-                                <li><a class="dropdown-item" href="{{route('ReceiveComplaintsForm')}}">รับเรื่องราวร้องทุกข์ </a></li>
+                                {{-- <li><a class="dropdown-item" href="{{route('ReceiveComplaintsForm')}}">รับเรื่องราวร้องทุกข์ </a></li>
                                 <li><a class="dropdown-item" href="{{route('SatisfactionForm')}}">รับแจ้งร้องเรียนทุจริตประพฤติมิชอบ</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">แบบสอบถามความพึงพอใจ </a></li>
+                                <li><a class="dropdown-item" href="{{route('testPage')}}">แบบสอบถามความพึงพอใจ </a></li> --}}
                                 @foreach ($PublicMenus as $detail)
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('MenuForPublicSectionPages', ['id' => $detail->id]) }}">
-                                            {{ $detail->type_name }}
-                                        </a>
-                                    </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('MenuForPublicSectionPages', ['id' => $detail->id]) }}">
+                                        {{ $detail->type_name }}
+                                    </a>
+                                </li>
                                 @endforeach
                             </ul>
                         </li>
@@ -413,7 +423,7 @@
                 </div>
             </div>
         </nav>
-        
+
     </div>
 
 
