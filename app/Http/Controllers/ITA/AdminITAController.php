@@ -137,12 +137,11 @@ class AdminITAController extends Controller
                         ]);
                     }
                 } else {
-                    // ค้นหาลิงก์ที่มี id ตรงกัน และอัปเดตข้อมูล
+
                     $link = ITALink::where('detail_id', $postDetail->id)
                         ->where('id', $request->input('url_id')[$index])
                         ->first();
 
-                    // ถ้าพบลิงก์นั้นในฐานข้อมูล
                     if ($link) {
                         $link->update([
                             'url_name' => $urlName,  // อัปเดตชื่อ URL
