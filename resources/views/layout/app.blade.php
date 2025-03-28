@@ -193,7 +193,7 @@
                 <div class="d-flex justify-content-end align-items-center gap-2">
                     <a class="button-pink" href="{{ route('showLoginForm') }}">เข้าสู่ระบบ</a>
                     <a class="button-blue">สมัครสมาชิก</a>
-                    <a class="button-pink" href="#">ติดต่อเรา</a>
+                    <a class="button-pink" href="{{route('contact')}}">ติดต่อเรา</a>
                 </div>
                 <div class="d-flex flex-column justify-content-start align-items-center gap-2 button-img mt-2">
                     <div class="d-flex justify-content-center align-items-end button-img gap-2">

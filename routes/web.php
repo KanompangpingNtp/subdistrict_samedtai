@@ -65,6 +65,7 @@ Route::get('/ImportantPlaces/showdetails/index/{id}', [ImportantPlacesController
 
 Route::get('/', [WebIntroController::class, 'WebIntroPage'])->name('WebIntroPage');
 Route::get('/home', [ShowDataController::class, 'HomeIndex'])->name('HomeIndex');
+Route::get('/contact', [ShowDataController::class, 'contact'])->name('contact');
 
 //ผลการดำเนินงาน
 Route::get('/PerformanceResults/show/section/{id}', [PerformanceResultsController::class, 'PerformanceResultsSectionPages'])->name('PerformanceResultsSectionPages');

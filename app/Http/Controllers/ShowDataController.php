@@ -113,4 +113,38 @@ class ShowDataController extends Controller
     {
         return view('pages.base_data.app');
     }
+
+    public function contact()
+    {
+        //ผลการดำเนินงานเมนู
+        $PerfResultsMenu = PerfResultsType::all();
+
+        //อำนาจหน้าที่
+        $AuthorityMenu = AuthorityType::all();
+
+        //เมนูแผนงานพัฒนาท้องถิ่น
+        $OperationalPlanMenu = OperationalPlanType::all();
+
+        //กฎหมายและกฎระเบียบ
+        $LawsRegsMenu = LawsRegsType::all();
+
+        //เมนูสำหรับประชาชน
+        $PublicMenus = PublicMenusType::all();
+
+        //บุคลากร
+        // $personnelAgencies = PersonnelAgency::with('ranks')->get();
+        $personnelAgencies = PersonnelAgency::with('ranks')
+            ->whereIn('status', [1, 2, 3, 4, 5])
+            ->orderByRaw("FIELD(status, 1, 2, 3, 4, 5)")
+            ->get();
+
+        return view('pages.contact.page',compact(
+            'PerfResultsMenu',
+            'AuthorityMenu',
+            'OperationalPlanMenu',
+            'LawsRegsMenu',
+            'PublicMenus',
+            'personnelAgencies',
+        ));
+    }
 }
