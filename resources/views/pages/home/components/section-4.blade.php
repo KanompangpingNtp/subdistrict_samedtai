@@ -161,7 +161,9 @@
                     </div>
                 </div>
             </div> --}}
-            <img src="{{asset('images/section-4/samedtaisao-line.png')}}" alt="line">
+            <a href=" https://lin.ee/NYQe8Ob">
+                <img src="{{asset('images/section-4/samedtaisao-line.png')}}" alt="line">
+            </a>
             <div class=" bg-details-section-4-2 p-3 fw-bold" style="width: 100%; margin: auto;">
                 <div class="d-flex flex-column justify-content-center align-items-center p-2 rounded "
                     style="background-color: rgb(250, 250, 250);">
@@ -226,6 +228,6 @@
                 </a>
             </div>
         </div>
-        
-    
+
+
 </main>
