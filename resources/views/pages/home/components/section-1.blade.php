@@ -221,7 +221,7 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle d-flex flex-column align-items-center" href="#" id="basicInfoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="{{ asset('images/section-1/1-ปุ่มหน้าหลัก.png') }}" alt="house" class="navbar-icon">
-                                        <div class="navbar-text">หน้าหลัก</div>
+                                        <div class="navbar-text">ข้อมูลพื้นฐาน</div>
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="basicInfoDropdown">
                                         <li><a class="dropdown-item" href="{{route('HistoryPage')}}">ประวัติความเป็นมา</a></li>

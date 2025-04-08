@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout.main.app')
 @section('content')
 <style>
     .bg {
