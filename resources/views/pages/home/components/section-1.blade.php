@@ -216,11 +216,18 @@
                         </button>
                         <!-- เมนูทั้งหมด -->
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                            <ul class="navbar-nav w-100 d-flex flex-wrap justify-content-evenly fw-bold">
+                            <ul class="nav-link dropdown-toggle navbar-nav w-100 d-flex flex-wrap justify-content-evenly fw-bold">
+                                <li class="nav-item dropdown">
+                                    <a href="https://samedtai.go.th/home" class="nav-link dropdown-toggle d-flex flex-column align-items-center" >
+                                        <img src="{{ asset('images/section-1/0-ปุ่มหน้าหลัก.png') }}" alt="house" class="navbar-icon">
+                                        <div class="navbar-text">หน้าหลัก</div>
+                                    </a>
+                                </li>
+                                
                                 <!-- 1. หน้าหลัก -->
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle d-flex flex-column align-items-center" href="#" id="basicInfoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="{{ asset('images/section-1/1-ปุ่มหน้าหลัก.png') }}" alt="house" class="navbar-icon">
+                                    <a class="nav-link dropdown-toggle d-flex flex-column align-items-center mt-2" href="#" id="basicInfoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="{{ asset('images/section-1/1-ข้อมูลพื้นฐาน.png') }}" alt="house" class="navbar-icon">
                                         <div class="navbar-text">ข้อมูลพื้นฐาน</div>
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="basicInfoDropdown">
