@@ -26,7 +26,7 @@ class TestController extends Controller
         $LawsRegsMenu = LawsRegsType::all();
         $PublicMenus = PublicMenusType::all();
 
-        return view('users.pages.menu_for_public.eserive.receive_complaints.page_form', compact(
+        return view('pages.menu_for_public.eservice.receive_complaints.page_form', compact(
             'PerfResultsMenu',
             'AuthorityMenu',
             'OperationalPlanMenu',
@@ -49,7 +49,7 @@ class TestController extends Controller
         $LawsRegsMenu = LawsRegsType::all();
         $PublicMenus = PublicMenusType::all();
 
-        return view('users.pages.menu_for_public.eserive.survey.page_form',compact(
+        return view('pages.menu_for_public.eservice.survey.page_form',compact(
             'PerfResultsMenu',
             'AuthorityMenu',
             'OperationalPlanMenu',

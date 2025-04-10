@@ -39,6 +39,8 @@ use App\Http\Controllers\basic_information\community_products\CommunityProductsC
 use App\Http\Controllers\basic_information\important_places\AdminImportantPlacesController;
 use App\Http\Controllers\basic_information\important_places\ImportantPlacesController;
 
+use App\Http\Controllers\eservice\TestController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,6 +51,12 @@ use App\Http\Controllers\basic_information\important_places\ImportantPlacesContr
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+//รับเรื่องราวร้องทุกข์
+Route::get('/ReceiveComplaints/form', [TestController::class, 'ReceiveComplaintsForm'])->name('ReceiveComplaintsForm');
+
+//รับแจ้งร้องเรียนทุจริตประพฤติมิชอบ
+Route::get('/Satisfaction/form', [TestController::class, 'SatisfactionForm'])->name('SatisfactionForm');
 
 //ข้อมูลพื้นฐาน
 Route::get('/history/page', [HistoryController::class, 'HistoryPage'])->name('HistoryPage');

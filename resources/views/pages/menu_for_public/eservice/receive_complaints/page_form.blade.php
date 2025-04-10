@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout.main.app')
 @section('content')
 <style>
     .bg {
@@ -17,7 +17,6 @@
             0 0 50px -10px rgba(255, 153, 204, 0.8);
         background-color: #ffffff;
     }
-
     /* ปรับแต่งการ์ด */
     .custom-card {
         border: none;

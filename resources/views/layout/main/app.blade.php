@@ -173,7 +173,7 @@
         }
 
         .link-logo {
-            
+
             transition: all 0.3s ease;
             cursor: pointer;
         }
@@ -626,9 +626,9 @@
                                 <div class="navbar-text">เมนูสำหรับประชาชน</div>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="citizenMenuDropdown">
-                                {{-- <li><a class="dropdown-item" href="{{route('ReceiveComplaintsForm')}}">รับเรื่องราวร้องทุกข์ </a></li>
+                                <li><a class="dropdown-item" href="{{route('ReceiveComplaintsForm')}}">รับเรื่องราวร้องทุกข์ </a></li>
                                 <li><a class="dropdown-item" href="{{route('SatisfactionForm')}}">รับแจ้งร้องเรียนทุจริตประพฤติมิชอบ</a></li>
-                                <li><a class="dropdown-item" href="{{route('testPage')}}">แบบสอบถามความพึงพอใจ </a></li> --}}
+                                {{-- <li><a class="dropdown-item" href="{{route('testPage')}}">แบบสอบถามความพึงพอใจ </a></li> --}}
                                 @foreach ($PublicMenus as $detail)
                                 <li>
                                     <a class="dropdown-item" href="{{ route('MenuForPublicSectionPages', ['id' => $detail->id]) }}">
@@ -653,16 +653,16 @@
                         </span>
                     </div>
                 </div>
-    
+
             </div>
         </div>
-    
+
         <style>
             @keyframes marquee {
                 0% {
                     transform: translateX(100%);
                 }
-    
+
                 100% {
                     transform: translateX(-100%);
                 }

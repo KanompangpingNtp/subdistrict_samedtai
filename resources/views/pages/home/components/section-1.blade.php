@@ -223,7 +223,7 @@
                                         <div class="navbar-text">หน้าหลัก</div>
                                     </a>
                                 </li>
-                                
+
                                 <!-- 1. หน้าหลัก -->
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle d-flex flex-column align-items-center mt-2" href="#" id="basicInfoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -351,9 +351,9 @@
                                         <div class="navbar-text">เมนูสำหรับประชาชน</div>
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="citizenMenuDropdown">
-                                        {{-- <li><a class="dropdown-item" href="{{route('ReceiveComplaintsForm')}}">รับเรื่องราวร้องทุกข์ </a></li>
+                                        <li><a class="dropdown-item" href="{{route('ReceiveComplaintsForm')}}">รับเรื่องราวร้องทุกข์ </a></li>
                                         <li><a class="dropdown-item" href="{{route('SatisfactionForm')}}">รับแจ้งร้องเรียนทุจริตประพฤติมิชอบ</a></li>
-                                        <li><a class="dropdown-item" href="{{route('testPage')}}">แบบสอบถามความพึงพอใจ </a></li> --}}
+                                        {{-- <li><a class="dropdown-item" href="{{route('testPage')}}">แบบสอบถามความพึงพอใจ </a></li> --}}
                                         @foreach ($PublicMenus as $detail)
                                             <li>
                                                 <a class="dropdown-item"
