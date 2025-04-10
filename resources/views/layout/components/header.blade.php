@@ -17,9 +17,6 @@
         /* ใช้ min-height เพื่อให้พื้นที่ครอบคลุมหน้าจอ */
     }
 
-
-    
-
     .navbar-item {
         color: white;
         text-decoration: none;
@@ -155,7 +152,7 @@
         </video>
 
     </div>
-        
+
 
     <div class="bg-runtext w-100 d-flex align-items-center">
         <div class="container d-flex align-items-center gap-3">
