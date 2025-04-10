@@ -39,7 +39,8 @@ class MenuForPublicController extends Controller
             'personnelAgencies',
             'OperationalPlanMenu',
             'PerfResultsMenu',
-            'PublicMenus'
+            'PublicMenus',
+            'AuthorityMenu'
         ));
     }
 
@@ -67,7 +68,8 @@ class MenuForPublicController extends Controller
             'personnelAgencies',
             'OperationalPlanMenu',
             'PerfResultsMenu',
-            'PublicMenus'
+            'PublicMenus',
+            'AuthorityMenu'
         ));
     }
 }
