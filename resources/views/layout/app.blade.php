@@ -108,10 +108,6 @@
             /* เพิ่มเงาสีขาว */
         }
 
-        .logo {
-            height: 9rem;
-        }
-
         /* สำหรับ scrollbar ทุกประเภท */
         ::-webkit-scrollbar {
             width: 5px;
@@ -171,6 +167,23 @@
             background: none;
             border: none;
         }
+
+        .logo{
+            height: 9rem;
+        }
+
+        .link-logo {
+            
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .link-logo:hover {
+            transform: scale(1.05);
+            /* ขยายเล็กน้อย */
+            filter: brightness(1.1);
+            /* ทำให้ดูสว่างขึ้น */
+        }
     </style>
 </head>
 
@@ -180,8 +193,10 @@
     <header class="bg-nav d-flex">
         <div
             class="container d-flex flex-column flex-lg-row justify-content-center justify-content-md-between align-items-center">
-            <div class="d-flex  justify-content-start align-items-center gap-3">
-                <img src="{{ asset('images/navbar/Logo.png') }}" alt="logo" class="logo d-none d-md-block">
+            <div class="d-flex flex-column flex-lg-row justify-content-start align-items-center gap-3">
+                <a href="https://samedtai.go.th/home" class="link-logo">
+                    <img src="{{ asset('images/navbar/Logo.png') }}" alt="logo" class="logo">
+                </a>
                 <div class="text-title-nav lh-1 text-center text-md-start ">
                     <span class="me-1" style="font-size: 36px;">องค์การบริหารส่วนตำบล</span><span
                         style="font-size: 50px;">เสม็ดใต้</span> <br>
@@ -193,7 +208,7 @@
                 <div class="d-flex justify-content-end align-items-center gap-2">
                     <a class="button-pink" href="{{ route('showLoginForm') }}">เข้าสู่ระบบ</a>
                     <a class="button-blue">สมัครสมาชิก</a>
-                    <a class="button-pink" href="{{route('contact')}}">ติดต่อเรา</a>
+                    <a class="button-pink" href="{{ route('contact') }}">ติดต่อเรา</a>
                 </div>
                 <div class="d-flex flex-column justify-content-start align-items-center gap-2 button-img mt-2">
                     <div class="d-flex justify-content-center align-items-end button-img gap-2">
@@ -317,9 +332,12 @@
 
 
     <script>
-        document.getElementById("scrollToTop").addEventListener("click", function (event) {
+        document.getElementById("scrollToTop").addEventListener("click", function(event) {
             event.preventDefault(); // ป้องกันการโหลดหน้าใหม่
-            window.scrollTo({ top: 0, behavior: "smooth" }); // เลื่อนขึ้นแบบนุ่มนวล
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            }); // เลื่อนขึ้นแบบนุ่มนวล
         });
     </script>
     <!-- Scripts -->

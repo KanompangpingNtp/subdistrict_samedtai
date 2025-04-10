@@ -54,11 +54,19 @@
     }
 
     .bg-details-section-4-2 {
-        background: linear-gradient(to bottom, rgb(191, 248, 255), rgb(255, 157, 211));
-        border-top-right-radius: 20px;
-        border-bottom-left-radius: 20px;
-        box-shadow: 0px 2px 20px rgba(255, 255, 255, 0.9);
-    }
+    background: linear-gradient(to bottom, rgb(191, 248, 255), rgb(255, 157, 211));
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    box-shadow: 0px 2px 20px rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease; /* ทำให้ hover ลื่น */
+    cursor: pointer; /* เพิ่ม cursor */
+}
+
+.bg-details-section-4-2:hover {
+    filter: brightness(1.05); /* ทำให้สว่างขึ้นเล็กน้อย */
+    transform: scale(1.02);
+}
+
 
     .card-container-4 {
     display: flex;
@@ -97,6 +105,15 @@
 
 .card-container-4:hover .card-text-4 {
     opacity: 1;
+}
+.edit-line {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.edit-line:hover {
+    transform: scale(1.05); /* ขยายรูปเล็กน้อย */
+    filter: brightness(1.1); /* ทำให้สว่างขึ้น */
 }
 
 </style>
@@ -161,10 +178,11 @@
                     </div>
                 </div>
             </div> --}}
-            <a href=" https://lin.ee/NYQe8Ob">
-                <img src="{{asset('images/section-4/samedtaisao-line.png')}}" alt="line">
+            <a href="https://lin.ee/NYQe8Ob">
+                <img src="{{ asset('images/section-4/samedtaisao-line.png') }}" alt="line" class="edit-line">
             </a>
-            <div class=" bg-details-section-4-2 p-3 fw-bold" style="width: 100%; margin: auto;">
+            
+            <a href="https://localgov.egov.go.th/landing" class=" bg-details-section-4-2 p-3 fw-bold text-decoration-none text-dark" style="width: 100%; margin: auto;">
                 <div class="d-flex flex-column justify-content-center align-items-center p-2 rounded "
                     style="background-color: rgb(250, 250, 250);">
                     <img src="{{ asset('images/section-4/predictive.png') }}" alt="icon">
@@ -175,7 +193,7 @@
                         One Stop Service
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         <!-- Facebook Page Plugin -->
         <div class=" col-xl-3 bg-details p-3">
