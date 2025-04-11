@@ -182,18 +182,22 @@
                         </div>
                     </div>
                     <div class="col">
-                        <div class="d-flex justify-content-center align-items-center banner-blue px-3 py-2 fw-bold lh-1">
-                            <img src="{{ asset('images/section-2/3-รับเเจ้งเรือง.png') }}" alt="icon"
-                                class="mb-2">
-                            <span>รับแจ้งเรื่องราวร้องทุกข์ </span>
-                        </div>
+                        <a href="https://samedtai.go.th/ReceiveComplaints/form" style="text-decoration: none; color: black;">
+                            <div class="d-flex justify-content-center align-items-center banner-blue px-3 py-2 fw-bold lh-1">
+                                <img src="{{ asset('images/section-2/3-รับเเจ้งเรือง.png') }}" alt="icon"
+                                    class="mb-2">
+                                <span>รับแจ้งเรื่องราวร้องทุกข์ </span>
+                            </div>
+                        </a>
                     </div>
                     <div class="col">
-                        <div class="d-flex justify-content-center align-items-center banner-pink px-3 py-2 fw-bold lh-1">
-                            <img src="{{ asset('images/section-2/4-รับเรืองร้องเรียนทุจริต.png') }}" alt="icon"
-                                class="mb-2">
-                            <span>รับเรื่องร้องเรียน <br> ทุจริตประพฤติมิชอบ</span>
-                        </div>
+                        <a href="https://samedtai.go.th/Satisfaction/form" style="text-decoration: none; color: black;">
+                            <div class="d-flex justify-content-center align-items-center banner-pink px-3 py-2 fw-bold lh-1">
+                                <img src="{{ asset('images/section-2/4-รับเรืองร้องเรียนทุจริต.png') }}" alt="icon"
+                                    class="mb-2">
+                                <span>รับเรื่องร้องเรียน <br> ทุจริตประพฤติมิชอบ</span>
+                            </div>
+                        </a>
                     </div>
                     <div class="col">
                         <a href="{{route('itaPage')}}" class="text-decoration-none">

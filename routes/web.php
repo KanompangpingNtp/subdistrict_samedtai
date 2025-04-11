@@ -52,6 +52,13 @@ use App\Http\Controllers\eservice\TestController;
 |
 */
 
+//testeservice
+Route::get('/eservice/form/page_data', [TestController::class, 'page_data'])->name('page_data');
+Route::get('/eservice/form/page-1', [TestController::class, 'page1'])->name('page1');
+Route::get('/eservice/form/page-2', [TestController::class, 'page2'])->name('page2');
+Route::get('/eservice/form/page-3', [TestController::class, 'page3'])->name('page3');
+Route::get('/eservice/form/page-4', [TestController::class, 'page4'])->name('page4');
+
 //รับเรื่องราวร้องทุกข์
 Route::get('/ReceiveComplaints/form', [TestController::class, 'ReceiveComplaintsForm'])->name('ReceiveComplaintsForm');
 
