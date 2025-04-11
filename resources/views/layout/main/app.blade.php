@@ -628,7 +628,7 @@
                             <ul class="dropdown-menu" aria-labelledby="citizenMenuDropdown">
                                 <li><a class="dropdown-item" href="{{route('ReceiveComplaintsForm')}}">รับเรื่องราวร้องทุกข์ </a></li>
                                 <li><a class="dropdown-item" href="{{route('SatisfactionForm')}}">รับแจ้งร้องเรียนทุจริตประพฤติมิชอบ</a></li>
-                                {{-- <li><a class="dropdown-item" href="{{route('testPage')}}">แบบสอบถามความพึงพอใจ </a></li> --}}
+                                <li><a class="dropdown-item" href="{{route('page_data')}}">E-SERVICE</a></li>
                                 @foreach ($PublicMenus as $detail)
                                 <li>
                                     <a class="dropdown-item" href="{{ route('MenuForPublicSectionPages', ['id' => $detail->id]) }}">

@@ -58,4 +58,119 @@ class TestController extends Controller
             'personnelAgencies'
         ));
     }
+
+    public function page_data ()
+    {
+        //เมนู
+        $personnelAgencies = PersonnelAgency::with('ranks')
+            ->whereIn('status', [1, 2, 3, 4, 5])
+            ->orderByRaw("FIELD(status, 1, 2, 3, 4, 5)")
+            ->get();
+        $PerfResultsMenu = PerfResultsType::all();
+        $AuthorityMenu = AuthorityType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
+
+        return view('eservice.test.page_data',compact(
+            'PerfResultsMenu',
+            'AuthorityMenu',
+            'OperationalPlanMenu',
+            'LawsRegsMenu',
+            'PublicMenus',
+            'personnelAgencies'
+        ));
+    }
+
+    public function page1 ()
+    {
+        //เมนู
+        $personnelAgencies = PersonnelAgency::with('ranks')
+            ->whereIn('status', [1, 2, 3, 4, 5])
+            ->orderByRaw("FIELD(status, 1, 2, 3, 4, 5)")
+            ->get();
+        $PerfResultsMenu = PerfResultsType::all();
+        $AuthorityMenu = AuthorityType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
+
+        return view('eservice.test.page1',compact(
+            'PerfResultsMenu',
+            'AuthorityMenu',
+            'OperationalPlanMenu',
+            'LawsRegsMenu',
+            'PublicMenus',
+            'personnelAgencies'
+        ));
+    }
+
+    public function page2 ()
+    {
+        //เมนู
+        $personnelAgencies = PersonnelAgency::with('ranks')
+            ->whereIn('status', [1, 2, 3, 4, 5])
+            ->orderByRaw("FIELD(status, 1, 2, 3, 4, 5)")
+            ->get();
+        $PerfResultsMenu = PerfResultsType::all();
+        $AuthorityMenu = AuthorityType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
+
+        return view('eservice.test.page2',compact(
+            'PerfResultsMenu',
+            'AuthorityMenu',
+            'OperationalPlanMenu',
+            'LawsRegsMenu',
+            'PublicMenus',
+            'personnelAgencies'
+        ));
+    }
+
+    public function page3 ()
+    {
+        //เมนู
+        $personnelAgencies = PersonnelAgency::with('ranks')
+            ->whereIn('status', [1, 2, 3, 4, 5])
+            ->orderByRaw("FIELD(status, 1, 2, 3, 4, 5)")
+            ->get();
+        $PerfResultsMenu = PerfResultsType::all();
+        $AuthorityMenu = AuthorityType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
+
+        return view('eservice.test.page3',compact(
+            'PerfResultsMenu',
+            'AuthorityMenu',
+            'OperationalPlanMenu',
+            'LawsRegsMenu',
+            'PublicMenus',
+            'personnelAgencies'
+        ));
+    }
+
+    public function page4 ()
+    {
+        //เมนู
+        $personnelAgencies = PersonnelAgency::with('ranks')
+            ->whereIn('status', [1, 2, 3, 4, 5])
+            ->orderByRaw("FIELD(status, 1, 2, 3, 4, 5)")
+            ->get();
+        $PerfResultsMenu = PerfResultsType::all();
+        $AuthorityMenu = AuthorityType::all();
+        $OperationalPlanMenu = OperationalPlanType::all();
+        $LawsRegsMenu = LawsRegsType::all();
+        $PublicMenus = PublicMenusType::all();
+
+        return view('eservice.test.page4',compact(
+            'PerfResultsMenu',
+            'AuthorityMenu',
+            'OperationalPlanMenu',
+            'LawsRegsMenu',
+            'PublicMenus',
+            'personnelAgencies'
+        ));
+    }
 }

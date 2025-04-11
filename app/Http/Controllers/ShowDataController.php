@@ -20,7 +20,7 @@ class ShowDataController extends Controller
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ข่าวประชาสัมพันธ์');
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->take(7)
             ->get();
 
@@ -29,7 +29,7 @@ class ShowDataController extends Controller
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'กิจกรรม');
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->take(7)
             ->get();
 
@@ -38,36 +38,48 @@ class ShowDataController extends Controller
         $procurement = PostDetail::with('postType', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ประกาศจัดซื้อจัดจ้าง');
-            })->get();
+            })
+            ->orderBy('date', 'desc')
+            ->get();
 
         //ผลจัดซื้อจัดจ้าง
         $procurementResults = PostDetail::with('postType', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ผลจัดซื้อจัดจ้าง');
-            })->get();
+            })
+            ->orderBy('date', 'desc')
+            ->get();
 
         //ประกาศราคากลาง
         $average = PostDetail::with('postType', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ประกาศราคากลาง');
-            })->get();
+            })
+            ->orderBy('date', 'desc')
+            ->get();
 
         //งานเก็บรายได้
         $revenue = PostDetail::with('postType', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'งานเก็บรายได้');
-            })->get();
+            })
+            ->orderBy('date', 'desc')
+            ->get();
 
         //จุดเช็คอินกินเที่ยว
         $checkinspot = PostDetail::with('postType', 'videos', 'photos', 'pdfs')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'จุดเช็คอินกินเที่ยว');
-            })->get();
+            })
+            ->orderBy('date', 'desc')
+            ->get();
 
         $noticeBoard = PostDetail::with('postType', 'photos')
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ป้ายประกาศ');
-            })->get();
+            })
+            ->orderBy('date', 'desc')
+            ->get();
 
         //ผลการดำเนินงานเมนู
         $PerfResultsMenu = PerfResultsType::all();
