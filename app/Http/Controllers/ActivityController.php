@@ -26,6 +26,7 @@ class ActivityController extends Controller
         $postTypeId = $postTypes->firstWhere('type_name', 'กิจกรรม')->id;
         $postDetails = PostDetail::with('postType', 'photos', 'pdfs', 'videos')
             ->where('post_type_id', $postTypeId)
+            ->orderBy('created_at', 'desc')
             ->get();
 
         return view('admin.post.activity.activity', compact('postDetails', 'postTypes'));
