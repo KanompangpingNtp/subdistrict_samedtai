@@ -259,7 +259,7 @@ class PressReleaseController extends Controller
             ->whereHas('postType', function ($query) {
                 $query->where('type_name', 'ข่าวประชาสัมพันธ์');
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->paginate(14); // กำหนดจำนวนรายการที่แสดงต่อหน้าเป็น 14
 
         return view('pages.press_release.show_data', compact('PublicMenus','pressRelease', 'personnelAgencies', 'PerfResultsMenu', 'AuthorityMenu', 'OperationalPlanMenu', 'LawsRegsMenu'));
