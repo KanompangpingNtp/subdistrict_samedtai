@@ -36,8 +36,8 @@ class ActivityController extends Controller
         $request->validate([
             'post_type_id' => 'required|exists:post_types,id',
             'date' => 'nullable|date',
-            'title_name' => 'nullable|string|max:255',
-            'topic_name' => 'nullable|string|max:255',
+            'title_name' => 'nullable|string',
+            'topic_name' => 'nullable|string',
             'details' => 'nullable|string',
             'title_image' => 'file|mimes:jpg,jpeg,png',
             'file_post' => 'nullable|array',
