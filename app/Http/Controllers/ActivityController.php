@@ -152,8 +152,8 @@ class ActivityController extends Controller
     {
         $request->validate([
             'date' => 'nullable|date',
-            'title_name' => 'nullable|string|max:255',
-            'topic_name' => 'nullable|string|max:255',
+            'title_name' => 'nullable|string',
+            'topic_name' => 'nullable|string',
             'details' => 'nullable|string',
         ]);
 
