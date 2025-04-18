@@ -544,6 +544,15 @@
                     </form>
                 </div>
 
+                <hr>
+
+                <div class="d-flex justify-content-center align-items-center text-center">
+                    <a href="{{asset('manual/คู่มือ E-service.pdf')}}" class="btn btn-primary">
+                        คู่มือการใช้งานระบบ E-Service
+                        <i class="bi bi-file-earmark-pdf"></i>
+                    </a>
+                </div>
+
                 <script>
                     // Toggle display of the welfare_other_types field based on the 'ย้ายภูมิลําเนาเข้ามาอยู่ใหม่' checkbox
                     document.getElementById('welfare_type_relocation').addEventListener('change', function() {
