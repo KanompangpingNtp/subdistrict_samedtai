@@ -102,7 +102,13 @@
                         <div>เบอร์แฟกซ์ : 0-3858-4383</div>
                     </div>
                     <div class="d-flex justify-content-center align-items-start gap-2 mb-1">
-                        <div>Email : - </div>
+                        <div>Email : saraban@samedtai.go.th </div>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-start gap-2 mb-1">
+                        <div>Facebook : องค์การบริหารส่วนตำบลเสม็ดใต้ </div>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-start gap-2 mb-1">
+                        <div>Line : @samedtaisao </div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
