@@ -89,8 +89,8 @@
                         <span class="fw-bold fs-2">องค์การบริหารส่วนตำบลเสม็ดใต้</span> <br>
                         <span class="fw-bold fs-4">Samedtai Subditrict Administrative Organization</span><br>
                         <span class="text-muted fs-4">
-                            ลขที่ 111 หมู่ที่ 4 ตำบลเสม็ดใต้<br>
-                            ภอบางคล้า จังหวัดฉะเชิงเทรา<br>
+                            เลขที่ 111 หมู่ที่ 4  ตำบลเสม็ดใต้<br>
+                            อำเภอบางคล้า จังหวัดฉะเชิงเทรา<br>
                             รหัสไปรษณีย์ : 24110
                         </span>
                 </div>
