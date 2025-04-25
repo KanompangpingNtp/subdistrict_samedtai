@@ -323,7 +323,7 @@
                     </a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="#" class="slide-container">
+                    <a href="https://samedtai.go.th/PerformanceResults/show/section/4" class="slide-container">
                         <img src="{{ asset('images/section-6/ปุ่ม4.png') }}" alt="banner" class="slide-image-6">
                         <div class="slide-text">กิจการสภา</div>
                     </a>
