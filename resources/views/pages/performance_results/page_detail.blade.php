@@ -87,10 +87,39 @@
             </div>
 
             <!-- ไฟล์แนบ: PDF -->
-            @if ($PerfResultsFile->count() > 0)
+            {{-- @if ($PerfResultsFile->count() > 0)
             @foreach ($PerfResultsFile as $details)
             <div class="mb-3">
+                @php
+                $extension = strtolower(pathinfo($details->files_path, PATHINFO_EXTENSION));
+                @endphp
+
+                @if (in_array($extension, ['doc', 'docx', 'xls', 'xlsx']))
+                <a href="{{ asset('storage/' . $details->files_path) }}" class="btn btn-primary" download>
+                    ดาวน์โหลดไฟล์ {{ strtoupper($extension) }}
+                </a>
+                @else
                 <iframe src="{{ asset('storage/' . $details->files_path) }}" width="100%" height="800px"></iframe>
+                @endif
+            </div>
+            @endforeach
+            @endif --}}
+            @if ($PerfResultsFile->count() > 0)
+            @foreach ($PerfResultsFile as $details)
+            @php
+            $extension = pathinfo($details->files_path, PATHINFO_EXTENSION);
+            $isDisplayable = in_array(strtolower($extension), ['pdf']);
+            @endphp
+
+            <div class="mb-3">
+                @if ($isDisplayable)
+                <iframe src="{{ asset('storage/' . $details->files_path) }}" width="100%" height="800px"></iframe>
+                @else
+                <p>ไฟล์ประเภท {{ strtoupper($extension) }} ไม่สามารถแสดงตัวอย่างได้</p>
+                <a href="{{ asset('storage/' . $details->files_path) }}" class="btn btn-primary btn-sm" target="_blank">
+                    ดาวน์โหลดไฟล์ {{ strtoupper($extension) }}
+                </a>
+                @endif
             </div>
             @endforeach
             @endif
