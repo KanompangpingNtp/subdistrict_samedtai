@@ -157,12 +157,12 @@
                 <div class="d-none d-xl-flex flex-column justify-content-center align-items-center">
                     <img src="{{ asset('images/section-2/14.png') }}" alt="personal5" style="width:12rem;">
                     <div class="bg-detail w-100 lh-sm text-center">
-                        <span class="fw-bold fs-4">นางศิริลักษณ์ โสธรเทวาพิทักษ์</span> <br>
-                        รองปลัดองค์การบริหาร<br> ส่วนตำบลเสม็ดใต้
+                        <span class="fw-bold fs-4">นางมยุรี นาคสุข</span> <br>
+                        ปลัดองค์การบริหาร<br> ส่วนตำบลเสม็ดใต้
                     </div>
                     <div class="bg-phone2 w-100 py-2 ps-1 pe-2 fw-bold fs-5">
                         <span class="bg-dark text-white px-2 py-1 me-1"
-                            style="border-radius: 20px;">สายด่วน</span>0-3858-4130 ต่อ 119
+                            style="border-radius: 20px;">สายด่วน</span>080-0155-050
                     </div>
                 </div>
             </div>
