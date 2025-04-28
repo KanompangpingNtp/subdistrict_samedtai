@@ -23,11 +23,22 @@ class AuthController extends Controller
         if (Auth::attempt($request->only('email', 'password'))) {
             $request->session()->regenerate();
 
-            return redirect()->route('PressReleaseHome');
+            $status = Auth::user()->status;
+
+            if ($status == 1) {
+                return redirect()->route('PressReleaseHome');
+            } elseif ($status == 2) {
+                return redirect()->route('EserviceAdminAccount');
+            } elseif ($status == 3) {
+                return redirect()->route('EserviceUserAccount');
+            } else {
+                Auth::logout(); // ถ้าสถานะไม่ตรงตามที่กำหนด ให้ออกจากระบบ
+                return redirect()->route('showLoginForm')->withErrors(['status' => 'ไม่มีสิทธิ์เข้าถึงระบบ']);
+            }
         }
 
         return back()->withErrors([
-            'email' => 'Invalid credentials.',
+            'email' => 'อีเมลหรือรหัสผ่านไม่ถูกต้อง',
         ]);
     }
 

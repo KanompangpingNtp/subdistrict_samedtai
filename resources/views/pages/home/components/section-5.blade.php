@@ -308,7 +308,7 @@
                     <img src="{{ asset('images/section-5/0.png') }}" alt="banner-0">
                 </a>
 
-                <a href="#" class="col-xl-12 col-md-6 section5-image-wrapper">
+                <a href="{{route('ForumPages')}}" class="col-xl-12 col-md-6 section5-image-wrapper">
                     <img src="{{ asset('images/section-5/1.png') }}" alt="banner-1">
                     <div class="section5-overlay-text">กระดานกระทู้</div>
                 </a>

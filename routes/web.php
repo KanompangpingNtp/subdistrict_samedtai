@@ -40,6 +40,32 @@ use App\Http\Controllers\basic_information\important_places\AdminImportantPlaces
 use App\Http\Controllers\basic_information\important_places\ImportantPlacesController;
 
 use App\Http\Controllers\eservice\TestController;
+use App\Http\Controllers\eservice\TemporaryController;
+use App\Http\Controllers\eservice\health_hazard_applications\HealthHazardApplicationController;
+use App\Http\Controllers\eservice\health_hazard_applications\AdminHealthHazardApplicationController;
+use App\Http\Controllers\eservice\food_storage_license\FoodStorageLicenseController;
+use App\Http\Controllers\eservice\food_storage_license\AdminFoodStorageLicenseController;
+use App\Http\Controllers\eservice\building_modification\BuildingChangeController;
+use App\Http\Controllers\eservice\building_modification\AdminBuildingChangeController;
+use App\Http\Controllers\eservice\construction_certification\ConstructionController;
+use App\Http\Controllers\eservice\construction_certification\AdminConstructionController;
+use App\Http\Controllers\eservice\commercial_registration\TradeRegistryController;
+use App\Http\Controllers\eservice\commercial_registration\AdminTradeRegistryController;
+use App\Http\Controllers\eservice\general_requests\GeneralRequestsController;
+use App\Http\Controllers\eservice\general_requests\AdminGeneralRequestsController;
+use App\Http\Controllers\eservice\elderly_allowance\ElderlyAllowanceController;
+use App\Http\Controllers\eservice\elderly_allowance\AdminElderlyAllowanceController;
+use App\Http\Controllers\eservice\disability\DisabilityController;
+use App\Http\Controllers\eservice\disability\AdminDisabilityController;
+use App\Http\Controllers\eservice\receive_assistance\ReceiveAssistanceController;
+use App\Http\Controllers\eservice\receive_assistance\AdminReceiveAssistanceController;
+use App\Http\Controllers\eservice\trash_bin_requests\TrashBinRequestController;
+use App\Http\Controllers\eservice\trash_bin_requests\AdminTrashBinRequestController;
+
+use App\Http\Controllers\forum\ForumController;
+use App\Http\Controllers\forum\AdminForumController;
+use App\Http\Controllers\evaluation_questions\EvaluationQuestionsController;
+use App\Http\Controllers\evaluation_questions\AdminEvaluationQuestionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,13 +77,18 @@ use App\Http\Controllers\eservice\TestController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//แบบสอบถาม
+Route::get('/evaluation_questions/page', [EvaluationQuestionsController::class, 'QuestionsPage'])->name('QuestionsPage');
+Route::post('/evaluation_questions/create', [EvaluationQuestionsController::class, 'EvaluationQuestionsCreate'])->name('EvaluationQuestionsCreate');
 
-//testeservice
-Route::get('/eservice/form/page_data', [TestController::class, 'page_data'])->name('page_data');
-Route::get('/eservice/form/page-1', [TestController::class, 'page1'])->name('page1');
-Route::get('/eservice/form/page-2', [TestController::class, 'page2'])->name('page2');
-Route::get('/eservice/form/page-3', [TestController::class, 'page3'])->name('page3');
-Route::get('/eservice/form/page-4', [TestController::class, 'page4'])->name('page4');
+//Forum
+Route::get('/forum/pages', [ForumController::class, 'ForumPages'])->name('ForumPages');
+Route::post('/forum/create/form', [ForumController::class, 'ForumFormCreate'])->name('ForumFormCreate');
+Route::get('/forum/details/{id}', [ForumController::class, 'ForumDeatils'])->name('ForumDeatils');
+Route::post('/forum/create/comments/{id}', [ForumController::class, 'ForumCommentsCreate'])->name('ForumCommentsCreate');
+
+//eservice
+Route::get('/eservice/form/page_data', [TemporaryController::class, 'page_data'])->name('page_data');
 
 //รับเรื่องราวร้องทุกข์
 Route::get('/ReceiveComplaints/form', [TestController::class, 'ReceiveComplaintsForm'])->name('ReceiveComplaintsForm');
@@ -146,7 +177,7 @@ Route::get('/revenue/ShowData', [RevenueController::class, 'RevenueShowData'])->
 Route::get('/AveragePrice/detail/{id}', [AveragePriceController::class, 'AveragePriceDetail'])->name('AveragePriceDetail');
 Route::get('/AveragePrice/ShowData', [AveragePriceController::class, 'AveragePriceShowData'])->name('AveragePriceShowData');
 
-Route::middleware(['check.auth'])->group(function () {
+Route::middleware(['auth', 'check.auth:1'])->group(function () {
     //admin PressRelease
     Route::get('/PressRelease/page', [PressReleaseController::class, 'PressReleaseHome'])->name('PressReleaseHome');
     Route::post('/PressRelease/create', [PressReleaseController::class, 'PressReleaseCreate'])->name('PressReleaseCreate');
@@ -337,6 +368,182 @@ Route::middleware(['check.auth'])->group(function () {
     Route::get('/Admin/ImportantPlaces/show/details/{id}', [AdminImportantPlacesController::class, 'ImportantPlacesShowDertails'])->name('ImportantPlacesShowDertails');
     Route::post('/Admin/ImportantPlaces/show/details/{id}/create', [AdminImportantPlacesController::class, 'ImportantPlacesDertailsCreate'])->name('ImportantPlacesDertailsCreate');
     Route::delete('/Admin/ImportantPlaces/show/details/{id}/delete', [AdminImportantPlacesController::class, 'ImportantPlacesDetailsDelete'])->name('ImportantPlacesDetailsDelete');
+
+    //Forum
+    Route::get('/Admin/Forum/page', [AdminForumController::class, 'ForumAdminPages'])->name('ForumAdminPages');
+    Route::get('/Admin/Forum/details/{id}', [AdminForumController::class, 'ForumAdminDeatils'])->name('ForumAdminDeatils');
+    Route::post('/Admin/Forum/comments/{id}', [AdminForumController::class, 'ForumAdminCommentsCreate'])->name('ForumAdminCommentsCreate');
+    Route::delete('/Admin/Forum/delete/{id}', [AdminForumController::class, 'ForumAdminDetailsDelete'])->name('ForumAdminDetailsDelete');
+
+     //แบบสอบถามความพึงพอใจ
+     Route::get('/user-account/evaluation_questions/show-details', [AdminEvaluationQuestionsController::class, 'AdminQuestions'])->name('AdminQuestions');
+     Route::get('/user-account/evaluation_questions/show-details/requester_name/{id}', [AdminEvaluationQuestionsController::class, 'AdminShowEvaluator'])->name('AdminShowEvaluator');
+});
+
+Route::middleware(['auth', 'check.auth:2'])->group(function () {
+    Route::get('/admin/index', [TemporaryController::class, 'EserviceAdminAccount'])->name('EserviceAdminAccount');
+
+    //คำร้องทั่วไป
+    Route::get('/admin/general-requests/showdata', [AdminGeneralRequestsController::class, 'GeneralRequestsAdminShowData'])->name('GeneralRequestsAdminShowData');
+    Route::get('/admin/general-requests/export-pdf/{id}', [AdminGeneralRequestsController::class, 'GeneralRequestsAdminExportPDF'])->name('GeneralRequestsAdminExportPDF');
+    Route::post('/admin/general-requests/admin-reply/{id}', [AdminGeneralRequestsController::class, 'GeneralRequestsAdminReply'])->name('GeneralRequestsAdminReply');
+    Route::post('/admin/general-requests/update-status/{id}', [AdminGeneralRequestsController::class, 'GeneralRequestsUpdateStatus'])->name('GeneralRequestsUpdateStatus');
+
+    //แบบคำขอลงทะเบียนรับเงินเบี้ยความพิการ
+    Route::get('/admin/disability/showdata', [AdminDisabilityController::class, 'DisabilityAdminShowData'])->name('DisabilityAdminShowData');
+    Route::get('/admin/disability/export-pdf/{id}', [AdminDisabilityController::class, 'DisabilityExportPDF'])->name('DisabilityExportPDF');
+    Route::post('/admin/disability/admin-reply/{id}', [AdminDisabilityController::class, 'DisabilityAdminReply'])->name('DisabilityAdminReply');
+    Route::post('/admin/disability/update-status/{id}', [AdminDisabilityController::class, 'DisabilityUpdateStatus'])->name('DisabilityUpdateStatus');
+
+    //แบบยืนยันสิทธิผู้สูงอายุ
+    Route::get('/admin/elderly-allowance/showdata', [AdminElderlyAllowanceController::class, 'ElderlyAllowanceAdminShowData'])->name('ElderlyAllowanceAdminShowData');
+    Route::get('/admin/elderly-allowance/export-pdf/{id}', [AdminElderlyAllowanceController::class, 'ElderlyAllowanceAdminExportPDF'])->name('ElderlyAllowanceAdminExportPDF');
+    Route::post('/admin/elderly-allowance/admin-reply/{id}', [AdminElderlyAllowanceController::class, 'ElderlyAllowanceAdminReply'])->name('ElderlyAllowanceAdminReply');
+    Route::post('/admin/elderly-allowance/update-status/{id}', [AdminElderlyAllowanceController::class, 'ElderlyAllowanceUpdateStatus'])->name('ElderlyAllowanceUpdateStatus');
+
+    //admin ReceiveAssistance
+    Route::get('/TablePages/ReceiveAssistance', [AdminReceiveAssistanceController::class, 'TableReceiveAssistanceAdminPages'])->name('TableReceiveAssistanceAdminPages');
+    Route::post('/TablePages/ReceiveAssistance/AdminReply/{id}', [AdminReceiveAssistanceController::class, 'ReceiveAssistanceAdminReply'])->name('ReceiveAssistanceAdminReply');
+    Route::get('/TablePages/ReceiveAssistance/ExportPdf/{id}', [AdminReceiveAssistanceController::class, 'ReceiveAssistanceAdminExportPDF'])->name('ReceiveAssistanceAdminExportPDF');
+    Route::post('/TablePages/ReceiveAssistance/{id}/update-status', [AdminReceiveAssistanceController::class, 'ReceiveAssistanceUpdateStatus'])->name('ReceiveAssistanceUpdateStatus');
+
+    //แบบคำร้องใบอณุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ
+    Route::get('/admin/health_hazard_applications/show-details', [AdminHealthHazardApplicationController::class, 'HealthHazardApplicationAdminShowData'])->name('HealthHazardApplicationAdminShowData');
+    Route::get('/admin/health_hazard_applications/export-pdf/{id}', [AdminHealthHazardApplicationController::class, 'HealthHazardApplicationAdminExportPDF'])->name('HealthHazardApplicationAdminExportPDF');
+    Route::post('/admin/health_hazard_applications/reply/{id}', [AdminHealthHazardApplicationController::class, 'HealthHazardApplicationAdminReply'])->name('HealthHazardApplicationAdminReply');
+    Route::post('/admin/health_hazard_applications/update-status/{id}', [AdminHealthHazardApplicationController::class, 'HealthHazardApplicationUpdateStatus'])->name('HealthHazardApplicationUpdateStatus');
+
+    //คำร้องขอแจ้งจำหน่ายหรือสะสมอาหาร
+    Route::get('/admin/food_storage_license/show-details', [AdminFoodStorageLicenseController::class, 'FoodStorageLicenseShowData'])->name('FoodStorageLicenseShowData');
+    Route::get('/admin/food_storage_license/export-pdf/{id}', [AdminFoodStorageLicenseController::class, 'FoodStorageLicenseAdminExportPDF'])->name('FoodStorageLicenseAdminExportPDF');
+    Route::post('/admin/food_storage_license/reply/{id}', [AdminFoodStorageLicenseController::class, 'FoodStorageLicenseAdminReply'])->name('FoodStorageLicenseAdminReply');
+    Route::post('/admin/food_storage_license/update-status/{id}', [AdminFoodStorageLicenseController::class, 'FoodStorageLicenseUpdateStatus'])->name('FoodStorageLicenseUpdateStatus');
+
+    //admin Certification
+    Route::get('/TablePages/Certification', [AdminConstructionController::class, 'TableCertificationAdminPages'])->name('TableCertificationAdminPages');
+    Route::get('/TablePages/Certification/ExportPdf/{id}', [AdminConstructionController::class, 'CertificationAdminExportPDF'])->name('CertificationAdminExportPDF');
+    Route::post('/TablePages/Certification/AdminReply/{id}', [AdminConstructionController::class, 'CertificationAdminReply'])->name('CertificationAdminReply');
+    Route::post('/TablePages/Certification/{id}/update-status', [AdminConstructionController::class, 'CertificationUpdateStatus'])->name('CertificationUpdateStatus');
+
+    //admin TradeRegistry
+    Route::get('/TablePages/TradeRegistry', [AdminTradeRegistryController::class, 'TableTradeRegistryAdminPages'])->name('TableTradeRegistryAdminPages');
+    Route::post('/TablePages/TradeRegistry/AdminReply/{id}', [AdminTradeRegistryController::class, 'TradeRegistryUpdateStatus'])->name('TradeRegistryUpdateStatus');
+    Route::post('/TablePages/TradeRegistry/{id}/update-status', [AdminTradeRegistryController::class, 'TradeRegistryAdminReply'])->name('TradeRegistryAdminReply');
+    Route::get('/TablePages/TradeRegistry/ExportPdf/{id}', [AdminTradeRegistryController::class, 'TradeRegistryAdminExportPDF'])->name('TradeRegistryAdminExportPDF');
+
+    //แบบคำร้องขอใช้ถังขยะ
+    Route::get('/admin/trash_bin_requests/showdata', [AdminTrashBinRequestController::class, 'TrashBinRequestAdminShowData'])->name('TrashBinRequestAdminShowData');
+    Route::get('/admin/trash_bin_requests/export-pdf/{id}', [AdminTrashBinRequestController::class, 'TrashBinRequestAdminExportPDF'])->name('TrashBinRequestAdminExportPDF');
+    Route::post('/admin/trash_bin_requests/admin-reply/{id}', [AdminTrashBinRequestController::class, 'TrashBinRequestAdminReply'])->name('TrashBinRequestAdminReply');
+    Route::post('/admin/trash_bin_requests/update-status/{id}', [AdminTrashBinRequestController::class, 'TrashBinRequestUpdateStatus'])->name('TrashBinRequestUpdateStatus');
+
+    //admin BuildingChange
+    Route::get('/TablePages/BuildingChange', [AdminBuildingChangeController::class, 'TableBuildingChangeAdminPages'])->name('TableBuildingChangeAdminPages');
+    Route::get('/TablePages/BuildingChange/ExportPdf/{id}', [AdminBuildingChangeController::class, 'BuildingChangeAdminExportPDF'])->name('BuildingChangeAdminExportPDF');
+    Route::post('/TablePages/BuildingChange/AdminReply/{id}', [AdminBuildingChangeController::class, 'BuildingChangeAdminReply'])->name('BuildingChangeAdminReply');
+    Route::post('/TablePages/BuildingChange/{id}/update-status', [AdminBuildingChangeController::class, 'BuildingChangeUpdateStatus'])->name('BuildingChangeUpdateStatus');
+});
+
+//แบบคำร้องใบอณุญาตสะสมอาหาร
+Route::get('/food_storage_license', [FoodStorageLicenseController::class, 'FoodStorageLicenseFormPage'])->name('FoodStorageLicenseFormPage');
+Route::post('/food_storage_license/form/create', [FoodStorageLicenseController::class, 'FoodStorageLicenseFormCreate'])->name('FoodStorageLicenseFormCreate');
+
+//แบบคำร้องใบอณุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ
+Route::get('/health_hazard_applications', [HealthHazardApplicationController::class, 'HealthHazardApplicationFormPage'])->name('HealthHazardApplicationFormPage');
+Route::post('/health_hazard_applications/form/create', [HealthHazardApplicationController::class, 'HealthHazardApplicationFormCreate'])->name('HealthHazardApplicationFormCreate');
+
+//คำขออนุญาตก่อสร้างอาคารดัดแปลงอาคารหรือรื้อถอนอาคาร
+Route::get('/BuildingChange', [BuildingChangeController::class, 'BuildingChangeFormPage'])->name('BuildingChangeFormPage');
+Route::post('/BuildingChange/form/create', [BuildingChangeController::class, 'BuildingChangeFormCreate'])->name('BuildingChangeFormCreate');
+
+//คำขอรับรองสิ่งปลูกสร้างอาคาร
+Route::get('/Certification', [ConstructionController::class, 'UserCertificationFormPage'])->name('UserCertificationFormPage');
+Route::post('/Certification/form/create', [ConstructionController::class, 'CertificationFormCreate'])->name('CertificationFormCreate');
+
+//users TradeRegistry
+Route::get('/TradeRegistry', [TradeRegistryController::class, 'TradeRegistryFormPage'])->name('TradeRegistryFormPage');
+Route::post('/TradeRegistry/form/create', [TradeRegistryController::class, 'TradeRegistryFormCreate'])->name('TradeRegistryFormCreate');
+
+//คำร้องทั่วไป
+Route::get('/general-requests', [GeneralRequestsController::class, 'GeneralRequestsFormPage'])->name('GeneralRequestsFormPage');
+Route::post('/general-requests/form/create', [GeneralRequestsController::class, 'GeneralRequestsFormCreate'])->name('GeneralRequestsFormCreate');
+
+//แบบยืนยันสิทธิผู้สูงอายุ
+Route::get('/elderly-allowance', [ElderlyAllowanceController::class, 'ElderlyAllowanceFormPage'])->name('ElderlyAllowanceFormPage');
+Route::post('/elderly-allowance/form/create', [ElderlyAllowanceController::class, 'ElderlyAllowanceFormCreate'])->name('ElderlyAllowanceFormCreate');
+
+//แบบคำขอลงทะเบียนรับเงินเบี้ยความพิการ
+Route::get('/disability', [DisabilityController::class, 'DisabilityFormPage'])->name('DisabilityFormPage');
+Route::post('/disability/form/create', [DisabilityController::class, 'DisabilityFormCreate'])->name('DisabilityFormCreate');
+
+//คำขอรับเงินสงเคราะห์
+Route::get('/receive_assistance', [ReceiveAssistanceController::class, 'ReceiveAssistanceFormPage'])->name('ReceiveAssistanceFormPage');
+Route::post('/receive_assistance/form/create', [ReceiveAssistanceController::class, 'ReceiveAssistanceFormCreate'])->name('ReceiveAssistanceFormCreate');
+
+//ขอถังขยะ
+Route::get('/trash_bin_requests', [TrashBinRequestController::class, 'TrashBinRequestPage'])->name('TrashBinRequestPage');
+Route::post('/trash_bin_requests/form/create', [TrashBinRequestController::class, 'TrashBinRequestFormCreate'])->name('TrashBinRequestFormCreate');
+
+Route::middleware(['auth', 'check.auth:3'])->group(function () {
+    Route::get('/eservice-useraccount', [TemporaryController::class, 'EserviceUserAccount'])->name('EserviceUserAccount');
+
+    //แบบคำร้องใบอณุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ
+    Route::get('/user-account/health_hazard_applications/show-details', [HealthHazardApplicationController::class, 'HealthHazardApplicationShowDetails'])->name('HealthHazardApplicationShowDetails');
+    Route::get('/user-account/health_hazard_applications/export-pdf/{id}', [HealthHazardApplicationController::class, 'HealthHazardApplicationUserExportPDF'])->name('HealthHazardApplicationUserExportPDF');
+    Route::post('/user-account/health_hazard_applications/reply/{id}', [HealthHazardApplicationController::class, 'HealthHazardApplicationUserReply'])->name('HealthHazardApplicationUserReply');
+    Route::get('/user-account/health_hazard_applications/show-edit/{id}', [HealthHazardApplicationController::class, 'HealthHazardApplicationUserShowFormEdit'])->name('HealthHazardApplicationUserShowFormEdit');
+
+    //แบบคำร้องใบอณุญาตสะสมอาหาร
+    Route::get('/user-account/food_storage_license/show-details', [FoodStorageLicenseController::class, 'FoodStorageLicenseShowDetails'])->name('FoodStorageLicenseShowDetails');
+    Route::get('/user-account/food_storage_license/export-pdf/{id}', [FoodStorageLicenseController::class, 'FoodStorageLicenseUserExportPDF'])->name('FoodStorageLicenseUserExportPDF');
+    Route::post('/user-account/food_storage_license/reply/{id}', [FoodStorageLicenseController::class, 'FoodStorageLicenseUserReply'])->name('FoodStorageLicenseUserReply');
+    Route::get('/user-account/food_storage_license/show-edit/{id}', [FoodStorageLicenseController::class, 'FoodStorageLicenseUserShowFormEdit'])->name('FoodStorageLicenseUserShowFormEdit');
+
+    //คำขออนุญาตก่อสร้างอาคารดัดแปลงอาคารหรือรื้อถอนอาคาร
+    Route::get('/user-account/BuildingChange/record', [BuildingChangeController::class, 'BuildingChangeUsersPages'])->name('BuildingChangeUsersPages');
+    Route::get('/user-account/BuildingChange/{id}/pdf', [BuildingChangeController::class, 'BuildingChangeUserExportPDF'])->name('BuildingChangeUserExportPDF');
+    Route::post('/user-account/BuildingChange/{form}/reply', [BuildingChangeController::class, 'BuildingChangeUserReply'])->name('BuildingChangeUserReply');
+
+    //คำขอรับรองสิ่งปลูกสร้างอาคาร
+    Route::get('/user/account/Certification/record', [ConstructionController::class, 'TableCertificationUsersPages'])->name('TableCertificationUsersPages');
+    Route::get('/user/account/Certification/{id}/pdf', [ConstructionController::class, 'CertificationUserExportPDF'])->name('CertificationUserExportPDF');
+    Route::post('/user/account/Certification/{form}/reply', [ConstructionController::class, 'CertificationUserReply'])->name('CertificationUserReply');
+
+    //users TradeRegistry
+    Route::get('/user/account/TradeRegistry/record', [TradeRegistryController::class, 'TableTradeRegistryUsersPages'])->name('TableTradeRegistryUsersPages');
+    Route::get('/user/account/TradeRegistry/{id}/pdf', [TradeRegistryController::class, 'TradeRegistryUserExportPDF'])->name('TradeRegistryUserExportPDF');
+    Route::post('/user/account/TradeRegistry/{form}/reply', [TradeRegistryController::class, 'TradeRegistryUserReply'])->name('TradeRegistryUserReply');
+
+    //คำร้องทั่วไป
+    Route::get('/user-account/general-requests/show-details', [GeneralRequestsController::class, 'GeneralRequestsShowDetails'])->name('GeneralRequestsShowDetails');
+    Route::get('/user-account/general-requests/export-pdf/{id}', [GeneralRequestsController::class, 'GeneralRequestsUserExportPDF'])->name('GeneralRequestsUserExportPDF');
+    Route::post('/user-account/general-requests/reply/{id}', [GeneralRequestsController::class, 'GeneralRequestsUserReply'])->name('GeneralRequestsUserReply');
+    Route::get('/user-account/general-requests/show-edit/{id}', [GeneralRequestsController::class, 'GeneralRequestsUserShowFormEdit'])->name('GeneralRequestsUserShowFormEdit');
+    Route::put('/user-account/general-requests/update-data/{id}', [GeneralRequestsController::class, 'GeneralRequestsUserUpdateForm'])->name('GeneralRequestsUserUpdateForm');
+
+    //แบบยืนยันสิทธิผู้สูงอายุ
+    Route::get('/user-account/elderly-allowance/show-details', [ElderlyAllowanceController::class, 'ElderlyAllowanceShowDetails'])->name('ElderlyAllowanceShowDetails');
+    Route::get('/user-account/elderly-allowance/export-pdf/{id}', [ElderlyAllowanceController::class, 'ElderlyAllowanceUserExportPDF'])->name('ElderlyAllowanceUserExportPDF');
+    Route::post('/user-account/elderly-allowance/reply/{id}', [ElderlyAllowanceController::class, 'ElderlyAllowanceUserReply'])->name('ElderlyAllowanceUserReply');
+    Route::get('/user-account/elderly-allowance/show-edit/{id}', [ElderlyAllowanceController::class, 'ElderlyAllowanceUserShowEdit'])->name('ElderlyAllowanceUserShowEdit');
+    Route::put('/user-account/elderly-allowance/update-data/{id}', [ElderlyAllowanceController::class, 'ElderlyAllowanceUserUpdateForm'])->name('ElderlyAllowanceUserUpdateForm');
+
+    //แบบคำขอลงทะเบียนรับเงินเบี้ยความพิการ
+    Route::get('/user/account/Disability/record', [DisabilityController::class, 'TableDisabilityUsersPages'])->name('TableDisabilityUsersPages');
+    Route::get('/user/account/Disability/{id}/edit', [DisabilityController::class, 'DisabilityUserShowEdit'])->name('DisabilityUserShowEdit');
+    Route::put('/user/account/Disability/{id}/Update', [DisabilityController::class, 'DisabilityUserFormUpdate'])->name('DisabilityUserFormUpdate');
+    Route::get('/user/account/Disability/{id}/pdf', [DisabilityController::class, 'DisabilityUserExportPDF'])->name('DisabilityUserExportPDF');
+    Route::post('/user/account/Disability/{form}/reply', [DisabilityController::class, 'DisabilityUserReply'])->name('DisabilityUserReply');
+
+    //คำขอรับเงินสงเคราะห์
+    Route::get('/user/account/ReceiveAssistance/record', [ReceiveAssistanceController::class, 'TableReceiveAssistanceUsersPages'])->name('TableReceiveAssistanceUsersPages');
+    Route::post('/user/account/ReceiveAssistance/{form}/reply', [ReceiveAssistanceController::class, 'ReceiveAssistanceUserReply'])->name('ReceiveAssistanceUserReply');
+    Route::get('/user/account/ReceiveAssistance/{id}/pdf', [ReceiveAssistanceController::class, 'ReceiveAssistanceUserExportPDF'])->name('ReceiveAssistanceUserExportPDF');
+
+    //แบบคำร้องขอใช้ถังขยะ
+    Route::get('/user/account/TrashBinRequest/show-details', [TrashBinRequestController::class, 'TrashBinRequestShowDetails'])->name('TrashBinRequestShowDetails');
+    Route::post('/user/account/TrashBinRequest/{form}/reply', [TrashBinRequestController::class, 'TrashBinRequestUserReply'])->name('TrashBinRequestUserReply');
+    Route::get('/user/account/TrashBinRequest/{id}/pdf', [TrashBinRequestController::class, 'TrashBinRequestUserExportPDF'])->name('TrashBinRequestUserExportPDF');
 });
 
 Route::get('/showLoginForm', [AuthController::class, 'showLoginForm'])->name('showLoginForm');

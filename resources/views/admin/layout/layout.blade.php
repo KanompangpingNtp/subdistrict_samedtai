@@ -13,10 +13,10 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-     {{-- google font --}}
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    {{-- google font --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <style>
@@ -161,32 +161,45 @@
                             <div class="sb-nav-link-icon"><i class="bi bi-clipboard"></i></div>
                             จัดการการประเมินคุณธรรม(ITA)
                         </a>
+                        <a class="nav-link" href="{{route('ForumAdminPages')}}">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-clipboard"></i>
+                            </div>
+                            ข้อมูลกระดานกระทู้
+                        </a>
+                        <a class="nav-link" href="{{route('AdminQuestions')}}">
+                            <div class="sb-nav-link-icon">
+                                <i class="bi bi-clipboard"></i>
+                            </div>
+                            แบบสอบถามความพึงพอใจ
+                        </a>
                     </div>
                 </div>
                 {{-- <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as : {{ Auth::user()->name }}</div>
-                </div> --}}
-            </nav>
+                    <div class="small">Logged in as : {{ Auth::user()->name }}
         </div>
-        <div id="layoutSidenav_content">
-            <main>
-                <div class="container-fluid px-4 mt-4">
-                    @yield('pages_content')<br>
-                </div>
-            </main>
-            <footer class="py-4 bg-light mt-auto">
-                <div class="container-fluid px-4">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; บริษัท GM SKY สงวนสิทธิ์ 2024</div>
-                        {{-- <div>
+    </div> --}}
+    </nav>
+    </div>
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4 mt-4">
+                @yield('pages_content')<br>
+            </div>
+        </main>
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid px-4">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Copyright &copy; บริษัท GM SKY สงวนสิทธิ์ 2024</div>
+                    {{-- <div>
                             <a href="#">Privacy Policy</a>
                             &middot;
                             <a href="#">Terms &amp; Conditions</a>
                         </div> --}}
-                    </div>
                 </div>
-            </footer>
-        </div>
+            </div>
+        </footer>
+    </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
