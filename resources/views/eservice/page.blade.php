@@ -133,7 +133,7 @@
                     <td><a href="{{route('FoodStorageLicenseFormPage')}}">คำร้องขอแจ้งจำหน่ายหรือสะสมอาหาร</a></td>
                 </tr>
                 <tr>
-                    <td><a href="{{route('HealthHazardApplicationFormPage')}}">แบบคำร้องใบอณุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ</a></td>
+                    <td><a href="{{route('HealthHazardApplicationFormPage')}}">แบบคำร้องใบอนุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ</a></td>
                 </tr>
                 <tr>
                     <td><a href="{{route('BuildingChangeFormPage')}}">คำขออนุญาตก่อสร้างอาคารดัดแปลงอาคารหรือรื้อถอนอาคาร</a></td>
