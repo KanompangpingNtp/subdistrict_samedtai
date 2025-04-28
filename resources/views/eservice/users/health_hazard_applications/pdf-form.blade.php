@@ -87,7 +87,7 @@
     <div style="width: 100%; display: table;">
         <!-- โลโก้อยู่ตรงกลาง -->
         <div style="display: table-cell; width: 75%; text-align: center; vertical-align: top;">
-            <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('pdf/LOGO.png'))) }}" alt="Logo" height="120" style="margin-right: -180px;">
+            <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('pdf/Logo.png'))) }}" alt="Logo" height="120" style="margin-right: -180px;">
         </div>
 
         <!-- กล่องข้อความอยู่ขวาสุด -->

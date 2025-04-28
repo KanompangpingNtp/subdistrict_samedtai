@@ -138,7 +138,7 @@
     @endphp
 
     <div class="title_doc">
-        <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('pdf/LOGO.png'))) }}"
+        <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('pdf/Logo.png'))) }}"
             alt="Logo" height="100"> <br><strong>แบบฟอร์มคำร้องทั่วไป</strong>
     </div>
     <div class="box_text" style="text-align: right;">
