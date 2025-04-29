@@ -201,7 +201,7 @@
             <!-- ฝั่งขวา -->
             <td style="text-align: center; width: 50%;">
                 <div class="box_text">
-                    <span>พ.จ.อ</span><span class="dotted-line" style="width: 50%; text-align: center;"></span><br>
+                <span class="dotted-line" style="width: 50%; text-align: center;"></span><br>
                 <span>(นางสาวศิริลักษณ์ โสธรเทวาพิทักษ์)</span><br>
                 <span>รองปลัดองค์การบริหารส่วนตำบลเสม็ดใต้</span>
                 </div>
