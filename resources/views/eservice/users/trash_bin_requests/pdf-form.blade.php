@@ -109,7 +109,7 @@
 
     <div class="box_text" style="text-align: center; font-weight: bold;">
         <span>แบบแสดงจำนงขอใช้บริการจัดเก็บขยะมูลฝอย</span><br>
-        <span>โดยองค์การบริหารส่วนตำบลคลองอุดมชลจร อำเภอเมืองฉะเชิงเทรา จังหวัดฉะเชิงเทรา</span>
+        <span>โดยองค์การบริหารส่วนตำบลเสม็ดใต้ อำเภอเมืองฉะเชิงเทรา จังหวัดฉะเชิงเทรา</span>
     </div>
     <div class="box_text" style="text-align: right; margin-top:0.5rem;">
         <span>เขียนที่</span><span class="dotted-line" style="width: 34%; text-align: center; line-height: 1;">{{$form->written_at}}</span><br>
@@ -125,11 +125,11 @@
         <span>อายุ</span><span class="dotted-line" style="width: 17%; text-align: center; line-height: 1;">{{$form->age}}</span>
         <span>ปี เลขที่</span><span class="dotted-line" style="width: 17%; text-align: center; line-height: 1;">{{$form->address}}</span>
         <span>หมู่ที่</span><span class="dotted-line" style="width: 18%; text-align: center; line-height: 1;">{{$form->village}}</span>
-        <span>ตำบลคลองอุดมชลจร อำเภอเมือง จังหวัดฉะเชิงเทรา</span>
+        <span>ตำบลเสม็ดใต้ อำเภอเมือง จังหวัดฉะเชิงเทรา</span>
         <span>ให้ดำเนินการแสดงความจำนงขอใช้บริการจัดเก็บขยะมูลฝอย พร้อมนี้ได้จัดหาถังขยะไว้เพื่อรองรับขยะมูลฝอยอย่างถูกต้องตามกหลักสุขาภิบาลแล้ว</span>
         <span> สถานที่ใกล้เคียง</span><span class="dotted-line" style="width: 89%; text-align: center; line-height: 1;">{{$form->nearby_places}}</span>
         <span>เบอร์โทรศัพท์ติดต่อ</span><span class="dotted-line" style="width: 55%; text-align: center; line-height: 1;">{{$form->contact_number}}</span>
-        <span>โดยยินดีจ่ายค่าธรรมเนียมการเก็บขน ขยะมูลฝอย</span><span>อัตราตามข้อบัญญัติองค์การบริหารส่วนตำบลคลองอุดมชลจร ดังนี้</span>
+        <span>โดยยินดีจ่ายค่าธรรมเนียมการเก็บขน ขยะมูลฝอย</span><span>อัตราตามข้อบัญญัติองค์การบริหารส่วนตำบลเสม็ดใต้ ดังนี้</span>
 
         @php
         $CanonOptions = json_decode($form->canon_options, true) ?? [];
@@ -185,15 +185,15 @@
     </div>
     <div class="box_text">
         <span style="font-weight: bold; text-decoration:underline;">ความเห็นของเจ้าพนักงานท้องถิ่น</span><br>
-        <input type="checkbox"><span  style="margin-top: 5px;">เห็นสมควรให้บริการฯ แก่ผู้ยื่นความจำนง โดยเก็บค่าธรรมเนียมอัตราตามข้อบัญญัติ องค์การบริหารส่วนตำบลคลองอุดมชลจร เรื่อง การกำจัดสิ่งปฎิกูล</span>
-        <span style="margin-top: -10px;">และมูลฝอยฯ ขององค์การบริหารส่วนตำบลคลองอุดมชลจร</span><br>
+        <input type="checkbox"><span  style="margin-top: 5px;">เห็นสมควรให้บริการฯ แก่ผู้ยื่นความจำนง โดยเก็บค่าธรรมเนียมอัตราตามข้อบัญญัติ องค์การบริหารส่วนตำบลเสม็ดใต้ เรื่อง การกำจัดสิ่งปฎิกูล</span>
+        <span style="margin-top: -10px;">และมูลฝอยฯ ขององค์การบริหารส่วนตำบลเสม็ดใต้</span><br>
         <input type="checkbox"><span  style="margin-top: 5px;">อื่นๆ</span><span class="dotted-line" style="width: 92%; text-align: center;"></span>
     </div>
     <table style="width: 100%; margin-top: 4rem;">
         <tr>
             <!-- ฝั่งซ้าย -->
             <td style="text-align: center; width: 50%;">
-                <span>(นายรพัฒนชัยษ์ จิรวัฒนาวรานนท์)</span><br>
+                <span>(นายศุภวิชญ์ เสงี่ยมงาม)</span><br>
                 <span>หัวหน้าฝ่ายควบคุมและจัดการคุณภาพสิ่งแวดล้อม รักษาราชการแทน</span><br>
                 <span>ผู้อำนวยการกองสาธารณสุขและสิ่งแวดล้อม</span>
             </td>
@@ -202,8 +202,8 @@
             <td style="text-align: center; width: 50%;">
                 <div class="box_text">
                     <span>พ.จ.อ</span><span class="dotted-line" style="width: 50%; text-align: center;"></span><br>
-                <span>(จิรภัทร พัฒพันธุ์)</span><br>
-                <span>รองปลัดองค์การบริหารส่วนตำบลคลองอุดมชลจร</span>
+                <span>(นางสาวศิริลักษณ์ โสธรเทวาพิทักษ์)</span><br>
+                <span>รองปลัดองค์การบริหารส่วนตำบลเสม็ดใต้</span>
                 </div>
             </td>
         </tr>
@@ -211,12 +211,12 @@
     <table style="width: 100%; margin-top: 4rem;">
         <tr >
             <td style="text-align: center; width: 50%;">
-                <span>(นายธาดา ศิริประเสริฐ)</span><br>
-                <span>ปลัดองค์การบริหารส่วนตำบลคลองอุดมชลจร</span>
+                <span>(นางมยุรี นาคสุข)</span><br>
+                <span>ปลัดองค์การบริหารส่วนตำบลเสม็ดใต้</span>
             </td>
             <td style="text-align: center; width: 50%;">
-                <span>(นายมนูศักดิ์ หม่องศิริ)</span><br>
-                <span>นายกองค์การบริหารส่วนตำบลคลองอุดมชลจร</span>
+                <span>(นายกิตติพงศ์ สีเหลือง)</span><br>
+                <span>นายกองค์การบริหารส่วนตำบลเสม็ดใต้</span>
             </td>
         </tr>
     </table>
