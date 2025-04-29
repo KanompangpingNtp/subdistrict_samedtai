@@ -32,15 +32,15 @@
             <ul>
                 @foreach ($detail->pdf as $pdf)
                 <li>
-                    <a href="{{ asset('storage/' . $pdf->pdf_file) }}" target="_blank">
-                        ดาวน์โหลด PDF
-                    </a>
+                    <iframe src="{{ asset('storage/' . $pdf->pdf_file) }}" width="100%" height="900px" style="border: 1px solid #ccc; margin-bottom: 20px;">
+                    </iframe>
                 </li>
                 @endforeach
             </ul>
             @else
-            <p></p>
+            <p>ไม่มีไฟล์ PDF</p>
             @endif
+
 
             {{-- แสดงรูปภาพ --}}
             @if ($detail->images->count() > 0)
