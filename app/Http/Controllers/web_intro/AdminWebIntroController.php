@@ -18,7 +18,7 @@ class AdminWebIntroController extends Controller
     public function WebIntroCreate(Request $request)
     {
         $request->validate([
-            'files_path' => 'file|mimes:jpg,jpeg,png',
+            'files_path' => 'required|file|mimes:jpg,jpeg,png,gif',
             'button_name' => 'nullable|string',
             'button_link' => 'nullable|url',
         ]);
