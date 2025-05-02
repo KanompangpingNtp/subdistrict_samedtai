@@ -26,13 +26,13 @@
             width: 100vw;
             height: 100vh;
             position: relative;
-            /* ให้ปุ่มอ้างอิงตำแหน่งจากตรงนี้ */
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .fullscreen-image img {
+        .fullscreen-image img,
+        .fullscreen-image video {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -40,7 +40,6 @@
             top: 0;
             left: 0;
             z-index: 1;
-            /* ทำให้ภาพอยู่ล่างสุด */
         }
 
         @media (max-width: 1300px) {
@@ -54,12 +53,12 @@
                 overflow-x: scroll;
             }
 
-            .fullscreen-image img {
+            .fullscreen-image img,
+            .fullscreen-image video {
                 min-width: 100%;
                 min-height: 100%;
                 object-fit: contain;
             }
-
         }
 
         .button-container {
@@ -70,13 +69,10 @@
             z-index: 2;
             display: flex;
             gap: 20px;
-            /* ปกติให้ห่าง 20px */
         }
 
-        /* เมื่อจอเล็กกว่า 1300px */
         @media (max-width: 1300px) {
             .button-container {
-                /* flex-direction: column; */
                 align-items: center;
                 gap: 5px;
             }
@@ -84,7 +80,6 @@
             .login-button {
                 width: 90%;
                 max-width: 280px;
-                /* ปรับขนาดปุ่มให้พอดี */
             }
         }
 
@@ -107,6 +102,7 @@
             align-items: center;
             text-decoration: none;
             position: relative;
+            font-size: 30px;
         }
 
         .login-button:hover {
@@ -116,25 +112,73 @@
             transform: scale(1.05);
         }
 
+        @media screen and (max-width: 1370px) and (max-height: 784px) {
+            .login-button {
+                margin-top: 580px;
+            }
+        }
+
+        @media screen and (max-width: 414px) and (max-height: 896px) {
+            .login-button {
+                margin-top: 300px !important;
+                width: 150px !important;
+                height: 30px !important;
+                font-size: 18px !important;
+                border-radius: 15px !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+            }
+
+            .login-button strong {
+                font-size: 18px !important;
+            }
+        }
+
+        @media screen and (max-width: 440px) and (max-height: 932px) {
+            .login-button {
+                margin-top: 280px !important;
+                width: 150px !important;
+                height: 30px !important;
+                font-size: 18px !important;
+                border-radius: 15px !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+            }
+
+            .login-button strong {
+                font-size: 18px !important;
+            }
+        }
+
     </style>
 
     <div class="fullscreen-image">
         @foreach($Image as $item)
+        @php
+        $extension = pathinfo($item->files_path, PATHINFO_EXTENSION);
+        @endphp
+
+        @if(in_array(strtolower($extension), ['jpg', 'jpeg', 'png', 'gif']))
         <img id="background-image" src="{{ asset('storage/' . $item->files_path) }}" alt="รูปภาพอินโทร">
+        @elseif(strtolower($extension) === 'webm')
+        <video id="background-image" autoplay muted loop>
+            <source src="{{ asset('storage/' . $item->files_path) }}" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+        @endif
         @endforeach
 
         <div class="button-container">
-
-            <a href="{{route('HomeIndex')}}" class="login-button">
-                <strong style="font-size: 30px">เข้าสู่เว็บไซต์</strong>
+            <a href="{{ route('HomeIndex') }}" class="login-button">
+                <strong>เข้าสู่เว็บไซต์</strong>
             </a>
-
             @if($Button && $item->button_name)
             <a href="{{ $item->button_link }}" class="login-button">
-                <strong style="font-size: 30px">{{ $item->button_name }}</strong>
+                <strong>{{ $item->button_name }}</strong>
             </a>
             @endif
-
         </div>
     </div>
 
