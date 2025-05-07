@@ -155,7 +155,7 @@
                     </div>
                 </div>
                 <div class="d-none d-xl-flex flex-column justify-content-center align-items-center">
-                    <img src="{{ asset('images/section-2/ปลัด.png') }}" alt="personal5" style="width:10rem;">
+                    <img src="{{ asset('images/section-2/ปลัด.png') }}" alt="personal5" style="width:130px;">
                     <div class="bg-detail w-100 lh-sm text-center">
                         <span class="fw-bold fs-4">นางมยุรี นาคสุข</span> <br>
                         ปลัดองค์การบริหาร<br> ส่วนตำบลเสม็ดใต้
