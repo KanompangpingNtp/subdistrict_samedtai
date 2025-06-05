@@ -26,6 +26,12 @@
         border-radius: 40px;
     }
 
+    @media (max-width: 575px) {
+    .bg-details-section-7 {
+        border-radius: 40px 40px 0 0; /* มนเฉพาะด้านบน */
+    }
+}
+
     .bg-view-page7 {
         background: linear-gradient(to bottom, rgba(83, 83, 83, 0.521), rgba(83, 83, 83, 0.521));
         border-bottom-left-radius: 30px;
@@ -106,6 +112,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        text-align: center;
         padding: 10px 10px;
         background: linear-gradient(to right, rgb(138, 241, 255), rgb(138, 241, 255));
         border: none;
@@ -255,24 +262,24 @@
             </div>
             <div class="d-flex flex-column align-content-center justify-content-center w-100">
                 <div class="d-flex align-content-center justify-content-around gap-2 bg-details-section-7 py-3 px-3">
-                    <div class="luxury-button" id="btnProcurement"
+                    <div class="luxury-button lh-1" id="btnProcurement"
                         onclick="changeContent('จัดซื้อจัดจ้าง', {{ json_encode($procurement) }})">
                         ประกาศจัดซื้อจัดจ้าง
                     </div>
-                    <div class="luxury-button" id="btnProcurementResults"
+                    <div class="luxury-button lh-1" id="btnProcurementResults"
                         onclick="changeContent('ผลจัดซื้อจัดจ้าง', {{ json_encode($procurementResults) }})">
                         ผลจัดซื้อจัดจ้าง
                     </div>
-                    <div class="luxury-button" id="btnAverage"
+                    <div class="luxury-button lh-1" id="btnAverage"
                         onclick="changeContent('ราคากลาง', {{ json_encode($average) }})">
                         ประกาศราคากลาง
                     </div>
-                    <div class="luxury-button" id="btnRevenue"
+                    <div class="luxury-button lh-1" id="btnRevenue"
                         onclick="changeContent('เก็บรายได้', {{ json_encode($revenue) }})">
                         งานเก็บรายได้
                     </div>
                 </div>
-                <div class="bg-view-page7 mx-5">
+                <div class="bg-view-page7 mx-0 mx-sm-5">
                     <div class="bg-view-in-page7 d-flex flex-column justify-content-start align-items-center gap-1 overflow-auto"
                         id="contentArea">
                         <!-- เนื้อหาที่จะถูกเปลี่ยนแปลงที่นี่ -->
@@ -295,10 +302,10 @@
         </div>
         <div class="col-12 col-lg-4 d-flex flex-column justify-content-center align-items-center gap-3">
             <a href="{{ route('ShowDataButton') }}" class="btn-link">
-                <img src="{{ asset('images/section-7/btn.png') }}" alt="btn-go" class="img-hover-section-7">
+                <img src="{{ asset('images/section-7/btn.png') }}" alt="btn-go" class="img-hover-section-7 img-fluid">
             </a>
             <a href="{{ route('ShowDataButton') }}" class="btn-link">
-                <img src="{{ asset('images/section-7/bannerภายนอก.png') }}" alt="btn-go" class="img-hover-section-7">
+                <img src="{{ asset('images/section-7/bannerภายนอก.png') }}" alt="btn-go" class="img-hover-section-7 img-fluid">
             </a>
 
             <div class="d-flex align-content-center justify-content-around gap-2 bg-details-section-7 p-2"
