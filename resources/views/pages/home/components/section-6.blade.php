@@ -28,7 +28,7 @@
         /* กึ่งกลางแนวตั้ง */
         transform: translateY(-50%);
         /* ปรับให้อยู่กึ่งกลางจริง */
-        right: -30px;
+        right: -25px;
         /* ขยับรูปออกไปทางขวาครึ่งหนึ่ง */
     }
 
@@ -199,7 +199,7 @@
             <div class="title-section-6 lh-1 text-center mb-3 py-1 px-4 position-relative">
                 ข่าวประชาสัมพันธ์
                 <img src="{{ asset('images/section-6/marketing.png') }}" alt="logo" width="50" height="40"
-                    class="image-right">
+                    class="image-right d-none d-sm-block">
             </div>
             <div class="bg-details-section-6 px-3 py-4" style="width: 100%; margin: auto; position: relative;">
                 <div class="row">
@@ -252,7 +252,7 @@
             <div class="title-section-6 lh-1 text-center mb-3 py-2 px-4 position-relative" style="font-size: 40px;">
                 แนะนำจุดเช็คอินกินเที่ยว
                 <img src="{{ asset('images/section-6/point.png') }}" alt="logo" width="40" height="50"
-                    class="image-right">
+                    class="image-right d-none d-sm-block">
             </div>
             <div class="bg-details-right-section-6 px-3 py-2" style="width: 100%; margin: auto; position: relative;">
                 <div class="row">

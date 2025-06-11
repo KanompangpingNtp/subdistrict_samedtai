@@ -89,7 +89,7 @@
     position: absolute;
     top: 50%;
     left: 60%;
-    width: 100%;
+    width: 80%;
     text-align: center;
     transform: translate(-50%, -50%);
     color: rgb(0, 0, 0);
