@@ -67,6 +67,8 @@ use App\Http\Controllers\forum\AdminForumController;
 use App\Http\Controllers\evaluation_questions\EvaluationQuestionsController;
 use App\Http\Controllers\evaluation_questions\AdminEvaluationQuestionsController;
 
+use App\Http\Controllers\VisitorsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -545,6 +547,9 @@ Route::middleware(['auth', 'check.auth:3'])->group(function () {
     Route::post('/user/account/TrashBinRequest/{form}/reply', [TrashBinRequestController::class, 'TrashBinRequestUserReply'])->name('TrashBinRequestUserReply');
     Route::get('/user/account/TrashBinRequest/{id}/pdf', [TrashBinRequestController::class, 'TrashBinRequestUserExportPDF'])->name('TrashBinRequestUserExportPDF');
 });
+
+//นำจำนวนคนเข้าชมเว็บ
+Route::get('/visitor-stats', [VisitorsController::class, 'getVisitorStats']);
 
 Route::get('/showLoginForm', [AuthController::class, 'showLoginForm'])->name('showLoginForm');
 Route::post('/login', [AuthController::class, 'login'])->name('Login');
